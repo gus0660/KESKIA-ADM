@@ -14,7 +14,8 @@ body {
       margin: 20px;
     }
     .navbar .nav-item {
-        margin-right: 100px; /* Espacement entre les divs */
+        margin-right: 50px; /* Espacement entre les divs */
+        margin-left: 50px;
       }
       .navbar .nav-link {
         height: 90px;
