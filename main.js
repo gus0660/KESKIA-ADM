@@ -30,7 +30,7 @@ function includeNavbar() {
           <a class="nav-link" href="organisation.html">ORGANISATION</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="suivez-nous.html">SUIVEZ-NOUS</a>
+          <a class="nav-link" href="decouvrir.html">DECOUVRIR</a>
         </li>
       </ul>
     </div>
