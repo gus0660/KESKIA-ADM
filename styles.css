@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('images/montagne.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.navbar {
+      background-color: rgba(217, 217, 217, 0.6);
+      border-radius: 15px;
+      margin: 20px;
+    }
+    .navbar .nav-item {
+        margin-right: 100px; /* Espacement entre les divs */
+      }
+      .navbar .nav-link {
+        height: 90px;
+        background-color: #FEEAEA;
+        border-radius: 25px;
+        color: #9B055F;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
