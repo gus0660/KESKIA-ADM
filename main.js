@@ -1,3 +1,24 @@
+function includeCSSandJS() {
+  // Inclure les liens vers les fichiers CSS
+  var cssLinks = document.createElement('link');
+  cssLinks.rel = 'stylesheet';
+  cssLinks.href = 'styles.css';
+  document.head.appendChild(cssLinks);
+
+  // Inclure les balises <script> pour les fichiers JavaScript
+  var jsScripts = [
+      'node_modules/jquery/dist/jquery.min.js',
+      'node_modules/popper.js/dist/umd/popper.min.js',
+      'node_modules/bootstrap/dist/js/bootstrap.min.js',
+      'main.js'
+  ];
+  jsScripts.forEach(function(scriptSrc) {
+      var jsScript = document.createElement('script');
+      jsScript.src = scriptSrc;
+      document.body.appendChild(jsScript);
+  });
+}
+
 function includeNavbar() {
     // Créez un nouvel élément <nav> pour contenir la barre de navigation
     var navbar = document.createElement('nav');
