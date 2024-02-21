@@ -36,26 +36,26 @@ body {
   position: absolute;
   top: 150px;
   left: 20px;
-  -webkit-border-radius: 30px;
+  -webkit-border-radius: 20px;
 }
 .img2 {
   border-radius: 30px;
   position: absolute;
   top: 150px;
   right: 20px;
-  -webkit-border-radius: 30px;
+  -webkit-border-radius: 20px;
 }
 .img3 {
   border-radius: 30px;
   position: absolute;
   bottom: 150px;
   left: 20px;
-  -webkit-border-radius: 30px;
+  -webkit-border-radius: 20px;
 }
 .img4 {
   border-radius: 30px;
   position: absolute;
   bottom: 150px;
   right: 20px;
-  -webkit-border-radius: 30px;
+  -webkit-border-radius: 20px;
 }
