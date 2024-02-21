@@ -32,11 +32,10 @@ body {
 }
 
 .img1 {
-  border-radius: 30px;
   position: absolute;
   top: 150px;
   left: 20px;
-  -webkit-border-radius: 20px;
+  
 }
 .img2 {
   border-radius: 30px;
