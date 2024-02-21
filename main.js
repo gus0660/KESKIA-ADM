@@ -10,7 +10,6 @@ function includeNavbar() {
     // Définissez le contenu de la barre de navigation
     navbar.innerHTML = `
     <div class="container">
-    <!-- le bouton qui suit sert à la transformation de la navBar en menu Burger -->
     <button
       class="navbar-toggler"
       type="button"
@@ -24,7 +23,7 @@ function includeNavbar() {
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav">
-        <a href="index.html class="navbar-brand">
+        <a href="index.html">
           <img src="images/logoKESKIADM.webp" class="navbar-logo d-none d-md-block" alt="Logo" width="201" height="90" style="margin-right: auto; margin-left: auto; margin-right: 40px;">
         </a>
         <li class="nav-item">
