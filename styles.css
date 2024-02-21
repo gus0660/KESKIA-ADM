@@ -1,4 +1,4 @@
-body {
+.accueil {
   margin: 0;
   padding: 0;
   background-image: url('images/montagne.webp');
@@ -7,7 +7,33 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
 }
-
+.accueil {
+  margin: 0;
+  padding: 0;
+  background-image: url('images/montagne.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.accueil {
+  margin: 0;
+  padding: 0;
+  background-image: url('images/montagne.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.accueil {
+  margin: 0;
+  padding: 0;
+  background-image: url('images/montagne.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
 .navbar {
   background-color: rgba(217, 217, 217, 0.6);
   border-radius: 15px;
