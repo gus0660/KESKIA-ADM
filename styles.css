@@ -7,10 +7,10 @@
   background-repeat: no-repeat;
   height: 100vh;
 }
-.accueil {
+.destination {
   margin: 0;
   padding: 0;
-  background-image: url('images/montagne.webp');
+  background-image: url('images/aleksejs.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -19,7 +19,7 @@
 .accueil {
   margin: 0;
   padding: 0;
-  background-image: url('images/montagne.webp');
+  background-image: url('images/johannes.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -28,7 +28,7 @@
 .accueil {
   margin: 0;
   padding: 0;
-  background-image: url('images/montagne.webp');
+  background-image: url('images/aleksandar.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
