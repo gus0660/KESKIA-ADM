@@ -36,7 +36,9 @@ function includeNavbar() {
           <a class="nav-link" href="decouvrir.html">DECOUVRIR</a>
         </li>
       </ul>
-      <button class="btn btn-secondary d-block d-sm-none" id="back-button">Retour</button>
+      <button class="btn btn-secondary d-block d-sm-none" id="back-button">
+  <a href="index.html" style="text-decoration: none; color: white;">Retour</a>
+</button>
     </div>
   </div>
     `;
