@@ -23,9 +23,8 @@ function includeNavbar() {
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-    
       <ul class="navbar-nav">
-        <a href="index.html">
+        <a href="index.html class="navbar-brand">
           <img src="images/logoKESKIADM.webp" class="navbar-logo d-none d-md-block" alt="Logo" width="201" height="90" style="margin-right: auto; margin-left: auto; margin-right: 40px;">
         </a>
         <li class="nav-item">

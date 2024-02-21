@@ -57,6 +57,12 @@
   justify-content: center;
 }
 @media screen and (max-width: 767px) {
+  .navbar-logo {
+    display: inline-block !important;
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 767px) {
   .img1 {
     display: none;
   }
