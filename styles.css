@@ -44,6 +44,7 @@
   margin-right: 50px;
   /* Espacement entre les divs */
   margin-left: 50px;
+  text-align: center;
 }
 
 .navbar .nav-link {
@@ -55,6 +56,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.nav-subtext {
+  font-size: 12px; /* ajustez la taille de la police selon vos besoins */
+}
+
+.nav-subtext {
+  display: block;
+  font-size: 12px; /* ajustez la taille de la police selon vos besoins */
 }
 
 @media screen and (max-width: 767px) {

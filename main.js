@@ -28,12 +28,15 @@ function includeNavbar() {
         </a>
         <li class="nav-item">
           <a class="nav-link" href="destination.html">DESTINATION</a>
+          <span class="nav-subtext">Carte - Trajet</span>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="organisation.html">ORGANISATION</a>
+          <span class="nav-subtext">De votre séjour</span>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="decouvrir.html">DECOUVRIR</a>
+          <span class="nav-subtext">Explorez</span>
         </li>
       </ul>
       <button class="btn btn-secondary d-block d-sm-none" id="back-button">
