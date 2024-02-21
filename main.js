@@ -36,6 +36,7 @@ function includeNavbar() {
           <a class="nav-link" href="decouvrir.html">DECOUVRIR</a>
         </li>
       </ul>
+      <button class="btn btn-secondary d-block d-sm-none" id="back-button">Retour</button>
     </div>
   </div>
     `;
@@ -46,3 +47,15 @@ function includeNavbar() {
     // Ajoutez la barre de navigation à cet élément
     navbarContainer.appendChild(navbar);
   }
+  document.addEventListener('DOMContentLoaded', function () {
+    var menuToggler = document.getElementById('menu-toggler');
+    var backButton = document.getElementById('back-button');
+  
+    menuToggler.addEventListener('click', function () {
+      if (menuToggler.getAttribute('aria-expanded') === 'true') {
+        backButton.style.display = 'block';
+      } else {
+        backButton.style.display = 'none';
+      }
+    });
+  });
