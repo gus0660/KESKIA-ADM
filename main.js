@@ -11,6 +11,7 @@ function includeNavbar() {
     <div class="container">
     <button
       class="navbar-toggler"
+      id="menu-toggler"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarNav"
@@ -26,17 +27,23 @@ function includeNavbar() {
           <img src="images/logoKESKIADM.webp" class="navbar-logo d-none d-md-block" alt="Logo" width="201" height="90" style="margin-right: auto; margin-left: auto; margin-right: 30px;">
         </a>
         <li class="nav-item">
-          <a class="nav-link" href="destination.html">DESTINATION</a>
-          <span class="nav-subtext">Carte - Trajet</span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="organisation.html">ORGANISATION</a>
-          <span class="nav-subtext">De votre séjour</span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="decouvrir.html">DECOUVRIR</a>
-          <span class="nav-subtext">Explorez</span>
-        </li>
+      <div class="nav-content">
+        <a class="nav-link" href="destination.html">DESTINATION</a>
+        <span class="nav-subtext">Carte - Trajet</span>
+      </div>
+    </li>
+    <li class="nav-item">
+      <div class="nav-content">
+        <a class="nav-link" href="organisation.html">ORGANISATION</a>
+        <span class="nav-subtext">De votre séjour</span>
+      </div>
+    </li>
+    <li class="nav-item">
+      <div class="nav-content">
+        <a class="nav-link" href="decouvrir.html">DECOUVRIR</a>
+        <span class="nav-subtext">Explorez</span>
+      </div>
+    </li>
       </ul>
       <button class="btn btn-secondary d-block d-sm-none" id="back-button">
         <a href="index.html" style="text-decoration: none; color: white;">Retour</a>
@@ -52,8 +59,8 @@ function includeNavbar() {
   navbarContainer.appendChild(navbar);
 }
 document.addEventListener("DOMContentLoaded", function () {
-  var menuToggler = document.getElementById("menu-toggler");
-  var backButton = document.getElementById("back-button");
+  var menuToggler = document.querySelector("#menu-toggler");
+  var backButton = document.querySelector("#back-button");
 
   menuToggler.addEventListener("click", function () {
     if (menuToggler.getAttribute("aria-expanded") === "true") {
