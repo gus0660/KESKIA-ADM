@@ -117,7 +117,22 @@
   height: 110px;
 }
 
-.footer-menu {
+.footer .container .row .col {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#footer-container .btn-footer {
+  background-color: #FEEAEA;
+  font-size: 24px;
+  flex: 1;
+  margin: 0 50px;
+  border-radius: 20px;
+  height: 80px;
+}
+
+/* .footer-menu {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -152,4 +167,4 @@
 
 .navbar-toggler:focus {
   outline: none;
-}
+} */

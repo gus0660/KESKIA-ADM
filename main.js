@@ -59,6 +59,44 @@ function includeNavbar() {
   navbarContainer.appendChild(navbar);
 }
 
+function includeFooter() {
+  // Créez un nouvel élément <footer> pour contenir le pied de page
+  var footer = document.createElement("footer");
+  footer.classList.add("footer");
+  footer.classList.add("py-4");
+  
+
+  // Définissez le contenu du pied de page
+  footer.innerHTML = `
+  <div class="container">
+  <div class="row">
+  <div class="col text-center">
+    <button class="btn btn-footer">
+      <a href="https://www.france.fr/fr/operation/rever-en-grand-prendre-le-temps">
+        <img src="images/Double-logo.webp" alt="Logo" width="268" height="auto">
+      </a>
+    </button>
+    <button class="btn btn-footer">
+      <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">SUIVEZ-NOUS</a>
+    </button>
+    <button class="btn btn-footer">
+      <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">LIENS UTILES</a>
+    </button>
+    <button class="btn btn-footer">
+      <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">C. G. U.</a>
+    </button>
+  </div>
+</div>
+  </div>
+  `;
+
+  // Trouvez l'élément sur la page où vous souhaitez inclure le pied de page
+  var footerContainer = document.querySelector("#footer-container");
+
+  // Ajoutez le pied de page à cet élément
+  footerContainer.appendChild(footer);
+}
+
 // function includeFooter() {
 //   // Créez un nouvel élément <footer> pour contenir le footer
 //   var footer = document.createElement("footer");
@@ -66,46 +104,46 @@ function includeNavbar() {
 
 //   // Définissez le contenu du footer
 //   footer.innerHTML = `
-//   <div class="container">
-//   <button
-//     class="navbar-toggler"
-//     id="menu-toggler"
-//     type="button"
-//     data-bs-toggle="collapse"
-//     data-bs-target="#navbarNav"
-//     aria-controls="navbarNav"
-//     aria-expanded="false"
-//     aria-label="Toggle navigation"
-//   >
-//     <span class="navbar-toggler-icon"></span>
-//   </button>
-//   <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-//     <ul class="footer-menu">
-//       <li class="nav-item">
-//         <div class="nav-content">
-//           <a class="nav-link" href="destination.html">DESTINATION</a>
-//           <span class="nav-subtext">Carte - Trajet</span>
-//         </div>
-//       </li>
-//       <li class="nav-item">
-//         <div class="nav-content">
-//           <a class="nav-link" href="decouvrir.html">DECOUVRIR</a>
-//           <span class="nav-subtext">Explorez</span>
-//         </div>
-//       </li>
-//       <li class="nav-item">
-//         <div class="nav-content">
-//           <a class="nav-link" href="organisation.html">ORGANISATION</a>
-//           <span class="nav-subtext">De votre séjour</span>
-//         </div>
-//       </li>
-  
-//     </ul>
-//     <button class="btn btn-secondary d-block d-sm-none" id="back-button">
-//       <a href="index.html" style="text-decoration: none; color: white;">Retour</a>
+//   <div class="container-fluid">
+//     <button
+//       class="navbar-toggler"
+//       id="menu-toggler"
+//       type="button"
+//       data-bs-toggle="collapse"
+//       data-bs-target="#navbarNav"
+//       aria-controls="navbarNav"
+//       aria-expanded="false"
+//       aria-label="Toggle navigation">
+//       <span class="navbar-toggler-icon"></span>
 //     </button>
+//     <div class="row justify-content-between align-items-center">
+//         <div class="col-auto">
+//           <a href="https://votresite.com">
+//             <img src="chemin/vers/votre/logo.png" alt="Logo" width="268" height="auto">
+//           </a>
+//         </div>
+//         <div class="col-auto ">
+//           <ul class="footer-menu">
+//             <li><a href="#">SUIVEZ-NOUS</a></li>
+//             <li><a href="#">LIENS UTILES</a></li>
+//             <li><a href="#">C. G. U.</a></li>
+//           </ul>
+//         </div>
+//       </div>
+//       <div class="collapse navbar-collapse" id="footerMenu">
+//         <ul class="navbar-nav">
+//           <li class="nav-item">
+//             <a class="nav-link" href="#">SUIVEZ-NOUS</a>
+//           </li>
+//           <li class="nav-item">
+//             <a class="nav-link" href="#">LIENS UTILES</a>
+//           </li>
+//           <li class="nav-item">
+//             <a class="nav-link" href="#">C. G. U.</a>
+//           </li>
+//         </ul>
+//       </div>
 //   </div>
-// </div>
 //   `;
 
 //   // Trouvez l'élément sur la page où vous souhaitez inclure le footer
