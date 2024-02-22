@@ -1,14 +1,13 @@
-
 function includeNavbar() {
-    // Créez un nouvel élément <nav> pour contenir la barre de navigation
-    var navbar = document.createElement('nav');
-    navbar.classList.add('navbar');
-    navbar.classList.add('navbar-expand-lg');
-    navbar.classList.add('navbar-light');
-    navbar.classList.add('fixed-top');
-  
-    // Définissez le contenu de la barre de navigation
-    navbar.innerHTML = `
+  // Créez un nouvel élément <nav> pour contenir la barre de navigation
+  var navbar = document.createElement("nav");
+  navbar.classList.add("navbar");
+  navbar.classList.add("navbar-expand-lg");
+  navbar.classList.add("navbar-light");
+  navbar.classList.add("fixed-top");
+
+  // Définissez le contenu de la barre de navigation
+  navbar.innerHTML = `
     <div class="container">
     <button
       class="navbar-toggler"
@@ -24,7 +23,7 @@ function includeNavbar() {
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav">
         <a href="index.html">
-          <img src="images/logoKESKIADM.webp" class="navbar-logo d-none d-md-block" alt="Logo" width="201" height="90" style="margin-right: auto; margin-left: auto; margin-right: 40px;">
+          <img src="images/logoKESKIADM.webp" class="navbar-logo d-none d-md-block" alt="Logo" width="201" height="90" style="margin-right: auto; margin-left: auto; margin-right: 30px;">
         </a>
         <li class="nav-item">
           <a class="nav-link" href="destination.html">DESTINATION</a>
@@ -40,27 +39,27 @@ function includeNavbar() {
         </li>
       </ul>
       <button class="btn btn-secondary d-block d-sm-none" id="back-button">
-  <a href="index.html" style="text-decoration: none; color: white;">Retour</a>
-</button>
+        <a href="index.html" style="text-decoration: none; color: white;">Retour</a>
+      </button>
     </div>
   </div>
     `;
-  
-    // Trouvez l'élément sur la page où vous souhaitez inclure la barre de navigation
-    var navbarContainer = document.querySelector('#navbar-container');
-  
-    // Ajoutez la barre de navigation à cet élément
-    navbarContainer.appendChild(navbar);
-  }
-  document.addEventListener('DOMContentLoaded', function () {
-    var menuToggler = document.getElementById('menu-toggler');
-    var backButton = document.getElementById('back-button');
-  
-    menuToggler.addEventListener('click', function () {
-      if (menuToggler.getAttribute('aria-expanded') === 'true') {
-        backButton.style.display = 'block';
-      } else {
-        backButton.style.display = 'none';
-      }
-    });
+
+  // Trouvez l'élément sur la page où vous souhaitez inclure la barre de navigation
+  var navbarContainer = document.querySelector("#navbar-container");
+
+  // Ajoutez la barre de navigation à cet élément
+  navbarContainer.appendChild(navbar);
+}
+document.addEventListener("DOMContentLoaded", function () {
+  var menuToggler = document.getElementById("menu-toggler");
+  var backButton = document.getElementById("back-button");
+
+  menuToggler.addEventListener("click", function () {
+    if (menuToggler.getAttribute("aria-expanded") === "true") {
+      backButton.style.display = "block";
+    } else {
+      backButton.style.display = "none";
+    }
   });
+});
