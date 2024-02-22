@@ -69,26 +69,24 @@ function includeFooter() {
   footer.innerHTML = `
     <div class="container">
       <div class="row">
-        <div class="col text-center">
+        <div class="col text-center justify-content-between">
           <div class="">
-            <button class="btn btn-footer d-none d-sm-block" id="footerNav>
+            <button class="btn btn-footer d-none d-sm-block" id="footerNav">
               <a href="https://www.france.fr/fr/operation/rever-en-grand-prendre-le-temps">
                 <img src="images/Double-logo.webp" alt="Logo" width="170" height="auto">
               </a>
             </button>
           </div>
 
-            <button class="btn btn-footer btn-block col-12" id="footerNav">
-              <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">SUIVEZ-NOUS</a>
-            </button>
-
-            <button class="btn btn-footer btn-block mb-3 col-12" id="footerNav">
-              <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">LIENS UTILES</a>
-            </button>
-
-            <button class="btn btn-footer btn-block mb-3 col-12" id="footerNav">
-              <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">C. G. U.</a>
-            </button>
+          <button class="btn btn-footer btn-block col-12" id="footerNav">
+            <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">SUIVEZ-NOUS</a>
+          </button>
+          <button class="btn btn-footer btn-block mb-3 col-12" id="footerNav">
+            <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">LIENS UTILES</a>
+          </button>
+          <button class="btn btn-footer btn-block mb-3 col-12" id="footerNav">
+            <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">C. G. U.</a>
+          </button>
 
           </div>
         </div>
