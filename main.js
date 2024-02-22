@@ -63,7 +63,6 @@ function includeFooter() {
   // Créez un nouvel élément <footer> pour contenir le pied de page
   var footer = document.createElement("footer");
   footer.classList.add("footer");
-  footer.classList.add("py-4");
 
   // Définissez le contenu du pied de page
   footer.innerHTML = `
@@ -79,13 +78,13 @@ function includeFooter() {
           </div>
 
           <button class="btn btn-footer btn-block col-12" id="footerNav">
-            <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">SUIVEZ-NOUS</a>
+            <h3 style="text-decoration: none; color: #9B055F; font-size: 24px;">SUIVEZ-NOUS</h3>
           </button>
           <button class="btn btn-footer btn-block mb-3 col-12" id="footerNav">
-            <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">LIENS UTILES</a>
+            <h3 style="text-decoration: none; color: #9B055F; font-size: 24px;">LIENS UTILES</h3>
           </button>
           <button class="btn btn-footer btn-block mb-3 col-12" id="footerNav">
-            <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">C. G. U.</a>
+            <h3 style="text-decoration: none; color: #9B055F; font-size: 24px;">C. G. U.</h3>
           </button>
 
           </div>

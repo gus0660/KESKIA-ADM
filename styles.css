@@ -114,8 +114,7 @@
   right: 20px;
   border-radius: 15px;
   background-color: rgba(217, 217, 217, 0.5);
-  padding: 20px;
-  height: 110px;
+  height: 100px;
 }
 
 #footer-container .btn-footer {
@@ -129,13 +128,15 @@
 }
 .col {
   display: flex;
+  bottom: 10px;
 }
  @media (max-width: 767px) {
-  .col {
-    display: flex;
+  .footer {
+    padding: 0; /* Supprimer le padding pour les petits écrans */
   }
   #footer-container .btn-footer {
     width: calc(33.33% - 6px); /* Prendre 1/3 de la largeur avec 3px de marge entre les boutons */
+    max-width: none; /* Retirer la limite de largeur pour les petits écrans */
   margin: 0; /* Espace entre les boutons pour les petits écrans */
   }
 }
