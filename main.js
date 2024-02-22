@@ -63,34 +63,25 @@ function includeFooter() {
   // Créez un nouvel élément <footer> pour contenir le pied de page
   var footer = document.createElement("footer");
   footer.classList.add("footer");
-
+  footer.classList.add("justify-content-between");
+  footer.classList.add("d-flex");
+  footer.classList.add("align-items-center");
   // Définissez le contenu du pied de page
   footer.innerHTML = `
-    <div class="container">
-      <div class="row">
-        <div class="col text-center justify-content-between">
-          <div class="">
-            <button class="btn btn-footer d-none d-sm-block" id="footerNav">
-              <a href="https://www.france.fr/fr/operation/rever-en-grand-prendre-le-temps">
-                <img src="images/Double-logo.webp" alt="Logo" width="170" height="auto">
-              </a>
-            </button>
-          </div>
-
-          <button class="btn btn-footer btn-block col-12" id="footerNav">
+          <button class=" btn-footer d-none d-sm-block">
+            <a href="https://www.france.fr/fr/operation/rever-en-grand-prendre-le-temps">
+              <img src="images/Double-logo.webp" alt="Logo" width="170" height="auto">
+            </a>
+          </button>
+          <button class="btn-footer btn-block col-12">
             <h3 style="text-decoration: none; color: #9B055F; font-size: 24px;">SUIVEZ-NOUS</h3>
           </button>
-          <button class="btn btn-footer btn-block mb-3 col-12" id="footerNav">
+          <button class="btn-footer btn-block col-12">
             <h3 style="text-decoration: none; color: #9B055F; font-size: 24px;">LIENS UTILES</h3>
           </button>
-          <button class="btn btn-footer btn-block mb-3 col-12" id="footerNav">
+          <button class="btn-footer btn-block col-12"">
             <h3 style="text-decoration: none; color: #9B055F; font-size: 24px;">C. G. U.</h3>
           </button>
-
-          </div>
-        </div>
-      </div>
-    </div>
   `;
 
   // Trouvez l'élément sur la page où vous souhaitez inclure le pied de page

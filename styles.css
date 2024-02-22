@@ -105,9 +105,6 @@
 }
 
 .footer {
-  display: flex;
-  justify-content: center; /* Centrer les éléments horizontalement */
-  align-items: center; /* Centrer les éléments verticalement */
   position: fixed;
   bottom: 20px;
   left: 20px;
@@ -117,18 +114,11 @@
   height: 100px;
 }
 
-#footer-container .btn-footer {
+.btn-footer {
   background-color: #FEEAEA;
-  font-size: 24px;
-  
   border-radius: 20px;
   height: 80px;
-  width: 100%; /* Prendre toute la largeur disponible */
-  max-width: 250px; /* Limiter la largeur maximale des boutons */
-}
-.col {
-  display: flex;
-  bottom: 10px;
+  max-width: 200px;
 }
  @media (max-width: 767px) {
   .footer {
