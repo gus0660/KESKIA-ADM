@@ -96,29 +96,6 @@ function includeFooter() {
     </div>
   `;
 
-  // footer.innerHTML = `
-  // <div class="container">
-  //   <div class="row">
-  //     <div class="col text-center">
-  //       <button class="btn btn-footer">
-  //         <a href="https://www.france.fr/fr/operation/rever-en-grand-prendre-le-temps">
-  //           <img src="images/Double-logo.webp" alt="Logo" width="268" height="auto">
-  //         </a>
-  //       </button>
-  //       <button class="btn btn-footer">
-  //         <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">SUIVEZ-NOUS</a>
-  //       </button>
-  //       <button class="btn btn-footer">
-  //         <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">LIENS UTILES</a>
-  //       </button>
-  //       <button class="btn btn-footer">
-  //         <a href="#" style="text-decoration: none; color: #9B055F; font-size: 24px;">C. G. U.</a>
-  //       </button>
-  //     </div>
-  //   </div>
-  // </div>
-  // `;
-
   // Trouvez l'élément sur la page où vous souhaitez inclure le pied de page
   var footerContainer = document.querySelector("#footer-container");
 
