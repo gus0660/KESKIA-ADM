@@ -34,16 +34,17 @@ function includeNavbar() {
     </li>
     <li class="nav-item">
       <div class="nav-content">
-        <a class="nav-link" href="organisation.html">ORGANISATION</a>
-        <span class="nav-subtext">De votre séjour</span>
-      </div>
-    </li>
-    <li class="nav-item">
-      <div class="nav-content">
         <a class="nav-link" href="decouvrir.html">DECOUVRIR</a>
         <span class="nav-subtext">Explorez</span>
       </div>
     </li>
+    <li class="nav-item">
+      <div class="nav-content">
+        <a class="nav-link" href="organisation.html">ORGANISATION</a>
+        <span class="nav-subtext">De votre séjour</span>
+      </div>
+    </li>
+    
       </ul>
       <button class="btn btn-secondary d-block d-sm-none" id="back-button">
         <a href="index.html" style="text-decoration: none; color: white;">Retour</a>
