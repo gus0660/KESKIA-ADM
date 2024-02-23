@@ -134,7 +134,7 @@
   }
 }
 .custom-margin {
-  margin: 11% 3.3% 0 3.3%;
+  margin: 150px 42px 0 42px;
 }
 
 .side-div {
@@ -163,13 +163,7 @@
   border: 1px solid black;
 }
 @media (max-width: 767px) {
-  .custom-margin {
-    margin: 23% 10% 0 10%;
-  }
   .side-div {
     display: none;
-  }
-  .top-div .center-div .bottom-div {
-    width: 80%;
   }
 }
