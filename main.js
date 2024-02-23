@@ -46,7 +46,7 @@ function includeNavbar() {
     
       </ul>
       <button class="btn btn-secondary d-block d-sm-none" id="back-button">
-        <a href="index.html" style="text-decoration: none; color: white;">Retour</a>
+        <a href="index.html" style="text-decoration: none; color: white;">ACCUEIL</a>
       </button>
     </div>
   </div>
