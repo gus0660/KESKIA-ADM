@@ -133,3 +133,15 @@
   margin: 0; 
   }
 }
+.custom-margin {
+  margin: 150px -10px 0 -10px;
+}
+.main {
+  padding: 50px; /* Pour l'écart entre les divs internes et le main */
+}
+
+.side-div, .top-div, .bottom-div, .center-div {
+  /* Styles communs à toutes les divs */
+}
+
+/* Vous pouvez ajouter des styles spécifiques aux classes si nécessaire */
