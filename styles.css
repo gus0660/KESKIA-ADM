@@ -140,8 +140,11 @@
   padding: 50px; /* Pour l'écart entre les divs internes et le main */
 }
 
-.side-div, .top-div, .bottom-div, .center-div {
-  /* Styles communs à toutes les divs */
+.side-div {
+  height: 53vh;
+}
+.top-div, .bottom-div {
+  height: 10vh;
 }
 
 /* Vous pouvez ajouter des styles spécifiques aux classes si nécessaire */
