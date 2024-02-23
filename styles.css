@@ -166,4 +166,7 @@
   .side-div {
     display: none;
   }
+  .custom-margin {
+    margin: 25% 11% 1% 11%;
+  }
 }
