@@ -118,20 +118,7 @@
   background-color: #FEEAEA;
   border-radius: 20px;
   height: 80px;
-  max-width: 200px;
 }
-
-@media (min-width: 992px) {
-  .footer {
-    display: flex;
-    justify-content: center;
-  }
-  .btn-footer {
-  width: calc(33.33%);
-  margin: 10px 5px;
-  }
-}
-
  @media (max-width: 767px) {
   .footer {
     padding: 0;
@@ -139,6 +126,6 @@
   #footer-container .btn-footer {
     width: calc(33.33% - 6px);
     max-width: none;
-  margin: 0;
+  margin: 0; 
   }
 }

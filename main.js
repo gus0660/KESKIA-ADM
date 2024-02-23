@@ -73,13 +73,13 @@ function includeFooter() {
               <img src="images/Double-logo.webp" alt="Logo" width="170" height="auto">
             </a>
           </button>
-          <button class="btn-footer btn-block col-12">
+          <button class="btn-footer d-sm-block">
             <h3 style="text-decoration: none; color: #9B055F; font-size: 24px;">SUIVEZ-NOUS</h3>
           </button>
-          <button class="btn-footer btn-block col-12">
+          <button class="btn-footer d-sm-block">
             <h3 style="text-decoration: none; color: #9B055F; font-size: 24px;">LIENS UTILES</h3>
           </button>
-          <button class="btn-footer btn-block col-12">
+          <button class="btn-footer d-sm-block">
             <h3 style="text-decoration: none; color: #9B055F; font-size: 24px;">C. G. U.</h3>
           </button>
   `;
