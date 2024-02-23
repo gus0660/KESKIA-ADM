@@ -79,7 +79,7 @@ function includeFooter() {
           <button class="btn-footer btn-block col-12">
             <h3 style="text-decoration: none; color: #9B055F; font-size: 24px;">LIENS UTILES</h3>
           </button>
-          <button class="btn-footer btn-block col-12"">
+          <button class="btn-footer btn-block col-12">
             <h3 style="text-decoration: none; color: #9B055F; font-size: 24px;">C. G. U.</h3>
           </button>
   `;
