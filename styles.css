@@ -134,17 +134,21 @@
   }
 }
 .custom-margin {
-  margin: 150px -10px 0 -10px;
-}
-.main {
-  padding: 50px; /* Pour l'écart entre les divs internes et le main */
+  margin: 150px 42px 0 42px;
 }
 
 .side-div {
-  height: 53vh;
+  height: 64vh;
 }
-.top-div, .bottom-div {
-  height: 10vh;
+.top-div {
+  height: 15vh;
+  margin-top: 20px;
 }
-
-/* Vous pouvez ajouter des styles spécifiques aux classes si nécessaire */
+.center-div {
+  height: 30vh;
+  margin-top: 20px;
+}
+.bottom-div {
+  height: 15vh;
+  margin-top: 20px;
+}
