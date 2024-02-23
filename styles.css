@@ -57,6 +57,10 @@
   align-items: center;
 }
 
+.nav-content {
+  border: 1px solid black;
+}
+
 .navbar .nav-link {
   
   color: #9B055F;

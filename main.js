@@ -25,7 +25,7 @@ function includeNavbar() {
         <a href="index.html">
           <img src="images/logoKESKIADM.webp" class="navbar-logo d-none d-sm-block" alt="Logo" width="201" height="90" style="margin-right: auto; margin-left: auto; margin-right: 30px;">
         </a>
-        <li class="nav-item">
+        <li class="nav-item ">
           <div class="nav-content">
             <a class="nav-link" href="destination.html">DESTINATION</a>
             <span class="nav-subtext">Carte - Trajet</span>
