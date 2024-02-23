@@ -162,11 +162,19 @@
   border-radius: 15px;
   border: 1px solid black;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .side-div {
     display: none;
   }
   .custom-margin {
-    margin: 25% 11% 1% 11%;
+    margin: 100px 42px 0 42px;
+  }
+  .top-div, .bottom-div {
+    height: 12vh;
+    width: 46vh;
+  }
+  .center-div {
+    height: 28vh;
+    width: 46vh;
   }
 }
