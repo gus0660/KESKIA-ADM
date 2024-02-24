@@ -138,6 +138,25 @@
   border-radius: 15px;
   border: 1px solid black;
 }
+.trajet button {
+  /* Styles personnalisés pour le bouton */
+  background-color: #4CAF50; /* Couleur verte */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.trajet button:hover {
+  background-color: yellow;
+  color: black;
+}
 @media (max-width: 991px) {
   .custom-margin {
     margin-top: 6rem;
