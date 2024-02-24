@@ -17,23 +17,37 @@
   <div class="custom-margin">
     <main class="row gx-5"
       style="background-color: #C3F1D5; opacity: 0.9; border-radius: 25px; border: 1px solid black;">
-      <div class="col side-div text-center" style="background-color: #FEEAEA; margin-top: 20px;">
-        <h3 class="custom-color fs-3 fs-sm-6">Départ</h3>
+      <div class="depart col side-div text-center d-flex flex-column justify-content-between" style="background-color: #FEEAEA; margin-top: 20px;">
+        <h4 class="custom-color">1</h4>
+        <!-- Bouton pour se géolocaliser -->
+    <button class="btn btn-primary mb-1">ME GEOLOCALISER</button>
+
+    <!-- Texte "OU" -->
+    <h5 class="custom-color">OU</h5>
+
+    <!-- Texte d'instruction -->
+    <h5 class="custom-color">Veuillez saisir votre<br>Adresse</h5>
+
+    <!-- Zone de texte pour saisir l'adresse -->
+    <textarea class="form-control mb-5" rows="3" placeholder="Entrez votre adresse ici" style=" border: 1px solid black;"></textarea>
+
+    <!-- Bouton OK -->
+    <button class="btn btn-success mb-5">OK</button>
       </div>
       <div class="col-7">
         
         <div class="top-div text-center" style="background-color: #FEEAEA;">
-          <h3 class="custom-color fs-3 d-none d-md-block">Au-dessus de la Carte</h3>
+          <h5 class="custom-color d-none d-md-block">Au-dessus de la Carte</h5>
         </div>
-        <div class="center-div text-center" style="background-color: #FEEAEA;">
-          <h3 class="custom-color fs-3 d-none d-md-block">Carte</h3>
+        <div class="carte center-div text-center" style="background-color: #FEEAEA;">
+          <h5 class="custom-color d-none d-md-block">Carte</h5>
         </div>
-        <div class="bottom-div text-center" style="background-color: #FEEAEA;">
-          <h3 class="custom-color fs-3 d-none d-md-block">En dessous de la Carte</h3>
+        <div class="trajet bottom-div text-center" style="background-color: #FEEAEA;">
+          <h4 class="custom-color d-none d-md-block">2</h4>
         </div>
       </div>
       <div class="col side-div text-center" style="background-color: #FEEAEA; margin-top: 20px;">
-        <h3 class="custom-color fs-3 fs-sm-6">Destination</h3>
+        <h4 class="arrivee custom-color">3</h4>
       </div>
     </main>
   </div>
