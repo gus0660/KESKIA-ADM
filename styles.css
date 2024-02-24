@@ -1,38 +1,23 @@
-.accueil {
+.accueil, .destination, .organisation, .decouvrir {
   margin: 0;
   padding: 0;
-  background-image: url('images/montagne.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+.accueil {
+  background-image: url('images/montagne.webp');
 }
 .destination {
-  margin: 0;
-  padding: 0;
   background-image: url('images/aleksejs.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
 }
 .organisation {
-  margin: 0;
-  padding: 0;
   background-image: url('images/johannes.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
 }
 .decouvrir {
-  margin: 0;
-  padding: 0;
   background-image: url('images/aleksandar.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
 }
 .navbar {
   background-color: rgba(217, 217, 217, 0.6);
