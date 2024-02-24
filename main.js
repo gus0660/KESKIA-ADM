@@ -27,7 +27,7 @@ function includeNavbar() {
         </a>
         <li class="nav-item ">
           <div class="nav-content">
-            <a class="nav-link" href="destination.html">VOTRE TRAJET</a>
+            <a class="nav-link" href="destination.html">DESTINATION</a>
             <span class="nav-subtext">Carte - Trajet</span>
           </div>
         </li>
