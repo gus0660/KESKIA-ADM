@@ -134,48 +134,43 @@
   }
 }
 .custom-margin {
-  margin: 150px 42px 0 42px;
+  margin: 150px 30px;
 }
 
-.side-div {
-  width: 5vw;
-  margin: 20px;
+.depart, .arrivee {
+  border-radius: 15px;
+  border: 1px solid black;
+  padding: 40px; /* Ajout de padding à l'intérieur des divs */
+}
+.carte {
+  height: 50vh;
   border-radius: 15px;
   border: 1px solid black;
 }
-.top-div {
+.trajet {
   height: 14vh;
   margin-top: 20px;
-  border-radius: 15px;
-  border: 1px solid black;
-}
-.center-div {
-  height: 33vh;
-  margin-top: 20px;
-  border-radius: 15px;
-  border: 1px solid black;
-}
-.bottom-div {
-  height: 14vh;
-  margin-top: 20px;
-  margin-bottom: 20px;
   border-radius: 15px;
   border: 1px solid black;
 }
 @media (max-width: 991px) {
-  .side-div {
-    display: none;
-  }
   .custom-margin {
-    margin: 100px 42px 0 42px;
+    margin-top: 6rem;
+    height: 100rem;
   }
-  .top-div, .bottom-div {
-    height: 12vh;
-    width: 46vh;
+  .depart {
+    height: 27rem;
   }
-  .center-div {
-    height: 28vh;
-    width: 46vh;
+  .carte {
+    height: 25rem;
+    margin-top: 1rem;
+  }
+  .trajet {
+    margin-bottom: 1rem;
+  }
+  .arrivee {
+    height: 30rem;
+    margin-bottom: 5rem;
   }
 }
 .custom-color {

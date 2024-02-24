@@ -15,40 +15,45 @@
 
 
   <div class="custom-margin">
-    <main class="row gx-5"
-      style="background-color: #C3F1D5; opacity: 0.9; border-radius: 25px; border: 1px solid black;">
-      <div class="depart col side-div text-center d-flex flex-column justify-content-between" style="background-color: #FEEAEA; margin-top: 20px;">
-        <h4 class="custom-color">1</h4>
-        <!-- Bouton pour se géolocaliser -->
-    <button class="btn btn-primary mb-1">ME GEOLOCALISER</button>
+    <main class="row"
+      style="background-color: #C3F1D5; opacity: 0.9; border-radius: 25px; border: 1px solid black; height: 100%; padding: 20px;">
 
-    <!-- Texte "OU" -->
-    <h5 class="custom-color">OU</h5>
+      <div class="depart col-md-3 text-center d-flex flex-column justify-content-evenly"
+        style="background-color: #FEEAEA;">
 
-    <!-- Texte d'instruction -->
-    <h5 class="custom-color">Veuillez saisir votre<br>Adresse</h5>
+        <button class="btn btn-primary mb-1">ME GEOLOCALISER</button>
 
-    <!-- Zone de texte pour saisir l'adresse -->
-    <textarea class="form-control mb-5" rows="3" placeholder="Entrez votre adresse ici" style=" border: 1px solid black;"></textarea>
+        <h5 class="custom-color">OU</h5>
 
-    <!-- Bouton OK -->
-    <button class="btn btn-success mb-5">OK</button>
+        <h5 class="custom-color">Veuillez saisir votre<br>Adresse</h5>
+
+        <textarea class="form-control mb-5" rows="3" placeholder="Entrez votre lieux actuel ou votre adresse de départ ici"
+          style=" border: 1px solid black;"></textarea>
+
+        <button class="btn btn-success mb-5">OK</button>
+
       </div>
-      <div class="col-7">
-        
-        <div class="top-div text-center" style="background-color: #FEEAEA;">
-          <h5 class="custom-color d-none d-md-block">Au-dessus de la Carte</h5>
-        </div>
-        <div class="carte center-div text-center" style="background-color: #FEEAEA;">
+
+      <div class="col-12 col-md-6 d-flex flex-column justify-content-between">
+        <div class="carte text-center col-md-auto" style="background-color: #FEEAEA;">
           <h5 class="custom-color d-none d-md-block">Carte</h5>
         </div>
-        <div class="trajet bottom-div text-center" style="background-color: #FEEAEA;">
+        <div class="trajet text-center col-md-auto" style="background-color: #FEEAEA;">
           <h4 class="custom-color d-none d-md-block">2</h4>
         </div>
       </div>
-      <div class="col side-div text-center" style="background-color: #FEEAEA; margin-top: 20px;">
-        <h4 class="arrivee custom-color">3</h4>
-      </div>
+
+      <!-- <div class="arrivee col-12 col-sm-3 col-md-3" style="background-color: #FEEAEA;"> -->
+        
+        <div class="arrivee col-12 col-md-3 text-center d-flex flex-column justify-content-evenly" style="background-color: #FEEAEA;">
+          
+          <h5>Veuillez saisir votre<br>Adresse d'arrivée</h5>
+      
+          <textarea class="form-control mb-5" rows="3" placeholder="Entrez l'adresse d'arrivée ici" style=" border: 1px solid black;"></textarea>
+      
+          <button class="btn btn-success">OK</button>
+        </div>
+      <!-- </div> -->
     </main>
   </div>
 
