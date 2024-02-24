@@ -177,7 +177,7 @@
     height: 28vh;
     width: 46vh;
   }
-  .h3Tel {
-    font-size: 0.15rem;
-  }
+}
+.custom-color {
+  color: #9B055F;
 }
