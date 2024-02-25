@@ -139,22 +139,22 @@ body {
   padding: 40px; /* Ajout de padding à l'intérieur des divs */
 }
 .carte {
-  height: 50vh;
+  height: 55vh;
   border-radius: 15px;
   border: 1px solid black;
 }
 .trajet {
-  height: 15%;
-  margin-top: 20px;
+  /* height: 10vh; */
+  margin: 20px 0;
   border-radius: 15px;
   border: 1px solid black;
 }
 .trajet button {
-  height: 80%;
+  height: 4rem;
   background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -168,8 +168,8 @@ body {
   color: black;
 }
 .map {
-  height: 80%;
-  width: 90%;
+  height: 45vh;
+  width: 95%;
   border: 1px solid black;
 }
 .custom-color {
