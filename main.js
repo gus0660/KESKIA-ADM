@@ -1,5 +1,5 @@
 
-require('dotenv').config();
+// require('dotenv').config();
 
 function includeNavbar() {
   // Créez un nouvel élément <nav> pour contenir la barre de navigation
@@ -100,13 +100,31 @@ document.addEventListener("DOMContentLoaded", function () {
     target: "map",
     layers: [
       new ol.layer.Tile({
-        source: new ol.source.OSM(),
-      }),
+        source: new ol.source.OSM()
+      })
     ],
     view: new ol.View({
-      center: ol.proj.fromLonLat([2.3522, 48.8566]), // Coordonnées de Paris par exemple
-      zoom: 10,
-    }),
+      center: ol.proj.fromLonLat([5.604490, 43.174360]),
+      zoom: 14
+    })
   });
 });
 
+// api geocodage
+// function geocodeAddress(address) {
+//   const apiKey = 'fe6cfe1996b54c068538fc19632af3d9';
+//   fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${apiKey}`)
+//       .then(response => response.json())
+//       .then(data => {
+//           if (data.results.length > 0) {
+//               const coords = data.results[0].geometry;
+//               map.flyTo({
+//                   center: [coords.lng, coords.lat],
+//                   zoom: 15
+//               });
+//           } else {
+//               console.log('Adresse non trouvée');
+//           }
+//       })
+//       .catch(error => console.log(error));
+// }
