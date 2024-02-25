@@ -101,7 +101,7 @@
   margin: 0; 
   }
 }
-.custom-margin {
+.custom-main {
   margin: 150px 30px;
 }
 .depart, .arrivee {
@@ -138,7 +138,7 @@
   color: black;
 }
 @media (max-width: 991px) {
-  .custom-margin {
+  .custom-main {
     margin-top: 6rem;
     height: 110rem;
   }

@@ -96,7 +96,7 @@ const map = new maplibregl.Map({
   container: 'map', // ID de votre conteneur
   style: 'https://demotiles.maplibre.org/style.json', // Style de la carte
   center: [0, 0], // Coordonnées initiales de la carte
-  zoom: 2 // Niveau de zoom initial
+  zoom: 4 // Niveau de zoom initial
 });
 
 // api geocodage
