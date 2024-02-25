@@ -24,14 +24,11 @@
   border-radius: 15px;
   margin: 20px;
 }
-
 .navbar .nav-item {
   margin-right: 30px;
-  /* Espacement entre les divs */
   margin-left: 30px;
-  text-align: center; /* Centrer les éléments enfants */
+  text-align: center;
 }
-
 .navbar .nav-content {
   height: 90px;
   display: flex;
@@ -41,58 +38,32 @@
   justify-content: center;
   align-items: center;
 }
-
 .nav-content {
   border: 1px solid black;
 }
-
 .navbar .nav-link {
-  
   color: #9B055F;
   font-size: 24px;
 }
-
 .navbar .nav-subtext {
   font-size: 12px;
-}
-
-@media screen and (max-width: 767px) {
-  .img1 {
-    display: none;
-  }
 }
 .img1 {
   top: 150px;
   left: 20px;
 }
-@media screen and (max-width: 767px) {
-  .img2 {
-    display: none;
-  }
-}
 .img2 {
   top: 150px;
   right: 20px;
-}
-@media screen and (max-width: 767px) {
-  .img3 {
-    display: none;
-  }
 }
 .img3 {
   bottom: 150px;
   left: 20px;
 }
-@media screen and (max-width: 767px) {
-  .img4 {
-    display: none;
-  }
-}
 .img4 {
   bottom: 150px;
   right: 20px;
 }
-
 .footer {
   position: fixed;
   bottom: 20px;
@@ -109,6 +80,18 @@
   height: 80px;
 }
  @media (max-width: 767px) {
+  .img1 {
+    display: none;
+  }
+  .img2 {
+    display: none;
+  }
+  .img3 {
+      display: none;
+    }
+  .img4 {
+      display: none;
+    }
   .footer {
     padding: 0;
   }
@@ -121,7 +104,6 @@
 .custom-margin {
   margin: 150px 30px;
 }
-
 .depart, .arrivee {
   border-radius: 15px;
   border: 1px solid black;
@@ -139,8 +121,7 @@
   border: 1px solid black;
 }
 .trajet button {
-  /* Styles personnalisés pour le bouton */
-  background-color: #4CAF50; /* Couleur verte */
+  background-color: #4CAF50;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -152,7 +133,6 @@
   transition-duration: 0.4s;
   cursor: pointer;
 }
-
 .trajet button:hover {
   background-color: yellow;
   color: black;
