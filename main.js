@@ -91,29 +91,37 @@ function includeFooter() {
   footerContainer.appendChild(footer);
 }
 
-// api maplib
-const map = new maplibregl.Map({
-  container: 'map', // ID de votre conteneur
-  style: 'https://demotiles.maplibre.org/style.json', // Style de la carte
-  center: [0, 0], // Coordonnées initiales de la carte
-  zoom: 4 // Niveau de zoom initial
+// api OpenLayers
+document.addEventListener("DOMContentLoaded", function () {
+  var map = new ol.Map({
+    target: "map",
+    layers: [
+      new ol.layer.Tile({
+        source: new ol.source.OSM(),
+      }),
+    ],
+    view: new ol.View({
+      center: ol.proj.fromLonLat([2.3522, 48.8566]), // Coordonnées de Paris par exemple
+      zoom: 10,
+    }),
+  });
 });
 
 // api geocodage
-function geocodeAddress(address) {
-  const apiKey = 'fe6cfe1996b54c068538fc19632af3d9';
-  fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${apiKey}`)
-      .then(response => response.json())
-      .then(data => {
-          if (data.results.length > 0) {
-              const coords = data.results[0].geometry;
-              map.flyTo({
-                  center: [coords.lng, coords.lat],
-                  zoom: 15
-              });
-          } else {
-              console.log('Adresse non trouvée');
-          }
-      })
-      .catch(error => console.log(error));
-}
+// function geocodeAddress(address) {
+//   const apiKey = 'fe6cfe1996b54c068538fc19632af3d9';
+//   fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${apiKey}`)
+//       .then(response => response.json())
+//       .then(data => {
+//           if (data.results.length > 0) {
+//               const coords = data.results[0].geometry;
+//               map.flyTo({
+//                   center: [coords.lng, coords.lat],
+//                   zoom: 15
+//               });
+//           } else {
+//               console.log('Adresse non trouvée');
+//           }
+//       })
+//       .catch(error => console.log(error));
+// }
