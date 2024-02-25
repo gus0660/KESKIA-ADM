@@ -106,12 +106,14 @@
   }
 }
 .custom-main {
+  margin: 150px 30px;
+}
+.style-main {
   background-color: rgba(195, 241, 213, 0.9); /* #C3F1D5 avec 90% d'opacité */
   border-radius: 25px;
   border: 1px solid black;
   height: 100%;
   padding: 20px;
-  margin: 150px 30px;
 }
 .depart, .arrivee {
   border-radius: 15px;
@@ -120,7 +122,6 @@
 }
 .carte {
   height: 50vh;
-  opacity: 1;
   border-radius: 15px;
   border: 1px solid black;
 }
