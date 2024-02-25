@@ -159,6 +159,10 @@
     margin-bottom: 5rem;
   }
 }
+.map {
+  height: 320px;
+  width: 100%;
+}
 .custom-color {
   color: #9B055F;
 }
