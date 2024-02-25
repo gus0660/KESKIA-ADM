@@ -1,3 +1,6 @@
+
+require('dotenv').config();
+
 function includeNavbar() {
   // Créez un nouvel élément <nav> pour contenir la barre de navigation
   var navbar = document.createElement("nav");
