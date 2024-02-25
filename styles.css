@@ -1,11 +1,15 @@
-.accueil, .destination, .organisation, .decouvrir {
+body {
   margin: 0;
   padding: 0;
+}
+.accueil, .destination, .organisation, .decouvrir {
+  /* margin: 0; */
+  /* padding: 0; */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 .accueil {
   background-image: url('images/montagne.webp');
@@ -97,18 +101,9 @@
   }
 }
  @media (max-width: 767px) {
-  .img1 {
+  .img1, .img2, .img3, .img4 {
     display: none;
   }
-  .img2 {
-    display: none;
-  }
-  .img3 {
-      display: none;
-    }
-  .img4 {
-      display: none;
-    }
   .footer {
     padding: 0;
   }
@@ -119,17 +114,23 @@
   }
   .custom-main {
     margin-top: 6rem;
-    height: 110rem;
+    height: 98rem;
+  }
+  .arrivee {
+    margin-bottom: 1rem;
+  }
+  .btn-calcul {
+    font-size: 16px !important;
   }
 }
 .custom-main {
-  margin: 150px 30px;
+  margin: 7.5% 30px;
 }
 .style-main {
   background-color: rgba(195, 241, 213, 0.9); /* #C3F1D5 avec 90% d'opacité */
   border-radius: 25px;
   border: 1px solid black;
-  height: 100%;
+  /* height: 100%; */
   padding: 20px;
 }
 .depart, .arrivee {
@@ -143,12 +144,13 @@
   border: 1px solid black;
 }
 .trajet {
-  height: 14vh;
+  height: 15%;
   margin-top: 20px;
   border-radius: 15px;
   border: 1px solid black;
 }
 .trajet button {
+  height: 80%;
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -166,8 +168,9 @@
   color: black;
 }
 .map {
-  height: 320px;
-  width: 100%;
+  height: 80%;
+  width: 90%;
+  border: 1px solid black;
 }
 .custom-color {
   color: #9B055F;
