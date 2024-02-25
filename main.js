@@ -95,7 +95,7 @@ function includeFooter() {
 // api OpenLayers
 document.addEventListener("DOMContentLoaded", function () {
   var map = new ol.Map({
-    target: "map",
+    target: 'map',
     layers: [
       new ol.layer.Tile({
         source: new ol.source.OSM()
@@ -140,3 +140,46 @@ function calculateRoute(startCoords, endCoords) {
     })
     .catch(error => console.log(error));
 }
+
+document.getElementById('bouton_geoloc').addEventListener('click', function() {
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+          var lon = position.coords.longitude;
+          var lat = position.coords.latitude;
+
+          // Créer une icône
+          var iconFeature = new ol.Feature({
+              geometry: new ol.geom.Point(ol.proj.fromLonLat([lon, lat]))
+          });
+
+          var iconStyle = new ol.style.Style({
+              image: new ol.style.Icon({
+                  // Spécifiez le chemin de votre icône ici
+                  src: 'images/icon_marqueur.png'
+              })
+          });
+
+          iconFeature.setStyle(iconStyle);
+
+          var vectorSource = new ol.source.Vector({
+              features: [iconFeature]
+          });
+
+          var vectorLayer = new ol.layer.Vector({
+              source: vectorSource
+          });
+
+          // Ajouter l'icône à la carte
+          map.addLayer(vectorLayer);
+
+          // Centrer la carte sur la position
+          map.getView().setCenter(ol.proj.fromLonLat([lon, lat]));
+          map.getView().setZoom(12); // Ajustez le niveau de zoom si nécessaire
+      }, function(error) {
+          // Gérer les erreurs ici
+          console.log('Erreur de géolocalisation: ' + error.message);
+      });
+  } else {
+      alert("La géolocalisation n'est pas prise en charge par ce navigateur.");
+  }
+});
