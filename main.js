@@ -1,6 +1,4 @@
 
-// require('dotenv').config();
-
 function includeNavbar() {
   // Créez un nouvel élément <nav> pour contenir la barre de navigation
   var navbar = document.createElement("nav");
@@ -110,21 +108,35 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// api geocodage
-// function geocodeAddress(address) {
-//   const apiKey = 'fe6cfe1996b54c068538fc19632af3d9';
-//   fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${apiKey}`)
-//       .then(response => response.json())
-//       .then(data => {
-//           if (data.results.length > 0) {
-//               const coords = data.results[0].geometry;
-//               map.flyTo({
-//                   center: [coords.lng, coords.lat],
-//                   zoom: 15
-//               });
-//           } else {
-//               console.log('Adresse non trouvée');
-//           }
-//       })
-//       .catch(error => console.log(error));
-// }
+function geocodeAddress(address) {
+  var apiKey = '5b3ce3597851110001cf6248265456eaefdf40ca9d7ce5ce7a189570';
+  fetch(`https://api.openrouteservice.org/geocode/search?api_key=${apiKey}&text=${encodeURIComponent(address)}`)
+    .then(response => response.json())
+    .then(data => {
+      // Traitez les données de géocodage ici
+    })
+    .catch(error => console.log(error));
+}
+
+function calculateRoute(startCoords, endCoords) {
+  var apiKey = '5b3ce3597851110001cf6248265456eaefdf40ca9d7ce5ce7a189570';
+  var requestBody = {
+    coordinates: [startCoords, endCoords],
+    profile: 'driving-car',
+    format: 'json'
+  };
+
+  fetch('https://api.openrouteservice.org/v2/directions/driving-car', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': apiKey
+    },
+    body: JSON.stringify(requestBody)
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Affichez l'itinéraire sur la carte ici
+    })
+    .catch(error => console.log(error));
+}
