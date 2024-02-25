@@ -110,21 +110,3 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// api geocodage
-// function geocodeAddress(address) {
-//   const apiKey = 'fe6cfe1996b54c068538fc19632af3d9';
-//   fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${apiKey}`)
-//       .then(response => response.json())
-//       .then(data => {
-//           if (data.results.length > 0) {
-//               const coords = data.results[0].geometry;
-//               map.flyTo({
-//                   center: [coords.lng, coords.lat],
-//                   zoom: 15
-//               });
-//           } else {
-//               console.log('Adresse non trouvée');
-//           }
-//       })
-//       .catch(error => console.log(error));
-// }
