@@ -59,6 +59,7 @@ async function showLocation(address) {
 
   if (coords) {
       displayOnMap(coords);
+      if (callback) callback(coords);  // Appel du callback avec les coordonnées
   } else {
       alert("Adresse non trouvée ou géolocalisation non disponible.");
   }
@@ -87,29 +88,6 @@ function displayOnMap(coords) {
   });
 
   map.addLayer(layer);
-}
-
-function calculateRoute(startCoords, endCoords) {
-  var apiKey = "5b3ce3597851110001cf6248265456eaefdf40ca9d7ce5ce7a189570";
-  var requestBody = {
-    coordinates: [startCoords, endCoords],
-    profile: "driving-car",
-    format: "json",
-  };
-
-  fetch("https://api.openrouteservice.org/v2/directions/driving-car", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: apiKey,
-    },
-    body: JSON.stringify(requestBody),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // Affichez l'itinéraire sur la carte ici
-    })
-    .catch((error) => console.log(error));
 }
 
 function showMyLocation() {
@@ -142,5 +120,84 @@ function showMyLocation() {
     });
   }
 }
+// Variables globales pour stocker les coordonnées
+let startPoint = null;
+let endPoint = null;
 
+// Fonction pour mettre à jour le point de départ
+function setStartPoint() {
+    const address = document.getElementById('startAddress').value;
+    showLocation(address, (coords) => {
+        startPoint = coords;
+    });
+}
 
+// Fonction pour mettre à jour le point d'arrivée
+function setEndPoint() {
+    const address = document.getElementById('endAddress').value;
+    showLocation(address, (coords) => {
+        endPoint = coords;
+    });
+}
+
+function calculateRoute(startPoint, endPoint) {
+  var apiKey = "5b3ce3597851110001cf6248265456eaefdf40ca9d7ce5ce7a189570";
+  var requestBody = {
+    coordinates: [startPoint, endPoint],
+    profile: "driving-car",
+    format: "json",
+  };
+
+  fetch("https://api.openrouteservice.org/v2/directions/driving-car", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: apiKey,
+    },
+    body: JSON.stringify(requestBody),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Affichez l'itinéraire sur la carte ici
+      
+    })
+    .catch((error) => console.log(error));
+}
+
+function calculateAndDisplayRoute() {
+  if (!startPoint || !endPoint) {
+      alert("Veuillez spécifier à la fois un point de départ et un point d'arrivée.");
+      return;
+  }
+
+  calculateRoute(startPoint, endPoint)
+      .then((data) => {
+          if (data.features && data.features.length > 0) {
+              const route = data.features[0];
+              const routeGeometry = new ol.format.GeoJSON().readGeometry(route.geometry);
+
+              const routeFeature = new ol.Feature({
+                  type: 'route',
+                  geometry: routeGeometry
+              });
+
+              const routeLayer = new ol.layer.Vector({
+                  source: new ol.source.Vector({
+                      features: [routeFeature]
+                  }),
+                  style: new ol.style.Style({
+                      stroke: new ol.style.Stroke({
+                          width: 6,
+                          color: [40, 40, 200, 0.8]
+                      })
+                  })
+              });
+
+              map.addLayer(routeLayer);
+              map.getView().fit(routeGeometry, { padding: [100, 100, 100, 100] });
+          } else {
+              console.log("Aucun itinéraire trouvé");
+          }
+      })
+      .catch((error) => console.log("Erreur de calcul de l'itinéraire:", error));
+}
