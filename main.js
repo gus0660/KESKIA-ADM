@@ -1,5 +1,5 @@
 
-
+let map;
 
 function includeNavbar() {
   // Créez un nouvel élément <nav> pour contenir la barre de navigation
@@ -94,14 +94,11 @@ function includeFooter() {
   footerContainer.appendChild(footer);
 }
 
-import map from 'ol/Map';
-import View from 'ol/View';
-import TileLayer from 'ol/layer/Tile';
-import XYZ from 'ol/source/XYZ';
+
 
 // api OpenLayers
 document.addEventListener("DOMContentLoaded", function () {
-  var map = new ol.Map({
+  const map = new ol.Map({
     target: 'map',
     layers: [
       new ol.layer.Tile({
