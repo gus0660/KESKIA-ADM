@@ -92,6 +92,8 @@ function includeFooter() {
   footerContainer.appendChild(footer);
 }
 
+var map;
+
 // api OpenLayers
 document.addEventListener("DOMContentLoaded", function () {
   var map = new ol.Map({
