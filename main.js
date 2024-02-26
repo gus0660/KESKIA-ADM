@@ -1,4 +1,6 @@
 
+
+
 function includeNavbar() {
   // Créez un nouvel élément <nav> pour contenir la barre de navigation
   var navbar = document.createElement("nav");
@@ -92,7 +94,10 @@ function includeFooter() {
   footerContainer.appendChild(footer);
 }
 
-var map;
+import map from 'ol/Map';
+import View from 'ol/View';
+import TileLayer from 'ol/layer/Tile';
+import XYZ from 'ol/source/XYZ';
 
 // api OpenLayers
 document.addEventListener("DOMContentLoaded", function () {
@@ -109,6 +114,8 @@ document.addEventListener("DOMContentLoaded", function () {
     })
   });
 });
+
+
 
 function geocodeAddress(address) {
   var apiKey = '5b3ce3597851110001cf6248265456eaefdf40ca9d7ce5ce7a189570';
