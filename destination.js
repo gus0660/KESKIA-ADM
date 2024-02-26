@@ -1,7 +1,7 @@
 
 
 
-
+let map;
 
 // api OpenLayers
 document.addEventListener("DOMContentLoaded", function () {
