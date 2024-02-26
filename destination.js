@@ -1,13 +1,13 @@
 
 
 
-let map;
+// let map;
 
-import './style.css';
-import Map from 'ol/Map.js';
-import OSM from 'ol/source/OSM.js';
-import TileLayer from 'ol/layer/Tile.js';
-import View from 'ol/View.js';
+// import './style.css';
+// import Map from 'ol/Map.js';
+// import OSM from 'ol/source/OSM.js';
+// import TileLayer from 'ol/layer/Tile.js';
+// import View from 'ol/View.js';
 
 // api OpenLayers
 document.addEventListener("DOMContentLoaded", function () {
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
   
             // Ajouter l'icône à la carte
-            map.addLayer(vectorLayer);
+            // map.addLayer(vectorLayer);
   
             // Centrer la carte sur la position
             map.getView().setCenter(ol.proj.fromLonLat([lon, lat]));
