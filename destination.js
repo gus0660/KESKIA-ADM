@@ -65,22 +65,16 @@ function showMyLocation() {
       var olCoords = ol.proj.fromLonLat(coords);
       map.getView().animate({ center: olCoords, zoom: 14 });
 
-      // Créer un style pour l'icône
       var iconStyle = new ol.style.Style({
         image: new ol.style.Icon({
-          // Spécifiez l'URL de votre icône ici
-          src: "image/icon_marqueur.png",
-          // Vous pouvez ajuster la taille, l'échelle, etc. ici si nécessaire
+          src: "images/icon_marqueur.png",
+          scale: 0.5
         }),
       });
-
-      // Créer la fonction ol.Feature avec le style
       var iconFeature = new ol.Feature({
         geometry: new ol.geom.Point(olCoords),
-        // Autres propriétés si nécessaire
       });
 
-      // Appliquer le style à l'icône
       iconFeature.setStyle(iconStyle);
 
       // Créer et ajouter la couche vectorielle
