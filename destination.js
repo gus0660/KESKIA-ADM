@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
   
             // Ajouter l'icône à la carte
-            // map.addLayer(vectorLayer);
+            map.addLayer(vectorLayer);
   
             // Centrer la carte sur la position
             map.getView().setCenter(ol.proj.fromLonLat([lon, lat]));

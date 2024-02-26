@@ -14,5 +14,8 @@
     "dotenv": "^16.4.5",
     "jquery": "^3.7.1",
     "ol": "^9.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.1.4"
   }
 }
