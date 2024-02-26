@@ -3,6 +3,12 @@
 
 let map;
 
+import './style.css';
+import Map from 'ol/Map.js';
+import OSM from 'ol/source/OSM.js';
+import TileLayer from 'ol/layer/Tile.js';
+import View from 'ol/View.js';
+
 // api OpenLayers
 document.addEventListener("DOMContentLoaded", function () {
     const map = new ol.Map({
