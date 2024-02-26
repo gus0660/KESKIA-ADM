@@ -17,7 +17,7 @@ const map = new ol.Map({
   ],
   view: new ol.View({
     center: ol.proj.fromLonLat([5.60449, 43.17436]),
-    zoom: 14,
+    zoom: 10,
   }),
 });
 
@@ -63,7 +63,7 @@ function showMyLocation() {
     navigator.geolocation.getCurrentPosition(function (position) {
       var coords = [position.coords.longitude, position.coords.latitude];
       var olCoords = ol.proj.fromLonLat(coords);
-      map.getView().animate({ center: olCoords, zoom: 16 });
+      map.getView().animate({ center: olCoords, zoom: 14 });
 
       // Créer un style pour l'icône
       var iconStyle = new ol.style.Style({
