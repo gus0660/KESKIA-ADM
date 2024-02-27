@@ -299,29 +299,6 @@ async function handleRouteCalculation() {
     }
 }
 
-
-// function handleRouteCalculation() {
-//   console.log("Calcul de l'itinéraire en cours...");
-//   Promise.all([setStartPoint(), setEndPoint()])
-//       .then((values) => {
-//           console.log("Valeurs récupérées après promesses: ", values);
-//           const [startCoords, endCoords] = values;
-//           console.log([startCoords, endCoords].values);
-//           // Affecter les valeurs aux variables globales
-//           startPoint = startCoords;
-//           endPoint = endCoords;
-//           console.log("startPoint:", startPoint, "endPoint:", endPoint);
-//           if (!startPoint || !endPoint) {
-//             alert("Veuillez spécifier à la fois un point de départ et un point d'arrivée.");
-//             return;
-//           }
-//           calculateAndDisplayRoute(startPoint, endPoint);
-//       })
-//       .catch(error => {
-//           console.error("Erreur lors de la définition des points de départ/arrivée", error);
-//       });
-// }
-
 async function calculateAndDisplayRoute(startPoint, endPoint) {
     console.log("Start Point:", startPoint);
     console.log("End Point:", endPoint);
