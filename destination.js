@@ -191,53 +191,6 @@ async function showMyLocation() {
         console.error("La géolocalisation n'est pas prise en charge par ce navigateur.");
     }
   }
-  
-
-// async function showMyLocation() {
-//   if (navigator.geolocation) {
-//       navigator.geolocation.getCurrentPosition(async (position) => {
-//           const latitude = position.coords.latitude;
-//           const longitude = position.coords.longitude;
-
-//           // Format the coordinates for the API
-//           const formattedCoords = formatCoordsForAPI([longitude, latitude]);
-
-//           // Convertir les coordonnées pour OpenLayers
-//           var olCoords = ol.proj.fromLonLat([longitude, latitude]);
-
-//           // Style de l'icône
-//           var iconStyle = new ol.style.Style({
-//               image: new ol.style.Icon({
-//                   src: "images/icon_marqueur.png",
-//                   scale: 0.5
-//               }),
-//           });
-
-//           // Créer la fonctionnalité avec l'icône
-//           var iconFeature = new ol.Feature({
-//               geometry: new ol.geom.Point(olCoords),
-//           });
-//           iconFeature.setStyle(iconStyle);
-
-//           // Créer et ajouter la couche vectorielle
-//           var layer = new ol.layer.Vector({
-//               source: new ol.source.Vector({
-//                   features: [iconFeature],
-//               }),
-//           });
-
-//           map.addLayer(layer);
-
-//           // Centre la vue sur la position de l'utilisateur
-//           map.getView().animate({center: olCoords, zoom: 10});
-
-//       }, (error) => {
-//           console.error("Erreur lors de l'obtention de la position : ", error);
-//       });
-//   } else {
-//       console.error("La géolocalisation n'est pas prise en charge par ce navigateur.");
-//   }
-// }
 
 // Variables globales pour stocker les coordonnées
 let startPoint = null;
