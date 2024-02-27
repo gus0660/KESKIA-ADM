@@ -75,44 +75,6 @@ async function showLocation(address) {
     return coords;
   }
   
-  
-
-// async function showLocation(address) {
-//   let coords;
-
-//   if (address) {
-//       console.log("Géocodage de l'adresse: ", address);
-//       // Géocodage de l'adresse
-//       coords = await getCoordinatesFromAddress(address);
-
-//       // Si aucune coordonnée n'est trouvée pour l'adresse
-//       if (!coords) {
-//           console.log("Aucune coordonnée trouvée pour l'adresse: ", address);
-//           alert("Adresse non trouvée: " + address);
-//           return null;
-//       }
-//   } else {
-//       console.log("Utilisation de la géolocalisation pour l'utilisateur actuel.");
-//       console.log("Coordonnées obtenues: ", coords);
-//       // Utiliser la géolocalisation
-//       try {
-//           const position = await new Promise((resolve, reject) => {
-//               navigator.geolocation.getCurrentPosition(resolve, reject);
-//           });
-//           coords = [position.coords.longitude, position.coords.latitude];
-//       } catch (error) {
-//           console.log("Erreur de géolocalisation: ", error);
-//           alert("Erreur de géolocalisation: " + error.message);
-//           return null;
-//       }
-//   }
-  
-//   console.log(coords);
-//   let formattedCoords = formatCoordsForAPI(coords);
-//   displayOnMap(coords);
-//   return formattedCoords;
-// }
-  
 function formatCoordsForAPI(coords) {
   
   return coords.map(c => c.trim());
