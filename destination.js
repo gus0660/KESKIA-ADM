@@ -68,10 +68,6 @@ async function showLocation(address) {
       }
   }
   
-  // Inverser l'ordre des coordonnées
-  // coords = [coords[1], coords[0]];
-  // console.log("Coordonnées inversées: ", coords);
-  
   console.log(coords);
   let formattedCoords = formatCoordsForAPI(coords);
   displayOnMap(coords);
