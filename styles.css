@@ -84,20 +84,18 @@ body {
   height: 80px;
 }
 @media (max-width: 991px) {
-  .depart {
-    height: 30rem;
+  .custom-main {
+    margin: 14vh 30px;
+    height: 72vh;
+  }
+  .depart, .arrivee {
+    height: 100%;
   }
   .carte {
     height: 30rem;
-    margin-top: 1rem;
   }
   .trajet {
-    height: 10rem;
-    margin-bottom: 1rem;
-  }
-  .arrivee {
-    height: 30rem;
-    margin-bottom: 5rem;
+    height: 7rem;
   }
 }
  @media (max-width: 767px) {
@@ -119,25 +117,29 @@ body {
   .arrivee {
     margin-bottom: 1rem;
   }
+  .trajet {
+    height: auto;
+  }
   .btn-calcul {
     font-size: 16px !important;
   }
 }
 
 .custom-main {
-  margin: 7.5% 30px;
+  margin: 14vh 30px;
+  height: 72vh;
 }
 .style-main {
   background-color: rgba(195, 241, 213, 0.9); /* #C3F1D5 avec 90% d'opacité */
   border-radius: 25px;
   border: 1px solid black;
-  /* height: 100%; */
+  height: 100%;
   padding: 20px;
 }
 .depart, .arrivee {
+  height: 100%;
   border-radius: 15px;
   border: 1px solid black;
-  padding: 40px; /* Ajout de padding à l'intérieur des divs */
 }
 .carte {
   height: 55vh;
@@ -145,7 +147,7 @@ body {
   border: 1px solid black;
 }
 .trajet {
-  /* height: 10vh; */
+  height: 7rem;
   margin: 20px 0;
   border-radius: 15px;
   border: 1px solid black;
@@ -155,7 +157,6 @@ body {
   background-color: #4CAF50;
   color: white;
   border: none;
-  /* padding: 10px 20px; */
   text-align: center;
   text-decoration: none;
   display: inline-block;
