@@ -42,9 +42,18 @@ async function showLocation(address) {
   let coords;
 
   if (address) {
+      console.log("Géocodage de l'adresse: ", address);
       // Géocodage de l'adresse
       coords = await getCoordinatesFromAddress(address);
+
+      // Si aucune coordonnée n'est trouvée pour l'adresse
+      if (!coords) {
+          console.log("Aucune coordonnée trouvée pour l'adresse: ", address);
+          alert("Adresse non trouvée: " + address);
+          return null;
+      }
   } else {
+      console.log("Utilisation de la géolocalisation pour l'utilisateur actuel.");
       // Utiliser la géolocalisation
       try {
           const position = await new Promise((resolve, reject) => {
@@ -52,18 +61,23 @@ async function showLocation(address) {
           });
           coords = [position.coords.longitude, position.coords.latitude];
       } catch (error) {
+          console.log("Erreur de géolocalisation: ", error);
           alert("Erreur de géolocalisation: " + error.message);
-          return;
+          return null;
       }
   }
 
-  if (coords) {
-      displayOnMap(coords);
-      return coords; // Ajouter cette ligne pour retourner les coordonnées
-  } else {
-      alert("Adresse non trouvée ou géolocalisation non disponible.");
-  }
+  // Inverser l'ordre des coordonnées
+  // coords = [coords[1], coords[0]];
+
+  console.log("Coordonnées inversées: ", coords);
+
+  displayOnMap(coords);
+
+  return coords;
 }
+
+
 
 function displayOnMap(coords) {
   var olCoords = ol.proj.fromLonLat(coords);
@@ -93,7 +107,7 @@ function displayOnMap(coords) {
 function showMyLocation() {
   if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(function (position) {
-      var coords = [position.coords.longitude, position.coords.latitude];
+      var coords = [position.coords.latitude, position.coords.longitude];
       var olCoords = ol.proj.fromLonLat(coords);
       map.getView().animate({ center: olCoords, zoom: 14 });
 
@@ -126,23 +140,37 @@ let endPoint = null;
 
 async function setStartPoint() {
   const address = document.getElementById('startAddress').value;
+  console.log("Définition du point de départ pour l'adresse: ", address);
   const coords = await showLocation(address);
+  console.log("Coordonnées du point de départ: ", coords);
   startPoint = coords;
   return coords;
 }
 
 async function setEndPoint() {
   const address = document.getElementById('endAddress').value;
+  console.log("Définition du point d'arrivée pour l'adresse: ", address);
   const coords = await showLocation(address);
+  console.log("Coordonnées du point d'arrivée: ", coords);
   endPoint = coords;
+
   return coords;
 }
 
-
 function handleRouteCalculation() {
+  console.log("Calcul de l'itinéraire en cours...");
   Promise.all([setStartPoint(), setEndPoint()])
       .then((values) => {
-          const [startPoint, endPoint] = values;
+          console.log("Valeurs récupérées après promesses: ", values);
+          const [startCoords, endCoords] = values;
+          // Affecter les valeurs aux variables globales
+          startPoint = startCoords;
+          endPoint = endCoords;
+          console.log("startPoint:", startPoint, "endPoint:", endPoint);
+          if (!startPoint || !endPoint) {
+            alert("Veuillez spécifier à la fois un point de départ et un point d'arrivée.");
+            return;
+          }
           calculateAndDisplayRoute(startPoint, endPoint);
       })
       .catch(error => {
@@ -153,6 +181,8 @@ function handleRouteCalculation() {
 
 async function calculateAndDisplayRoute(startPoint, endPoint) {
   console.log("startPoint:", startPoint, "endPoint:", endPoint);
+  console.log("Coordonnées de départ pour le calcul de l'itinéraire:", startPoint);
+  console.log("Coordonnées d'arrivée pour le calcul de l'itinéraire:", endPoint);
   if (!startPoint || !endPoint) {
       alert("Veuillez spécifier à la fois un point de départ et un point d'arrivée.");
       return;
@@ -176,6 +206,8 @@ async function calculateAndDisplayRoute(startPoint, endPoint) {
       });
       const data = await response.json();
 
+      console.log(data)
+      
       if (data.features && data.features.length > 0) {
           const route = data.features[0];
           const routeGeometry = new ol.format.GeoJSON().readGeometry(route.geometry);
