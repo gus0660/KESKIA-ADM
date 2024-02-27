@@ -77,20 +77,35 @@ async function showLocation(address) {
   displayOnMap(coords);
   return formattedCoords;
 }
-function formatCoordsForAPI(coords) {
-  // D'abord, supprimer les espaces potentiels et convertir en chaîne
-  const formattedCoords = coords.map(c => c.toString().trim());
-  // Ensuite, convertir chaque élément de la chaîne en nombre
-  return formattedCoords.map(c => parseFloat(c));
-}
+
+// function formatCoordsForAPI(coords) {
+//     // Vérifier si les coordonnées sont valides
+//     if (!Array.isArray(coords) || coords.length !== 2) {
+//         console.error("Les coordonnées ne sont pas valides.");
+//         return null;
+//     }
+
+//     // Enlever les espaces entre les coordonnées et convertir les nombres en format number
+//     const formattedCoords = [Number(coords[0]), Number(coords[1])];
+
+//     return formattedCoords;
+// }
+
+
+// function formatCoordsForAPI(coords) {
+//   // D'abord, supprimer les espaces potentiels et convertir en chaîne
+//   const formattedCoords = coords.map(c => c.toString().trim());
+//   // Ensuite, convertir chaque élément de la chaîne en nombre
+//   return formattedCoords.map(c => parseFloat(c));
+// }
   
-// function formatCoordsForAPI(coords) {
-//   // Convertit chaque coordonnée en chaîne de caractères et supprime les espaces
-//   return coords.map(c => c.toString().trim());
-// }
-// function formatCoordsForAPI(coords) {
-//   return coords.map(c => c.toString().trim()).join(',');
-// }
+function formatCoordsForAPI(coords) {
+  
+  return coords.map(c => c.trim());
+}
+function formatCoordsForAPI(coords) {
+  return coords.map(c => c.toString().trim()).join(',');
+}
 
 function displayOnMap(coords) {
   var olCoords = ol.proj.fromLonLat(coords);
