@@ -144,9 +144,22 @@ let endPoint = null;
 async function setStartPoint() {
   const address = document.getElementById('startAddress').value;
   console.log("Définition du point de départ pour l'adresse: ", address);
+
+  if (address) {
+    // Si une adresse est fournie, utilisez showLocation pour cette adresse
+    console.log("Utilisation de showLocation pour l'adresse: ", address);
+    await showLocation(address);
+} else {
+    // Si aucune adresse n'est fournie, utilisez showMyLocation pour obtenir la position actuelle
+    console.log("Utilisation de showMyLocation pour obtenir la position actuelle");
+    await showMyLocation();
+}
+
   const coords = await showLocation(address);
   console.log("Coordonnées du point de départ: ", coords);
+
   startPoint = coords;
+
   return coords;
 }
 
