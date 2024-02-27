@@ -54,6 +54,7 @@ async function showLocation(address) {
       }
   } else {
       console.log("Utilisation de la géolocalisation pour l'utilisateur actuel.");
+      console.log("Coordonnées obtenues: ", coords);
       // Utiliser la géolocalisation
       try {
           const position = await new Promise((resolve, reject) => {
@@ -66,18 +67,25 @@ async function showLocation(address) {
           return null;
       }
   }
-
+  
   // Inverser l'ordre des coordonnées
   // coords = [coords[1], coords[0]];
+  // console.log("Coordonnées inversées: ", coords);
+  
+  console.log(coords);
 
-  console.log("Coordonnées inversées: ", coords);
+  let formattedCoords = formatCoordinatesForAPI(coords);
 
   displayOnMap(coords);
 
-  return coords;
+  
+
+  return formattedCoords;
 }
 
-
+function formatCoordinatesForAPI(coords) {
+  return coords.map(c => c.toString().trim()).join(',');
+}
 
 function displayOnMap(coords) {
   var olCoords = ol.proj.fromLonLat(coords);
