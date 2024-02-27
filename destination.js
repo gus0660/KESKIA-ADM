@@ -59,7 +59,7 @@ async function showLocation(address) {
 
   if (coords) {
       displayOnMap(coords);
-    //  if (callback) callback(coords);   Appel du callback avec les coordonnées
+      return coords; // Ajouter cette ligne pour retourner les coordonnées
   } else {
       alert("Adresse non trouvée ou géolocalisation non disponible.");
   }
@@ -140,35 +140,32 @@ let endPoint = null;
 //     });
 // }
 
-function setStartPoint() {
-  return new Promise((resolve, reject) => {
-      const address = document.getElementById('startAddress').value;
-      showLocation(address, (coords) => {
-          startPoint = coords;
-          resolve(coords);
-      });
-  });
+async function setStartPoint() {
+  const address = document.getElementById('startAddress').value;
+  const coords = await showLocation(address);
+  startPoint = coords;
+  return coords;
 }
 
-function setEndPoint() {
-  return new Promise((resolve, reject) => {
-      const address = document.getElementById('endAddress').value;
-      showLocation(address, (coords) => {
-          endPoint = coords;
-          resolve(coords);
-      });
-  });
+async function setEndPoint() {
+  const address = document.getElementById('endAddress').value;
+  const coords = await showLocation(address);
+  endPoint = coords;
+  return coords;
 }
 
-// function handleRouteCalculation() {
-//   Promise.all([setStartPoint(), setEndPoint()])
-//       .then(() => {
-//           calculateAndDisplayRoute(startPoint, endPoint);
-//       })
-//       .catch(error => {
-//           console.error("Erreur lors de la définition des points de départ/arrivée", error);
-//       });
-// }
+
+function handleRouteCalculation() {
+  Promise.all([setStartPoint(), setEndPoint()])
+      .then((values) => {
+          const [startPoint, endPoint] = values;
+          calculateAndDisplayRoute(startPoint, endPoint);
+      })
+      .catch(error => {
+          console.error("Erreur lors de la définition des points de départ/arrivée", error);
+      });
+}
+
 
 async function calculateAndDisplayRoute(startPoint, endPoint) {
   console.log("startPoint:", startPoint, "endPoint:", endPoint);
