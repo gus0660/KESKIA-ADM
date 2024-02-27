@@ -76,8 +76,8 @@ async function showLocation(address) {
   let formattedCoords = formatCoordsForAPI(coords);
   displayOnMap(coords);
   return formattedCoords;
-
-}function formatCoordsForAPI(coords) {
+}
+function formatCoordsForAPI(coords) {
   // D'abord, supprimer les espaces potentiels et convertir en chaîne
   const formattedCoords = coords.map(c => c.toString().trim());
   // Ensuite, convertir chaque élément de la chaîne en nombre
