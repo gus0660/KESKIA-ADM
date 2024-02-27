@@ -124,22 +124,6 @@ function showMyLocation() {
 let startPoint = null;
 let endPoint = null;
 
-// Fonction pour mettre à jour le point de départ
-// function setStartPoint() {
-//     const address = document.getElementById('startAddress').value;
-//     showLocation(address, (coords) => {
-//         startPoint = coords;
-//     });
-// }
-
-// Fonction pour mettre à jour le point d'arrivée
-// function setEndPoint() {
-//     const address = document.getElementById('endAddress').value;
-//     showLocation(address, (coords) => {
-//         endPoint = coords;
-//     });
-// }
-
 async function setStartPoint() {
   const address = document.getElementById('startAddress').value;
   const coords = await showLocation(address);
@@ -222,21 +206,3 @@ async function calculateAndDisplayRoute(startPoint, endPoint) {
       console.error("Erreur de calcul de l'itinéraire:", error);
   }
 }
-// Votre fonction calculateAndDisplayRoute semble bien structurée pour traiter les coordonnées une fois qu'elles sont passées en argument. Cependant, pour intégrer cette fonction de manière fluide avec les modifications proposées précédemment, vous pouvez faire quelques ajustements mineurs :
-
-// Retirer le mot-clé async si non nécessaire : Si votre fonction n'utilise pas await en dehors du fetch, vous pouvez retirer le mot-clé async. Dans votre cas actuel, await est utilisé correctement, donc vous pouvez le conserver.
-
-// Passage des coordonnées en argument : Assurez-vous que les coordonnées sont correctement passées à calculateAndDisplayRoute depuis handleRouteCalculation. Comme vous avez modifié setStartPoint et setEndPoint pour retourner des promesses, startPoint et endPoint seront définis correctement avant l'appel de calculateAndDisplayRoute.
-
-// Vérification des erreurs : Vous avez déjà inclus un bloc try...catch pour gérer les erreurs potentielles lors de l'appel à l'API. C'est une bonne pratique.
-
-// En résumé, votre fonction calculateAndDisplayRoute est bien configurée pour être utilisée avec les modifications suggérées pour setStartPoint, setEndPoint, et handleRouteCalculation. Assurez-vous juste que les coordonnées sont correctement passées et que toutes les fonctions interagissent correctement.
-
-// Voici comment devrait se présenter la séquence d'appels :
-
-// L'utilisateur entre les adresses de départ et d'arrivée.
-// L'utilisateur clique sur le bouton pour calculer l'itinéraire.
-// handleRouteCalculation est appelé.
-// handleRouteCalculation attend que setStartPoint et setEndPoint aient fini (en utilisant Promise.all).
-// Une fois que les coordonnées sont prêtes, calculateAndDisplayRoute est appelé avec ces coordonnées.
-// calculateAndDisplayRoute procède au calcul et à l'affichage de l'itinéraire.
