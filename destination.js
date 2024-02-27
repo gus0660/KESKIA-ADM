@@ -214,67 +214,6 @@ function handleRouteCalculation() {
       });
 }
 
-
-// async function calculateAndDisplayRoute(startPoint, endPoint) {
-//   console.log("startPoint:", startPoint, "endPoint:", endPoint);
-//   console.log("Coordonnées de départ pour le calcul de l'itinéraire:", startPoint);
-//   console.log("Coordonnées d'arrivée pour le calcul de l'itinéraire:", endPoint);
-//   if (!startPoint || !endPoint) {
-//       alert("Veuillez spécifier à la fois un point de départ et un point d'arrivée.");
-//       return;
-//   }
-
-//   const apiKey = "5b3ce3597851110001cf6248265456eaefdf40ca9d7ce5ce7a189570";
-//   const requestBody = {
-//     coordinates: [startPoint, endPoint],
-//     profile: "driving-car",
-//     format: "json",
-//   };
-
-//   try {
-//       const response = await fetch("https://api.openrouteservice.org/v2/directions/driving-car", {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//           Authorization: apiKey,
-//         },
-//         body: JSON.stringify(requestBody),
-//       });
-//       const data = await response.json();
-
-//       console.log(data)// me dit : {error: {…}, info: {…}}
-//       console.log(data.error)
-//       if (data.features && data.features.length > 0) {
-//           const route = data.features[0];
-//           const routeGeometry = new ol.format.GeoJSON().readGeometry(route.geometry);
-
-//           const routeFeature = new ol.Feature({
-//               type: 'route',
-//               geometry: routeGeometry
-//           });
-
-//           const routeLayer = new ol.layer.Vector({
-//               source: new ol.source.Vector({
-//                   features: [routeFeature]
-//               }),
-//               style: new ol.style.Style({
-//                   stroke: new ol.style.Stroke({
-//                       width: 6,
-//                       color: [40, 40, 200, 0.8]
-//                   })
-//               })
-//           });
-
-//           map.addLayer(routeLayer);
-//           map.getView().fit(routeGeometry, { padding: [100, 100, 100, 100] });
-//       } else {
-//           console.log("Aucun itinéraire trouvé");
-//       }
-//   } catch (error) {
-//       console.error("Erreur de calcul de l'itinéraire:", error);
-//   }
-// }
-
 async function calculateAndDisplayRoute(startPoint, endPoint) {
   // Log pour vérifier si startPoint et endPoint sont des tableaux
   console.log("Is startPoint an array?", Array.isArray(startPoint));
