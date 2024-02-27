@@ -59,7 +59,7 @@ async function showLocation(address) {
 
   if (coords) {
       displayOnMap(coords);
-      if (callback) callback(coords);  // Appel du callback avec les coordonnées
+    //  if (callback) callback(coords);   Appel du callback avec les coordonnées
   } else {
       alert("Adresse non trouvée ou géolocalisation non disponible.");
   }
@@ -125,79 +125,121 @@ let startPoint = null;
 let endPoint = null;
 
 // Fonction pour mettre à jour le point de départ
-function setStartPoint() {
-    const address = document.getElementById('startAddress').value;
-    showLocation(address, (coords) => {
-        startPoint = coords;
-    });
-}
+// function setStartPoint() {
+//     const address = document.getElementById('startAddress').value;
+//     showLocation(address, (coords) => {
+//         startPoint = coords;
+//     });
+// }
 
 // Fonction pour mettre à jour le point d'arrivée
+// function setEndPoint() {
+//     const address = document.getElementById('endAddress').value;
+//     showLocation(address, (coords) => {
+//         endPoint = coords;
+//     });
+// }
+
+function setStartPoint() {
+  return new Promise((resolve, reject) => {
+      const address = document.getElementById('startAddress').value;
+      showLocation(address, (coords) => {
+          startPoint = coords;
+          resolve(coords);
+      });
+  });
+}
+
 function setEndPoint() {
-    const address = document.getElementById('endAddress').value;
-    showLocation(address, (coords) => {
-        endPoint = coords;
-    });
+  return new Promise((resolve, reject) => {
+      const address = document.getElementById('endAddress').value;
+      showLocation(address, (coords) => {
+          endPoint = coords;
+          resolve(coords);
+      });
+  });
 }
 
-function calculateRoute(startPoint, endPoint) {
-  var apiKey = "5b3ce3597851110001cf6248265456eaefdf40ca9d7ce5ce7a189570";
-  var requestBody = {
-    coordinates: [startPoint, endPoint],
-    profile: "driving-car",
-    format: "json",
-  };
+// function handleRouteCalculation() {
+//   Promise.all([setStartPoint(), setEndPoint()])
+//       .then(() => {
+//           calculateAndDisplayRoute(startPoint, endPoint);
+//       })
+//       .catch(error => {
+//           console.error("Erreur lors de la définition des points de départ/arrivée", error);
+//       });
+// }
 
-  fetch("https://api.openrouteservice.org/v2/directions/driving-car", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: apiKey,
-    },
-    body: JSON.stringify(requestBody),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // Affichez l'itinéraire sur la carte ici
-      
-    })
-    .catch((error) => console.log(error));
-}
-
-function calculateAndDisplayRoute() {
+async function calculateAndDisplayRoute(startPoint, endPoint) {
+  console.log("startPoint:", startPoint, "endPoint:", endPoint);
   if (!startPoint || !endPoint) {
       alert("Veuillez spécifier à la fois un point de départ et un point d'arrivée.");
       return;
   }
 
-  calculateRoute(startPoint, endPoint)
-      .then((data) => {
-          if (data.features && data.features.length > 0) {
-              const route = data.features[0];
-              const routeGeometry = new ol.format.GeoJSON().readGeometry(route.geometry);
+  const apiKey = "5b3ce3597851110001cf6248265456eaefdf40ca9d7ce5ce7a189570";
+  const requestBody = {
+    coordinates: [startPoint, endPoint],
+    profile: "driving-car",
+    format: "json",
+  };
 
-              const routeFeature = new ol.Feature({
-                  type: 'route',
-                  geometry: routeGeometry
-              });
+  try {
+      const response = await fetch("https://api.openrouteservice.org/v2/directions/driving-car", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: apiKey,
+        },
+        body: JSON.stringify(requestBody),
+      });
+      const data = await response.json();
 
-              const routeLayer = new ol.layer.Vector({
-                  source: new ol.source.Vector({
-                      features: [routeFeature]
-                  }),
-                  style: new ol.style.Style({
-                      stroke: new ol.style.Stroke({
-                          width: 6,
-                          color: [40, 40, 200, 0.8]
-                      })
+      if (data.features && data.features.length > 0) {
+          const route = data.features[0];
+          const routeGeometry = new ol.format.GeoJSON().readGeometry(route.geometry);
+
+          const routeFeature = new ol.Feature({
+              type: 'route',
+              geometry: routeGeometry
+          });
+
+          const routeLayer = new ol.layer.Vector({
+              source: new ol.source.Vector({
+                  features: [routeFeature]
+              }),
+              style: new ol.style.Style({
+                  stroke: new ol.style.Stroke({
+                      width: 6,
+                      color: [40, 40, 200, 0.8]
                   })
-              });
+              })
+          });
 
-              map.addLayer(routeLayer);
-              map.getView().fit(routeGeometry, { padding: [100, 100, 100, 100] });
-          } else {
-              console.log("Aucun itinéraire trouvé");
-          }
-      })
-      .catch((error) => console.log("Erreur de calcul de l'itinéraire:", error));
+          map.addLayer(routeLayer);
+          map.getView().fit(routeGeometry, { padding: [100, 100, 100, 100] });
+      } else {
+          console.log("Aucun itinéraire trouvé");
+      }
+  } catch (error) {
+      console.error("Erreur de calcul de l'itinéraire:", error);
+  }
 }
+// Votre fonction calculateAndDisplayRoute semble bien structurée pour traiter les coordonnées une fois qu'elles sont passées en argument. Cependant, pour intégrer cette fonction de manière fluide avec les modifications proposées précédemment, vous pouvez faire quelques ajustements mineurs :
+
+// Retirer le mot-clé async si non nécessaire : Si votre fonction n'utilise pas await en dehors du fetch, vous pouvez retirer le mot-clé async. Dans votre cas actuel, await est utilisé correctement, donc vous pouvez le conserver.
+
+// Passage des coordonnées en argument : Assurez-vous que les coordonnées sont correctement passées à calculateAndDisplayRoute depuis handleRouteCalculation. Comme vous avez modifié setStartPoint et setEndPoint pour retourner des promesses, startPoint et endPoint seront définis correctement avant l'appel de calculateAndDisplayRoute.
+
+// Vérification des erreurs : Vous avez déjà inclus un bloc try...catch pour gérer les erreurs potentielles lors de l'appel à l'API. C'est une bonne pratique.
+
+// En résumé, votre fonction calculateAndDisplayRoute est bien configurée pour être utilisée avec les modifications suggérées pour setStartPoint, setEndPoint, et handleRouteCalculation. Assurez-vous juste que les coordonnées sont correctement passées et que toutes les fonctions interagissent correctement.
+
+// Voici comment devrait se présenter la séquence d'appels :
+
+// L'utilisateur entre les adresses de départ et d'arrivée.
+// L'utilisateur clique sur le bouton pour calculer l'itinéraire.
+// handleRouteCalculation est appelé.
+// handleRouteCalculation attend que setStartPoint et setEndPoint aient fini (en utilisant Promise.all).
+// Une fois que les coordonnées sont prêtes, calculateAndDisplayRoute est appelé avec ces coordonnées.
+// calculateAndDisplayRoute procède au calcul et à l'affichage de l'itinéraire.
