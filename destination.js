@@ -73,13 +73,8 @@ async function showLocation(address) {
   // console.log("Coordonnées inversées: ", coords);
   
   console.log(coords);
-
   let formattedCoords = formatCoordinatesForAPI(coords);
-
   displayOnMap(coords);
-
-  
-
   return formattedCoords;
 }
 
