@@ -115,7 +115,7 @@ function displayOnMap(coords) {
 function showMyLocation() {
   if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(function (position) {
-      var coords = [position.coords.latitude, position.coords.longitude];
+      var coords = [position.coords.longitude, position.coords.latitude];
       var olCoords = ol.proj.fromLonLat(coords);
       map.getView().animate({ center: olCoords, zoom: 14 });
 
