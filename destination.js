@@ -20,9 +20,9 @@ async function getCoordinatesFromAddress(address) {
           `https://api.openrouteservice.org/geocode/search?api_key=${apiKey}&text=${encodeURIComponent(address)}`
       );
       const data = await response.json();
-
+        // console.log(data)
       if (data.features && data.features.length > 0) {
-          // Prend la première fonctionnalité de la réponse
+          // console.log(data.features)
           const firstFeature = data.features[0];
           const coords = firstFeature.geometry.coordinates;
           // Les coordonnées sont retournées sous forme [longitude, latitude]
@@ -73,12 +73,12 @@ async function showLocation(address) {
   // console.log("Coordonnées inversées: ", coords);
   
   console.log(coords);
-  let formattedCoords = formatCoordinatesForAPI(coords);
+  let formattedCoords = formatCoordsForAPI(coords);
   displayOnMap(coords);
   return formattedCoords;
 }
 
-function formatCoordinatesForAPI(coords) {
+function formatCoordsForAPI(coords) {
   return coords.map(c => c.toString().trim()).join(',');
 }
 
