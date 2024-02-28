@@ -46,7 +46,12 @@ function includeNavbar() {
             <span class="nav-subtext">De votre séjour</span>
           </div>
         </li>
-    
+        <li class="nav-item">
+        <div class="nav-content">
+          <a class="nav-link" href="mon-compte.html">MON COMPTE</a>
+          <span class="nav-subtext">Créer Mon Compte</span>
+        </div>
+      </li>
       </ul>
       <button class="btn btn-secondary d-block d-sm-none" id="back-button">
         <a href="index.html" style="text-decoration: none; color: white;">ACCUEIL</a>
