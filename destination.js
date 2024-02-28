@@ -167,28 +167,6 @@ async function getCoordinatesFromAddress(address) {
   }
 }
 
-async function handleRouteCalculation() {
-  console.log("Calcul de l'itinéraire en cours...");
-  try {
-    const startCoords = await setStartPoint();
-    const endCoords = await setEndPoint();
-    // Assurez-vous que startCoords et endCoords sont des tableaux
-    startPoint = Array.isArray(startCoords) ? startCoords : null;
-    endPoint = Array.isArray(endCoords) ? endCoords : null;
-    if (!startPoint || !endPoint) {
-      alert(
-        "Veuillez spécifier à la fois un point de départ et un point d'arrivée."
-      );
-      return;
-    }
-    // console.log("Is startPoint an array?", Array.isArray(startPoint));
-    // console.log("Is endPoint an array?", Array.isArray(endPoint));
-    calculateAndDisplayRoute(startPoint, endPoint);
-  } catch (error) {
-    console.error("Erreur lors du calcul de l'itinéraire:", error);
-  }
-}
-
 async function calculateAndDisplayRoute(startPoint, endPoint) {
   // console.log("Start Point:", startPoint);
   // console.log("End Point:", endPoint);
@@ -256,5 +234,27 @@ async function calculateAndDisplayRoute(startPoint, endPoint) {
     }
   } catch (error) {
     console.error("Erreur lors de la requête à l'API:", error);
+  }
+}
+
+async function handleRouteCalculation() {
+  console.log("Calcul de l'itinéraire en cours...");
+  try {
+    const startCoords = await setStartPoint();
+    const endCoords = await setEndPoint();
+    // Assurez-vous que startCoords et endCoords sont des tableaux
+    startPoint = Array.isArray(startCoords) ? startCoords : null;
+    endPoint = Array.isArray(endCoords) ? endCoords : null;
+    if (!startPoint || !endPoint) {
+      alert(
+        "Veuillez spécifier à la fois un point de départ et un point d'arrivée."
+      );
+      return;
+    }
+    // console.log("Is startPoint an array?", Array.isArray(startPoint));
+    // console.log("Is endPoint an array?", Array.isArray(endPoint));
+    calculateAndDisplayRoute(startPoint, endPoint);
+  } catch (error) {
+    console.error("Erreur lors du calcul de l'itinéraire:", error);
   }
 }
