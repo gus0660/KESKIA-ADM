@@ -74,14 +74,6 @@ async function showLocation(address) {
     displayOnMap(coords); // Envoie les coordonnées directement à la fonction d'affichage sans modification
     return coords;
   }
-  
-function formatCoordsForAPI(coords) {
-  
-  return coords.map(c => c.trim());
-}
-function formatCoordsForAPI(coords) {
-  return coords.map(c => c.toString().trim()).join(',');
-}
 
 function displayOnMap(coords) {
   var olCoords = ol.proj.fromLonLat(coords);
