@@ -12,32 +12,6 @@ const map = new ol.Map({
   }),
 });
 
-async function getCoordinatesFromAddress(address) {
-  var apiKey = "5b3ce3597851110001cf6248265456eaefdf40ca9d7ce5ce7a189570";
-
-  try {
-      const response = await fetch(
-          `https://api.openrouteservice.org/geocode/search?api_key=${apiKey}&text=${encodeURIComponent(address)}`
-      );
-      const data = await response.json();
-        // console.log(data)
-      if (data.features && data.features.length > 0) {
-          // console.log(data.features)
-          const firstFeature = data.features[0];
-          const coords = firstFeature.geometry.coordinates;
-          // Les coordonnées sont retournées sous forme [longitude, latitude]
-          return [coords[0], coords[1]];
-      } else {
-          // Gérer le cas où aucune fonctionnalité n'est trouvée
-          console.log("Aucune adresse trouvée");
-          return null;
-      }
-  } catch (error) {
-      console.error("Erreur lors du géocodage: ", error);
-      return null;
-  }
-}
-
 async function showLocation(address) {
     let coords;
   
@@ -74,6 +48,34 @@ async function showLocation(address) {
     displayOnMap(coords); // Envoie les coordonnées directement à la fonction d'affichage sans modification
     return coords;
   }
+
+async function getCoordinatesFromAddress(address) {
+  var apiKey = "5b3ce3597851110001cf6248265456eaefdf40ca9d7ce5ce7a189570";
+
+  try {
+      const response = await fetch(
+          `https://api.openrouteservice.org/geocode/search?api_key=${apiKey}&text=${encodeURIComponent(address)}`
+      );
+      const data = await response.json();
+        // console.log(data)
+      if (data.features && data.features.length > 0) {
+          // console.log(data.features)
+          const firstFeature = data.features[0];
+          const coords = firstFeature.geometry.coordinates;
+          // Les coordonnées sont retournées sous forme [longitude, latitude]
+          return [coords[0], coords[1]];
+      } else {
+          // Gérer le cas où aucune fonctionnalité n'est trouvée
+          console.log("Aucune adresse trouvée");
+          return null;
+      }
+  } catch (error) {
+      console.error("Erreur lors du géocodage: ", error);
+      return null;
+  }
+}
+
+
 
 function displayOnMap(coords) {
   var olCoords = ol.proj.fromLonLat(coords);
