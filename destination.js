@@ -173,7 +173,7 @@ async function setStartPoint() {
 }
 
   const coords = await showLocation(address);
-  console.log("Coordonnées du point de départ: ", coords);
+//   console.log("Coordonnées du point de départ: ", coords);
 
   startPoint = coords;
 
@@ -184,7 +184,7 @@ async function setEndPoint() {
   const address = document.getElementById('endAddress').value;
   console.log("Définition du point d'arrivée pour l'adresse: ", address);
   const coords = await showLocation(address);
-  console.log("Coordonnées du point d'arrivée: ", coords);
+//   console.log("Coordonnées du point d'arrivée: ", coords);
   endPoint = coords;
 
   return coords;
