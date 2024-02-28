@@ -133,7 +133,7 @@ body {
   height: 72vh;
 }
 .style-main {
-  background-color: rgba(195, 241, 213, 0.9); /* #C3F1D5 avec 90% d'opacité */
+  background-color: rgba(195, 241, 213, 0.9);
   border-radius: 25px;
   border: 1px solid black;
   height: 100%;
