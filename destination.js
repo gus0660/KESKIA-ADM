@@ -9,8 +9,6 @@ const map = new ol.Map({
   view: new ol.View({
     center: ol.proj.fromLonLat([5.60449, 43.17436]),
     zoom: 10,
-    // minZoom: 1,
-    // maxZoom: 19,
   }),
 });
 
@@ -46,7 +44,7 @@ async function showLocation(address) {
     
     // Formatage des coordonnées en tant que chaîne sans espace
     const formattedCoords = coords.map(c => c.toString()).join(',');
-    console.log("Coordonnées sans espace:", formattedCoords);
+    // console.log("Coordonnées sans espace:", formattedCoords);
     displayOnMap(coords); // Envoie les coordonnées directement à la fonction d'affichage sans modification
     return coords;
   }
@@ -156,15 +154,15 @@ let endPoint = null;
 
 async function setStartPoint() {
   const address = document.getElementById('startAddress').value;
-  console.log("Définition du point de départ pour l'adresse: ", address);
+//   console.log("Définition du point de départ pour l'adresse: ", address);
 
   if (address) {
     // Si une adresse est fournie, utilisez showLocation pour cette adresse
-    console.log("Utilisation de showLocation pour l'adresse: ", address);
+    // console.log("Utilisation de showLocation pour l'adresse: ", address);
     await showLocation(address);
 } else {
     // Si aucune adresse n'est fournie, utilisez showMyLocation pour obtenir la position actuelle
-    console.log("Utilisation de showMyLocation pour obtenir la position actuelle");
+    // console.log("Utilisation de showMyLocation pour obtenir la position actuelle");
     await showMyLocation();
 }
 
@@ -178,7 +176,7 @@ async function setStartPoint() {
 
 async function setEndPoint() {
   const address = document.getElementById('endAddress').value;
-  console.log("Définition du point d'arrivée pour l'adresse: ", address);
+//   console.log("Définition du point d'arrivée pour l'adresse: ", address);
   const coords = await showLocation(address);
 //   console.log("Coordonnées du point d'arrivée: ", coords);
   endPoint = coords;
@@ -201,8 +199,8 @@ async function handleRouteCalculation() {
             return;
         }
 
-        console.log("Is startPoint an array?", Array.isArray(startPoint));
-        console.log("Is endPoint an array?", Array.isArray(endPoint));
+        // console.log("Is startPoint an array?", Array.isArray(startPoint));
+        // console.log("Is endPoint an array?", Array.isArray(endPoint));
 
         calculateAndDisplayRoute(startPoint, endPoint);
     } catch (error) {
@@ -211,8 +209,8 @@ async function handleRouteCalculation() {
 }
 
 async function calculateAndDisplayRoute(startPoint, endPoint) {
-    console.log("Start Point:", startPoint);
-    console.log("End Point:", endPoint);
+    // console.log("Start Point:", startPoint);
+    // console.log("End Point:", endPoint);
   
     if (!Array.isArray(startPoint) || !Array.isArray(endPoint) || startPoint.length !== 2 || endPoint.length !== 2) {
         alert("Veuillez spécifier à la fois un point de départ et un point d'arrivée.");
@@ -235,7 +233,7 @@ async function calculateAndDisplayRoute(startPoint, endPoint) {
         }
 
         const data = await response.json();
-        console.log("Response from API:", data);
+        // console.log("Response from API:", data);
   
         if (data.features && data.features.length > 0) {
             const route = data.features[0];
@@ -245,8 +243,7 @@ async function calculateAndDisplayRoute(startPoint, endPoint) {
                 dataProjection: 'EPSG:4326',
                 featureProjection: 'EPSG:3857'
             });
-            // const routeGeometry = new ol.format.GeoJSON().readGeometry(route.geometry);
-            console.log("Route Geometry:", routeGeometry);
+            // console.log("Route Geometry:", routeGeometry);
   
             const routeFeature = new ol.Feature({
                 type: 'route',
@@ -266,7 +263,10 @@ async function calculateAndDisplayRoute(startPoint, endPoint) {
             });
   
             map.addLayer(routeLayer);
-            map.getView().fit(routeGeometry, { padding: [100, 100, 100, 100] });
+            map.getView().fit(routeGeometry, { 
+                padding: [100, 100, 100, 100], 
+                zoom: 10
+            });
         } else {
             console.log("Aucun itinéraire trouvé");
         }
