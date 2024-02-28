@@ -239,7 +239,13 @@ async function calculateAndDisplayRoute(startPoint, endPoint) {
   
         if (data.features && data.features.length > 0) {
             const route = data.features[0];
-            const routeGeometry = new ol.format.GeoJSON().readGeometry(route.geometry);
+
+            // Lire et transformer directement la géométrie
+            const routeGeometry = new ol.format.GeoJSON().readGeometry(route.geometry, {
+                dataProjection: 'EPSG:4326',
+                featureProjection: 'EPSG:3857'
+            });
+            // const routeGeometry = new ol.format.GeoJSON().readGeometry(route.geometry);
             console.log("Route Geometry:", routeGeometry);
   
             const routeFeature = new ol.Feature({
