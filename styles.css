@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.accueil, .destination, .organisation, .decouvrir {
+.accueil, .destination, .organisation, .decouvrir, .mon-compte {
   /* margin: 0; */
   /* padding: 0; */
   background-size: cover;
@@ -22,6 +22,9 @@ body {
 }
 .decouvrir {
   background-image: url('images/aleksandar.webp');
+}
+.mon-compte {
+  background-image: url('images/soleil.webp');
 }
 .navbar {
   background-color: rgba(217, 217, 217, 0.6);
