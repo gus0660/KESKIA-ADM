@@ -217,35 +217,27 @@ async function calculateAndDisplayRoute(startPoint, endPoint) {
         return;
     }
   
-    console.log("Coordinates are properly formatted.");
-  
     const apiKey = "5b3ce3597851110001cf6248265456eaefdf40ca9d7ce5ce7a189570";
-    const requestBody = {
-        coordinates: [startPoint, endPoint],
-        profile: "driving-car",
-        format: "json",
-    };
-  
+    const url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${apiKey}&start=${startPoint.join(',')}&end=${endPoint.join(',')}`;
+    
     try {
-        const response = await fetch("https://api.openrouteservice.org/v2/directions/driving-car", {
-            method: "POST",
+        const response = await fetch(url, {
+            method: 'GET',
             headers: {
-                "Content-Type": "application/json",
-                Authorization: apiKey,
-            },
-            body: JSON.stringify(requestBody),
+                'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8'
+            }
         });
-        const data = await response.json();
-  
-        console.log("Response from API:", data);
-        console.log("Routes from API:", data.routes);
-        const route = data.routes[0];
-        console.log("Route from API:", route);
 
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        console.log("Response from API:", data);
+  
         if (data.features && data.features.length > 0) {
             const route = data.features[0];
             const routeGeometry = new ol.format.GeoJSON().readGeometry(route.geometry);
-  
             console.log("Route Geometry:", routeGeometry);
   
             const routeFeature = new ol.Feature({
@@ -271,6 +263,6 @@ async function calculateAndDisplayRoute(startPoint, endPoint) {
             console.log("Aucun itinéraire trouvé");
         }
     } catch (error) {
-        console.error("Erreur de calcul de l'itinéraire:", error);
+        console.error("Erreur lors de la requête à l'API:", error);
     }
-  }
+}
