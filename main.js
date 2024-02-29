@@ -134,15 +134,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function resetLoginForm() {
-  var emailInput = document.getElementById('email');
-  var passwordInput = document.getElementById('password');
+  let emailInput = document.querySelector('#email');
+  let passwordInput = document.querySelector('#password');
 
   emailInput.value = '';
   passwordInput.value = '';
 }
 function closeNavbar() {
-  var navbarToggler = document.querySelector('.navbar-toggler');
-  var navbarCollapse = document.querySelector('.navbar-collapse');
+  let navbarToggler = document.querySelector('.navbar-toggler');
+  let navbarCollapse = document.querySelector('.navbar-collapse');
 
   if (navbarCollapse.classList.contains('show')) {
     navbarToggler.click();
@@ -182,79 +182,157 @@ function includeFooter() {
 }
 
 // LOCAL STORAGE
-document.querySelector('#update').addEventListener('submit', function() {
-  let fullName = document.querySelector('#fullName').value;
-  let email = document.querySelector('#eMail').value;
-  let identifiant = document.querySelector('#identifiant').value;
-  let phone = document.querySelector('#phone').value;
-  let password = document.querySelector('#password').value;
-  let confirmPassword = document.querySelector('#confirmPassword').value;
+// document.querySelector('#update').addEventListener('submit', function() {
+//   let fullName = document.querySelector('#fullName').value;
+//   let email = document.querySelector('#eMail').value;
+//   let identifiant = document.querySelector('#identifiant').value;
+//   let phone = document.querySelector('#phone').value;
+//   let password = document.querySelector('#password').value;
+//   let confirmPassword = document.querySelector('#confirmPassword').value;
 
 
   // Création d'un objet utilisateur
-  let user = {
-      fullName: fullName,
-      email: email,
-      identifiant: identifiant,
-      phone: phone,
-      password: password,
-      confirmPassword: confirmPassword
-  };
+  // let user = {
+  //     fullName: fullName,
+  //     email: email,
+  //     identifiant: identifiant,
+  //     phone: phone,
+  //     password: password,
+  //     confirmPassword: confirmPassword
+  // };
 
   // Affichage des informations de l'utilisateur dans la console
-  console.log("Création de l'utilisateur :", user);
+  // console.log("Création de l'utilisateur :", user);
   
   // Stockage de l'utilisateur dans le localStorage
-  localStorage.setItem('user', JSON.stringify(user));
-  console.log("Utilisateur enregistré dans localStorage");
+  // localStorage.setItem('user', JSON.stringify(user));
+  // console.log("Utilisateur enregistré dans localStorage");
 
   // Modifier le comportement du bouton "MON COMPTE"
-  localStorage.setItem('isUserLoggedIn', 'true');
-  console.log("Statut de connexion de l'utilisateur mis à jour dans localStorage");
+  // localStorage.setItem('isUserLoggedIn', 'true');
+  // console.log("Statut de connexion de l'utilisateur mis à jour dans localStorage");
   // Afficher une alerte après la création du compte
-  alert("Votre compte est créé");
-});
+//   alert("Votre compte est créé");
+// });
 
-document.addEventListener('DOMContentLoaded', function() {
-  let isUserLoggedIn = localStorage.getItem('isUserLoggedIn');
-  console.log("Statut de connexion actuel de l'utilisateur :", isUserLoggedIn);
+// document.addEventListener('DOMContentLoaded', function() {
+//   let isUserLoggedIn = localStorage.getItem('isUserLoggedIn');
+//   console.log("Statut de connexion actuel de l'utilisateur :", isUserLoggedIn);
 
-  let accountButton = document.querySelector('#navbDdMenu');
-    if (accountButton && isUserLoggedIn) {
-        accountButton.href = 'mon-compte.html';
-        console.log("Lien du bouton 'MON COMPTE' mis à jour");
-  }
-});
+//   let accountButton = document.querySelector('#navbDdMenu');
+//     if (accountButton && isUserLoggedIn) {
+//         accountButton.href = 'mon-compte.html';
+//         console.log("Lien du bouton 'MON COMPTE' mis à jour");
+//   }
+// });
 
 // Supposons que vous ayez un formulaire avec id="accountForm"
-console.log("Attaching event listener to #accountForm");
-document.querySelector('#accountForm').addEventListener('submit', function(event) {
-  console.log("Form submitted");
-  event.preventDefault();
+// console.log("Attaching event listener to #accountForm");
+// document.querySelector('#accountForm').addEventListener('submit', function(event) {
+//   console.log("Form submitted");
+//   event.preventDefault();
 
-  let emailInput = document.querySelector('#eMail').value;
-  let passwordInput = document.querySelector('#password').value;
+//   let emailInput = document.querySelector('#eMail').value;
+//   let passwordInput = document.querySelector('#password').value;
 
-  let user = JSON.parse(localStorage.getItem('user'));
-  console.log("Tentative de connexion avec les identifiants :", emailInput, passwordInput);
+//   let user = JSON.parse(localStorage.getItem('user'));
+//   console.log("Tentative de connexion avec les identifiants :", emailInput, passwordInput);
 
-  if (emailInput === user.email && passwordInput === user.password) {
+//   if (emailInput === user.email && passwordInput === user.password) {
       // L'utilisateur est connecté
-      localStorage.setItem('isUserLoggedIn', 'true');
-      console.log("Connexion réussie, redirection vers 'mon-compte.html'");
-      window.location.href = 'mon-compte.html'; // Redirection vers la page de compte
-  } else {
-    console.log("Échec de la connexion");
-    alert('Identifiants incorrects');
+//       localStorage.setItem('isUserLoggedIn', 'true');
+//       console.log("Connexion réussie, redirection vers 'mon-compte.html'");
+//       window.location.href = 'mon-compte.html'; // Redirection vers la page de compte
+//   } else {
+//     console.log("Échec de la connexion");
+//     alert('Identifiants incorrects');
+//   }
+// });
+
+// Gestionnaire pour le bouton "Supprimer le Compte"
+// document.querySelector('#deleteAccount').addEventListener('click', function() {
+  // Supprimer les données du compte du localStorage
+  // localStorage.removeItem('user');
+  // localStorage.setItem('isUserLoggedIn', 'false');
+
+  // Afficher une alerte confirmant la suppression
+//   alert("Votre compte vient d'être supprimé");
+// });
+
+// Étape 1 : Affichage du Modal de Connexion depuis la Navbar
+// document.querySelector('#navbDdMenu').addEventListener('click', function(event) {
+//   event.preventDefault();
+//   let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+//   console.log("Étape 1: Vérification si l'utilisateur est connecté :", isUserLoggedIn);
+//   if (!isUserLoggedIn) {
+//     document.getElementById('loginModal').style.display = 'block';
+//     console.log("Affichage du modal de connexion");
+//   } else {
+//     console.log("Redirection vers la page 'mon compte'");
+//     window.location.href = 'mon-compte.html';
+//   }
+// });
+
+// Étape 2 : Gestion de la Connexion
+// document.querySelector('#dropdownLoginForm').addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   console.log("Étape 2: Traitement du formulaire de connexion");
+//   let emailInput = document.querySelector('#dropdownEmail').value;
+//   let passwordInput = document.querySelector('#dropdownPassword').value;
+//   let storedUser = JSON.parse(localStorage.getItem('user'));
+
+//   if (storedUser && emailInput === storedUser.email && passwordInput === storedUser.password) {
+//     console.log("Connexion réussie");
+//     localStorage.setItem('isUserLoggedIn', 'true');
+//     window.location.href = 'mon-compte.html';
+//   } else {
+//     console.log("Identifiants incorrects");
+//     alert("Identifiants incorrects");
+//   }
+// });
+
+// Étape 3 : Création de Compte sur la Page "Mon Compte"
+document.querySelector('#accountForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  console.log("Étape 3: Traitement du formulaire de création de compte");
+  let user = {
+    fullName: document.querySelector('#fullName').value,
+    email: document.querySelector('#eMail').value,
+    identifiant: document.querySelector('#identifiant').value,
+    phone: document.querySelector('#phone').value,
+    password: document.querySelector('#password').value,
+    confirmPassword: document.querySelector('#confirmPassword').value
+  };
+
+  console.log("Utilisateur créé :", user);
+  localStorage.setItem('user', JSON.stringify(user));
+  localStorage.setItem('isUserLoggedIn', 'true');
+  alert("Votre compte est créé");
+  window.location.href = 'mon-compte.html';
+});
+
+// Étape 4 : Pré-remplissage de la Page "Mon Compte"
+document.addEventListener('DOMContentLoaded', function() {
+  console.log("Étape 4: Pré-remplissage de la page 'mon compte'");
+  let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+  if (isUserLoggedIn) {
+    let storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      document.querySelector('#fullName').value = storedUser.fullName;
+      document.querySelector('#eMail').value = storedUser.email;
+      document.querySelector('#identifiant').value = storedUser.identifiant;
+      document.querySelector('#phone').value = storedUser.phone;
+      // Ne pas pré-remplir les champs mot de passe pour des raisons de sécurité
+      console.log("Données de l'utilisateur pré-remplies");
+    }
   }
 });
 
-// Gestionnaire pour le bouton "Supprimer le Compte"
+// Étape 5 : Gestion des Déconnexions et Suppressions de Compte
 document.querySelector('#deleteAccount').addEventListener('click', function() {
-  // Supprimer les données du compte du localStorage
+  console.log("Étape 5: Suppression du compte utilisateur");
   localStorage.removeItem('user');
   localStorage.setItem('isUserLoggedIn', 'false');
-
-  // Afficher une alerte confirmant la suppression
   alert("Votre compte vient d'être supprimé");
+  window.location.href = 'index.html';
 });
