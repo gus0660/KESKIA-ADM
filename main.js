@@ -111,6 +111,12 @@ closeModalButton.addEventListener('click', function() {
     resetLoginForm(); // Appelle la fonction de réinitialisation
 });
 
+var accountButton = document.getElementById('navbDdMenu');
+accountButton.addEventListener('click', function(event) {
+    // Logique existante pour afficher le modal...
+    closeNavbar(); // Ferme le menu burger
+});
+
   // Trouvez l'élément sur la page où vous souhaitez inclure la barre de navigation
   var navbarContainer = document.querySelector("#navbar-container");
 }
@@ -122,7 +128,14 @@ function resetLoginForm() {
   emailInput.value = '';
   passwordInput.value = '';
 }
+function closeNavbar() {
+  var navbarToggler = document.querySelector('.navbar-toggler');
+  var navbarCollapse = document.querySelector('.navbar-collapse');
 
+  if (navbarCollapse.classList.contains('show')) {
+      navbarToggler.click();
+  }
+}
 
 function includeFooter() {
   // Créez un nouvel élément <footer> pour contenir le pied de page
