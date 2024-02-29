@@ -1,6 +1,3 @@
-
-
-
 function includeNavbar() {
   // Créez un nouvel élément <nav> pour contenir la barre de navigation
   var navbar = document.createElement("nav");
@@ -47,11 +44,11 @@ function includeNavbar() {
           </div>
         </li>
         <li class="nav-item">
-        <div class="nav-content">
-          <a class="nav-link" href="connection.html">MON COMPTE</a>
-          <span class="nav-subtext">Créer Mon Compte</span>
-        </div>
-      </li>
+          <div class="nav-content">
+            <a class="nav-link" id="navbDdMenu" href="#">MON COMPTE</a>
+            <span class="nav-subtext">Créer Mon Compte</span>
+          </div>
+        </li>
       </ul>
       <button class="btn btn-secondary d-block d-sm-none" id="back-button">
         <a href="index.html" style="text-decoration: none; color: white;">ACCUEIL</a>
@@ -59,13 +56,73 @@ function includeNavbar() {
     </div>
   </div>
     `;
+    // Trouver l'élément de conteneur de la barre de navigation et l'ajouter
+    var navbarContainer = document.querySelector("#navbar-container");
+    navbarContainer.appendChild(navbar);
+
+    // Création du modal de connexion
+    var loginModal = document.createElement("div");
+    loginModal.id = "loginModal";
+    loginModal.className = "login-modal";
+    loginModal.style.display = "none"; // Cachez-le initialement
+    loginModal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Connexion</h5>
+                <button type="button" class="close" id="closeModal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Formulaire de connexion -->
+                <form>
+                    <div class="form-group">
+                        <label for="email">Adresse Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Mot de Passe</label>
+                        <input type="password" class="form-control" id="password" placeholder="Mot de passe">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Se Connecter</button>
+                </form>
+                <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">New around here? Sign up</a>
+                  <a class="dropdown-item" href="#">Forgot password?</a>
+                </div>
+        </div>
+    `;
+    // Ajout du modal à la fin du body
+    document.body.appendChild(loginModal);
+
+    // Ajout d'un écouteur d'événements pour afficher le modal lors du clic sur "MON COMPTE"
+    var accountButton = document.getElementById('navbDdMenu');
+    accountButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Empêche la navigation par défaut
+        loginModal.style.display = 'block'; // Affiche le modal
+        loginModal.classList.add('show'); // Ajoutez la classe 'show' pour afficher le modal
+    });
+
+    // Ajout d'un écouteur d'événements pour fermer le modal
+var closeModalButton = document.getElementById('closeModal');
+closeModalButton.addEventListener('click', function() {
+    loginModal.style.display = 'none';
+    loginModal.classList.remove('show');
+    resetLoginForm(); // Appelle la fonction de réinitialisation
+});
 
   // Trouvez l'élément sur la page où vous souhaitez inclure la barre de navigation
   var navbarContainer = document.querySelector("#navbar-container");
-
-  // Ajoutez la barre de navigation à cet élément
-  navbarContainer.appendChild(navbar);
 }
+
+function resetLoginForm() {
+  var emailInput = document.getElementById('email');
+  var passwordInput = document.getElementById('password');
+  
+  emailInput.value = '';
+  passwordInput.value = '';
+}
+
 
 function includeFooter() {
   // Créez un nouvel élément <footer> pour contenir le pied de page
