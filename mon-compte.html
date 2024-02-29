@@ -15,57 +15,55 @@
     <header id="navbar-container"></header>
 
     <div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row gutters">
-                        <!-- Colonne de gauche (Nom, Email, Identifiant) -->
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                            <div class="form-group">
-                                <label for="fullName">Nom Prenom</label>
-                                <input type="text" class="form-control" id="fullName" placeholder="Nom Prenom" />
-                            </div>
-                    
-                            <div class="form-group">
-                                <label for="eMail">Email</label>
-                                <input type="email" class="form-control" id="eMail" placeholder="Enter email ID" />
-                            </div>
-                    
-                            <div class="form-group">
-                                <label for="website">Identifiant</label>
-                                <input type="url" class="form-control" id="website" placeholder="Identifiant" />
-                            </div>
+        <div class="container compte">
+            <div class="card-body">
+                <div class="row gutters">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label for="fullName">Nom Prenom</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Nom Prenom" />
                         </div>
-                    
-                        <!-- Colonne de droite (Téléphone, Password, Confirm Password) -->
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                            <div class="form-group">
-                                <label for="phone">Téléphone</label>
-                                <input type="text" class="form-control" id="phone" placeholder="Entrez votre numéro de Téléphone" />
-                            </div>
-                    
-                            <div class="form-group order-1 order-sm-2">
-                                <label for="password">Mot De Passe</label>
-                                <input type="password" class="form-control" id="password" placeholder="Entrez votre Mot De Passe" />
-                            </div>
 
-                            <div class="form-group order-2 order-sm-1">
-                                <label for="confirmPassword">Confirmez votre Mot De Passe</label>
-                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmez votre Mot De Passe" />
-                            </div>
+                        <div class="form-group">
+                            <label for="eMail">Email</label>
+                            <input type="email" class="form-control" id="eMail" placeholder="Entez votre email ID" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="website">Identifiant</label>
+                            <input type="url" class="form-control" id="website" placeholder="Identifiant" />
                         </div>
                     </div>
-                    
-                    
-                    <div class="row gutters">
-                        <div class="col-12">
-                            <div class="text-center mt-md-4"> <!-- Marges plus grandes uniquement sur md et plus grands -->
-                                <button type="button" id="cancel" name="cancel" class="btn btn-secondary btn-lg mx-2">Cancel</button>
-                                <button type="button" id="update" name="update" class="btn btn-primary btn-lg mx-2">Update</button>
-                            </div>
+
+                    <!-- Colonne de droite (Téléphone, Password, Confirm Password) -->
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="text" class="form-control" id="phone" placeholder="..." />
+                        </div>
+
+                        <div class="form-group order-1 order-sm-2">
+                            <label for="password">Mot De Passe</label>
+                            <input type="password" class="form-control" id="password" placeholder="..." />
+                        </div>
+
+                        <div class="form-group order-2 order-sm-1">
+                            <label for="confirmPassword">Confirmez votre Mot De Passe</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="..." />
                         </div>
                     </div>
-                    
+                </div>
+
+
+                <div class="row gutters">
+                    <div class="col-12">
+                        <div class="text-center mt-md-4"> <!-- Marges plus grandes uniquement sur md et plus grands -->
+                            <button type="button" id="cancel" name="cancel"
+                                class="btn btn-secondary btn-lg mx-2">Cancel</button>
+                            <button type="button" id="update" name="update"
+                                class="btn btn-primary btn-lg mx-2">Update</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
