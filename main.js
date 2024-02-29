@@ -43,7 +43,7 @@ function includeNavbar() {
             <span class="nav-subtext">De votre séjour</span>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="accountButton">
           <div class="nav-content">
             <a class="nav-link" id="navbDdMenu" href="#">MON COMPTE</a>
             <span class="nav-subtext">Créer Mon Compte</span>
@@ -56,16 +56,16 @@ function includeNavbar() {
     </div>
   </div>
     `;
-    // Trouver l'élément de conteneur de la barre de navigation et l'ajouter
-    var navbarContainer = document.querySelector("#navbar-container");
-    navbarContainer.appendChild(navbar);
+  // Trouver l'élément de conteneur de la barre de navigation et l'ajouter
+  var navbarContainer = document.querySelector("#navbar-container");
+  navbarContainer.appendChild(navbar);
 
-    // Création du modal de connexion
-    var loginModal = document.createElement("div");
-    loginModal.id = "loginModal";
-    loginModal.className = "login-modal";
-    loginModal.style.display = "none"; // Cachez-le initialement
-    loginModal.innerHTML = `
+  // Création du modal de connexion
+  var loginModal = document.createElement("div");
+  loginModal.id = "loginModal";
+  loginModal.className = "login-modal";
+  loginModal.style.display = "none"; // Cachez-le initialement
+  loginModal.innerHTML = `
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Connexion</h5>
@@ -92,39 +92,50 @@ function includeNavbar() {
                 </div>
         </div>
     `;
-    // Ajout du modal à la fin du body
-    document.body.appendChild(loginModal);
+  // Ajout du modal à la fin du body
+  document.body.appendChild(loginModal);
 
-    // Ajout d'un écouteur d'événements pour afficher le modal lors du clic sur "MON COMPTE"
-    var accountButton = document.getElementById('navbDdMenu');
-    accountButton.addEventListener('click', function(event) {
-        event.preventDefault(); // Empêche la navigation par défaut
-        loginModal.style.display = 'block'; // Affiche le modal
-        loginModal.classList.add('show'); // Ajoutez la classe 'show' pour afficher le modal
-    });
+  // Ajout d'un écouteur d'événements pour afficher le modal lors du clic sur "MON COMPTE"
+  var accountButton = document.getElementById('navbDdMenu');
+  accountButton.addEventListener('click', function (event) {
+    event.preventDefault(); // Empêche la navigation par défaut
+    loginModal.style.display = 'block'; // Affiche le modal
+    loginModal.classList.add('show'); // Ajoutez la classe 'show' pour afficher le modal
+  });
 
-    // Ajout d'un écouteur d'événements pour fermer le modal
-var closeModalButton = document.getElementById('closeModal');
-closeModalButton.addEventListener('click', function() {
+  // Ajout d'un écouteur d'événements pour fermer le modal
+  var closeModalButton = document.getElementById('closeModal');
+  closeModalButton.addEventListener('click', function () {
     loginModal.style.display = 'none';
     loginModal.classList.remove('show');
     resetLoginForm(); // Appelle la fonction de réinitialisation
-});
+  });
 
-var accountButton = document.getElementById('navbDdMenu');
-accountButton.addEventListener('click', function(event) {
+  var accountButton = document.getElementById('navbDdMenu');
+  accountButton.addEventListener('click', function (event) {
     // Logique existante pour afficher le modal...
     closeNavbar(); // Ferme le menu burger
-});
+  });
 
   // Trouvez l'élément sur la page où vous souhaitez inclure la barre de navigation
   var navbarContainer = document.querySelector("#navbar-container");
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  var accountButton = document.getElementById('accountButton');
+  
+  if (window.location.pathname.includes('mon-compte.html')) {
+      if (accountButton) {
+          accountButton.style.display = 'none';
+      }
+  }
+});
+
+
 function resetLoginForm() {
   var emailInput = document.getElementById('email');
   var passwordInput = document.getElementById('password');
-  
+
   emailInput.value = '';
   passwordInput.value = '';
 }
@@ -133,7 +144,7 @@ function closeNavbar() {
   var navbarCollapse = document.querySelector('.navbar-collapse');
 
   if (navbarCollapse.classList.contains('show')) {
-      navbarToggler.click();
+    navbarToggler.click();
   }
 }
 
