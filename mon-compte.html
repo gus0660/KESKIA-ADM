@@ -16,7 +16,7 @@
 
     <div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
         <div class="container compte">
-            <div class="card-body">
+            <form id="accountForm" class="card-body">
                 <div class="row gutters">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="form-group">
@@ -30,8 +30,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="website">Identifiant</label>
-                            <input type="url" class="form-control" id="website" placeholder="Identifiant" />
+                            <label for="identifiant">Identifiant</label>
+                            <input type="text" class="form-control" id="identifiant" placeholder="Identifiant" />
                         </div>
                     </div>
 
@@ -60,12 +60,14 @@
                         <div class="text-center mt-md-4"> <!-- Marges plus grandes uniquement sur md et plus grands -->
                             <button type="button" id="cancel" name="cancel"
                                 class="btn btn-secondary btn-lg mx-2">Cancel</button>
-                            <button type="button" id="update" name="update"
-                                class="btn btn-primary btn-lg mx-2">Update</button>
+                            <button type="submit" id="update" name="update"
+                                class="btn btn-primary btn-lg mx-2">Confirmez votre Compte</button>
+                            <button type="button" id="deleteAccount" class="btn btn-danger btn-lg mx-2">Supprimer le Compte</button>
+
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <div id="footer-container"></div>

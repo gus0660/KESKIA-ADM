@@ -121,6 +121,7 @@ function includeNavbar() {
   var navbarContainer = document.querySelector("#navbar-container");
 }
 
+// fonction supprimant le bouton "MON COMPTE" quand on est sur la page mon-compte.html
 document.addEventListener('DOMContentLoaded', function() {
   var accountButton = document.getElementById('accountButton');
   
@@ -174,8 +175,86 @@ function includeFooter() {
   `;
 
   // Trouvez l'élément sur la page où vous souhaitez inclure le pied de page
-  var footerContainer = document.querySelector("#footer-container");
+  let footerContainer = document.querySelector("#footer-container");
 
   // Ajoutez le pied de page à cet élément
   footerContainer.appendChild(footer);
 }
+
+// LOCAL STORAGE
+document.querySelector('#update').addEventListener('submit', function() {
+  let fullName = document.querySelector('#fullName').value;
+  let email = document.querySelector('#eMail').value;
+  let identifiant = document.querySelector('#identifiant').value;
+  let phone = document.querySelector('#phone').value;
+  let password = document.querySelector('#password').value;
+  let confirmPassword = document.querySelector('#confirmPassword').value;
+
+
+  // Création d'un objet utilisateur
+  let user = {
+      fullName: fullName,
+      email: email,
+      identifiant: identifiant,
+      phone: phone,
+      password: password,
+      confirmPassword: confirmPassword
+  };
+
+  // Affichage des informations de l'utilisateur dans la console
+  console.log("Création de l'utilisateur :", user);
+  
+  // Stockage de l'utilisateur dans le localStorage
+  localStorage.setItem('user', JSON.stringify(user));
+  console.log("Utilisateur enregistré dans localStorage");
+
+  // Modifier le comportement du bouton "MON COMPTE"
+  localStorage.setItem('isUserLoggedIn', 'true');
+  console.log("Statut de connexion de l'utilisateur mis à jour dans localStorage");
+  // Afficher une alerte après la création du compte
+  alert("Votre compte est créé");
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  let isUserLoggedIn = localStorage.getItem('isUserLoggedIn');
+  console.log("Statut de connexion actuel de l'utilisateur :", isUserLoggedIn);
+
+  let accountButton = document.querySelector('#navbDdMenu');
+    if (accountButton && isUserLoggedIn) {
+        accountButton.href = 'mon-compte.html';
+        console.log("Lien du bouton 'MON COMPTE' mis à jour");
+  }
+});
+
+// Supposons que vous ayez un formulaire avec id="accountForm"
+console.log("Attaching event listener to #accountForm");
+document.querySelector('#accountForm').addEventListener('submit', function(event) {
+  console.log("Form submitted");
+  event.preventDefault();
+
+  let emailInput = document.querySelector('#eMail').value;
+  let passwordInput = document.querySelector('#password').value;
+
+  let user = JSON.parse(localStorage.getItem('user'));
+  console.log("Tentative de connexion avec les identifiants :", emailInput, passwordInput);
+
+  if (emailInput === user.email && passwordInput === user.password) {
+      // L'utilisateur est connecté
+      localStorage.setItem('isUserLoggedIn', 'true');
+      console.log("Connexion réussie, redirection vers 'mon-compte.html'");
+      window.location.href = 'mon-compte.html'; // Redirection vers la page de compte
+  } else {
+    console.log("Échec de la connexion");
+    alert('Identifiants incorrects');
+  }
+});
+
+// Gestionnaire pour le bouton "Supprimer le Compte"
+document.querySelector('#deleteAccount').addEventListener('click', function() {
+  // Supprimer les données du compte du localStorage
+  localStorage.removeItem('user');
+  localStorage.setItem('isUserLoggedIn', 'false');
+
+  // Afficher une alerte confirmant la suppression
+  alert("Votre compte vient d'être supprimé");
+});
