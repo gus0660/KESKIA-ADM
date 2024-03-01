@@ -121,17 +121,6 @@ function includeNavbar() {
   var navbarContainer = document.querySelector("#navbar-container");
 }
 
-// fonction supprimant le bouton "MON COMPTE" quand on est sur la page mon-compte.html
-document.addEventListener('DOMContentLoaded', function() {
-  var accountButton = document.getElementById('accountButton');
-  
-  if (window.location.pathname.includes('mon-compte.html')) {
-      if (accountButton) {
-          accountButton.style.display = 'none';
-      }
-  }
-});
-
 
 function resetLoginForm() {
   let emailInput = document.querySelector('#email');
@@ -318,3 +307,20 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log("Bouton de suppression de compte non trouvé sur cette page.");
   }
 });
+// Gestion de l'affichage du bouton Se déconnecter
+var logoutButton = document.querySelector('#logoutButton');
+var isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+if (isUserLoggedIn && logoutButton) {
+    logoutButton.classList.remove('d-none');
+}
+
+// Gestionnaire pour le bouton Se déconnecter
+if (logoutButton) {
+    logoutButton.addEventListener('click', function() {
+        localStorage.removeItem('user');
+        localStorage.setItem('isUserLoggedIn', 'false');
+        console.log("Déconnexion de l'utilisateur");
+        alert("Vous êtes maintenant déconnecté");
+        window.location.reload(); // Recharger la page pour refléter l'état déconnecté
+    });
+}
