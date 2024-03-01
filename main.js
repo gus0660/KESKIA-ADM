@@ -202,6 +202,44 @@ function includeFooter() {
 document.addEventListener('DOMContentLoaded', function () {
   console.log("DOM entièrement chargé et analysé");
 
+  function validateForm() {
+    var isValid = true;
+    var password = document.getElementById('password').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
+
+    // Vérifier que tous les champs sont remplis
+    document.querySelectorAll('.required').forEach(function(input) {
+        if (!input.value.trim()) {
+            alert('Tous les champs doivent être remplis.');
+            isValid = false;
+        }
+    });
+
+    // Vérifier la complexité du mot de passe
+    var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(password)) {
+        alert('Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial.');
+        isValid = false;
+    }
+
+    // Vérifier que les mots de passe correspondent
+    if (password !== confirmPassword) {
+        alert('Les mots de passe ne correspondent pas.');
+        isValid = false;
+    }
+
+    // Empêcher la saisie de caractères spéciaux dans les autres champs
+    document.querySelectorAll('.no-special-char').forEach(function(input) {
+        if (/[^a-zA-Z0-9]/.test(input.value)) {
+            alert('Les caractères spéciaux ne sont pas autorisés dans ce champ.');
+            isValid = false;
+        }
+    });
+
+    return isValid;
+}
+
+
   // Vérifier si les données utilisateur sont déjà stockées dans le localStorage au chargement de la page
   let storedUserData = localStorage.getItem('user');
   console.log("Données utilisateur actuelles dans localStorage:", storedUserData ? JSON.parse(storedUserData) : "Aucune donnée utilisateur");
@@ -212,6 +250,12 @@ document.addEventListener('DOMContentLoaded', function () {
     accountForm.addEventListener('submit', function (event) {
       event.preventDefault();
       console.log("Soumission du formulaire de création de compte");
+
+      // Appeler validateForm et vérifier si le formulaire est valide
+      if (!validateForm()) {
+        console.log("Validation du formulaire échouée");
+        return; // Arrête l'exécution si la validation échoue
+    }
 
       let user = {
         fullName: document.querySelector('#fullName').value,
