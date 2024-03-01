@@ -191,27 +191,27 @@ function includeFooter() {
 //   let confirmPassword = document.querySelector('#confirmPassword').value;
 
 
-  // Création d'un objet utilisateur
-  // let user = {
-  //     fullName: fullName,
-  //     email: email,
-  //     identifiant: identifiant,
-  //     phone: phone,
-  //     password: password,
-  //     confirmPassword: confirmPassword
-  // };
+//   // Création d'un objet utilisateur
+//   let user = {
+//       fullName: fullName,
+//       email: email,
+//       identifiant: identifiant,
+//       phone: phone,
+//       password: password,
+//       confirmPassword: confirmPassword
+//   };
 
-  // Affichage des informations de l'utilisateur dans la console
-  // console.log("Création de l'utilisateur :", user);
+//   // Affichage des informations de l'utilisateur dans la console
+//   console.log("Création de l'utilisateur :", user);
   
-  // Stockage de l'utilisateur dans le localStorage
-  // localStorage.setItem('user', JSON.stringify(user));
-  // console.log("Utilisateur enregistré dans localStorage");
+//   // Stockage de l'utilisateur dans le localStorage
+//   localStorage.setItem('user', JSON.stringify(user));
+//   console.log("Utilisateur enregistré dans localStorage");
 
-  // Modifier le comportement du bouton "MON COMPTE"
-  // localStorage.setItem('isUserLoggedIn', 'true');
-  // console.log("Statut de connexion de l'utilisateur mis à jour dans localStorage");
-  // Afficher une alerte après la création du compte
+//   // Modifier le comportement du bouton "MON COMPTE"
+//   localStorage.setItem('isUserLoggedIn', 'true');
+//   console.log("Statut de connexion de l'utilisateur mis à jour dans localStorage");
+//   // Afficher une alerte après la création du compte
 //   alert("Votre compte est créé");
 // });
 
@@ -226,7 +226,7 @@ function includeFooter() {
 //   }
 // });
 
-// Supposons que vous ayez un formulaire avec id="accountForm"
+// // Supposons que vous ayez un formulaire avec id="accountForm"
 // console.log("Attaching event listener to #accountForm");
 // document.querySelector('#accountForm').addEventListener('submit', function(event) {
 //   console.log("Form submitted");
@@ -239,7 +239,7 @@ function includeFooter() {
 //   console.log("Tentative de connexion avec les identifiants :", emailInput, passwordInput);
 
 //   if (emailInput === user.email && passwordInput === user.password) {
-      // L'utilisateur est connecté
+//       // L'utilisateur est connecté
 //       localStorage.setItem('isUserLoggedIn', 'true');
 //       console.log("Connexion réussie, redirection vers 'mon-compte.html'");
 //       window.location.href = 'mon-compte.html'; // Redirection vers la page de compte
@@ -249,17 +249,17 @@ function includeFooter() {
 //   }
 // });
 
-// Gestionnaire pour le bouton "Supprimer le Compte"
+// // Gestionnaire pour le bouton "Supprimer le Compte"
 // document.querySelector('#deleteAccount').addEventListener('click', function() {
-  // Supprimer les données du compte du localStorage
-  // localStorage.removeItem('user');
-  // localStorage.setItem('isUserLoggedIn', 'false');
+//   // Supprimer les données du compte du localStorage
+//   localStorage.removeItem('user');
+//   localStorage.setItem('isUserLoggedIn', 'false');
 
-  // Afficher une alerte confirmant la suppression
+//   // Afficher une alerte confirmant la suppression
 //   alert("Votre compte vient d'être supprimé");
 // });
 
-// Étape 1 : Affichage du Modal de Connexion depuis la Navbar
+// // Étape 1 : Affichage du Modal de Connexion depuis la Navbar
 // document.querySelector('#navbDdMenu').addEventListener('click', function(event) {
 //   event.preventDefault();
 //   let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
@@ -272,68 +272,52 @@ function includeFooter() {
 //     window.location.href = 'mon-compte.html';
 //   }
 // });
-
-// Étape 2 : Gestion de la Connexion
-
-document.querySelector('#dropdownLoginForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  console.log("Étape 2: Traitement du formulaire de connexion");
-  let emailInput = document.querySelector('#dropdownEmail').value;
-  let passwordInput = document.querySelector('#dropdownPassword').value;
-  let storedUser = JSON.parse(localStorage.getItem('user'));
-
-  if (storedUser && emailInput === storedUser.email && passwordInput === storedUser.password) {
-    console.log("Connexion réussie");
-    localStorage.setItem('isUserLoggedIn', 'true');
-    window.location.href = 'mon-compte.html';
-  } else {
-    console.log("Identifiants incorrects");
-    alert("Identifiants incorrects");
-  }
-});
-
-// Étape 3 : Création de Compte sur la Page "Mon Compte"
-document.querySelector('#accountForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  console.log("Étape 3: Traitement du formulaire de création de compte");
-  let user = {
-    fullName: document.querySelector('#fullName').value,
-    email: document.querySelector('#eMail').value,
-    identifiant: document.querySelector('#identifiant').value,
-    phone: document.querySelector('#phone').value,
-    password: document.querySelector('#password').value,
-    confirmPassword: document.querySelector('#confirmPassword').value
-  };
-
-  console.log("Utilisateur créé :", user);
-  localStorage.setItem('user', JSON.stringify(user));
-  localStorage.setItem('isUserLoggedIn', 'true');
-  alert("Votre compte est créé");
-  window.location.href = 'mon-compte.html';
-});
-
-// Étape 4 : Pré-remplissage de la Page "Mon Compte"
+// Attente que le DOM soit chargé pour attacher les événements
 document.addEventListener('DOMContentLoaded', function() {
-  console.log("Étape 4: Pré-remplissage de la page 'mon compte'");
-  let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
-  if (isUserLoggedIn) {
-    let storedUser = JSON.parse(localStorage.getItem('user'));
-    if (storedUser) {
-      document.querySelector('#fullName').value = storedUser.fullName;
-      document.querySelector('#eMail').value = storedUser.email;
-      document.querySelector('#identifiant').value = storedUser.identifiant;
-      document.querySelector('#phone').value = storedUser.phone;
-      // Ne pas pré-remplir les champs mot de passe pour des raisons de sécurité
-      console.log("Données de l'utilisateur pré-remplies");
-    }
-  }
-});
+  console.log("DOM entièrement chargé et analysé");
 
-// Étape 5 : Gestion des Déconnexions et Suppressions de Compte
-document.querySelector('#deleteAccount').addEventListener('click', function() {
-  console.log("Étape 5: Suppression du compte utilisateur");
-  localStorage.removeItem('user');
-  localStorage.setItem('isUserLoggedIn', 'false');
-  alert("Votre compte vient d'être supprimé");
-  window.location.href = 'index.html';
+  // Gestion de la création du compte
+  document.querySelector('#accountForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      console.log("Soumission du formulaire de création de compte");
+
+      let user = {
+          fullName: document.querySelector('#fullName').value,
+          email: document.querySelector('#eMail').value,
+          identifiant: document.querySelector('#identifiant').value,
+          phone: document.querySelector('#phone').value,
+          password: document.querySelector('#password').value
+      };
+
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('isUserLoggedIn', 'true');
+      console.log("Utilisateur enregistré dans localStorage:", user);
+      alert("Votre compte est créé");
+      window.location.href = 'mon-compte.html';
+      console.log("Redirection vers 'mon-compte.html'");
+  });
+
+  // Gestion du clic sur le bouton "MON COMPTE"
+  document.querySelector('#navbDdMenu').addEventListener('click', function(event) {
+      event.preventDefault();
+      let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+      console.log("Clic sur 'MON COMPTE', état de connexion:", isUserLoggedIn);
+
+      if (!isUserLoggedIn) {
+          console.log("Affichage du modal de connexion");
+          document.getElementById('loginModal').style.display = 'block';
+      } else {
+          console.log("Redirection vers la page 'mon compte'");
+          window.location.href = 'mon-compte.html';
+      }
+  });
+
+  // Gestion de la suppression du compte
+  document.querySelector('#deleteAccount').addEventListener('click', function() {
+      localStorage.removeItem('user');
+      localStorage.setItem('isUserLoggedIn', 'false');
+      console.log("Compte supprimé");
+      alert("Votre compte vient d'être supprimé");
+      window.location.href = 'index.html';
+  });
 });
