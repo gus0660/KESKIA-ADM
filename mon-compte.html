@@ -62,7 +62,8 @@
                                 class="btn btn-secondary btn-lg mx-2">Cancel</button>
                             <button type="submit" id="update" name="update"
                                 class="btn btn-primary btn-lg mx-2">Confirmez votre Compte</button>
-                            <button type="button" id="deleteAccount" class="btn btn-danger btn-lg mx-2">Supprimer le Compte</button>
+                            <button type="button" id="deleteAccount" class="btn btn-danger btn-lg mx-2">Supprimer le
+                                Compte</button>
 
                         </div>
                     </div>
@@ -79,6 +80,24 @@
     <script>
         includeNavbar();
         includeFooter();
+        document.addEventListener('DOMContentLoaded', function () {
+            // Le reste de votre code...
+
+            // Pré-remplir le formulaire sur la page "mon-compte.html"
+            if (window.location.pathname.endsWith('mon-compte.html')) {
+                let storedUserData = localStorage.getItem('user');
+                if (storedUserData) {
+                    storedUserData = JSON.parse(storedUserData);
+                    console.log("Pré-remplissage du formulaire avec les données utilisateur");
+
+                    document.querySelector('#fullName').value = storedUserData.fullName || '';
+                    document.querySelector('#eMail').value = storedUserData.email || '';
+                    document.querySelector('#identifiant').value = storedUserData.identifiant || '';
+                    document.querySelector('#phone').value = storedUserData.phone || '';
+                    // Ne pas pré-remplir le champ mot de passe pour des raisons de sécurité
+                }
+            }
+        });
     </script>
 </body>
 

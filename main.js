@@ -285,24 +285,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Gestion du clic sur le bouton "MON COMPTE" (s'assurer que le bouton existe)
-  var navbDdMenu = document.querySelector('#navbDdMenu');
-  if (navbDdMenu) {
-      navbDdMenu.addEventListener('click', function(event) {
-          event.preventDefault();
-          let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
-          console.log("Clic sur 'MON COMPTE', état de connexion:", isUserLoggedIn);
+  // var navbDdMenu = document.querySelector('#navbDdMenu');
+  // if (navbDdMenu) {
+  //     navbDdMenu.addEventListener('click', function(event) {
+  //         event.preventDefault();
+  //         let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+  //         console.log("Clic sur 'MON COMPTE', état de connexion:", isUserLoggedIn);
 
-          if (!isUserLoggedIn) {
-              console.log("Affichage du modal de connexion");
-              document.getElementById('loginModal').style.display = 'block';
-          } else {
-              console.log("Redirection vers la page 'mon compte'");
-              window.location.href = 'mon-compte.html';
-          }
-      });
-  } else {
-      console.log("Bouton 'MON COMPTE' non trouvé sur cette page.");
-  }
+  //         if (!isUserLoggedIn) {
+  //             console.log("Affichage du modal de connexion");
+  //             document.getElementById('loginModal').style.display = 'block';
+  //         } else {
+  //             console.log("Redirection vers la page 'mon compte'");
+  //             window.location.href = 'mon-compte.html';
+  //         }
+  //     });
+  // } else {
+  //     console.log("Bouton 'MON COMPTE' non trouvé sur cette page.");
+  // }
 
   // Gestion de la suppression du compte (s'assurer que le bouton existe)
   var deleteAccountButton = document.querySelector('#deleteAccount');
