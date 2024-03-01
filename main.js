@@ -140,17 +140,26 @@ function includeNavbar() {
     var isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
 
     if (remplacIconDiv) {
-      console.log("RemplacIconDiv trouvé", remplacIconDiv);
-        if (isUserLoggedIn) {
-            // Remplacer le contenu du div par l'icône
-            remplacIconDiv.innerHTML = '<a class="nav-link" href="mon-compte.html"><i class="bi bi-person-bounding-box" style="font-size: 2em;"></i></a>';
-            console.log("Bouton MON COMPTE modifié pour afficher l'icône");
-        } else {
-            console.log("Bouton MON COMPTE réinitialisé");
-        }
-    } else {
-        console.log("L'élément remplacIcon n'a pas été trouvé");
-    }
+      if (isUserLoggedIn) {
+          // Remplacer le contenu du div par l'icône, liée à une action ou un script différent
+          remplacIconDiv.innerHTML = '<a class="nav-link" href="" id="userIcon"><i class="bi bi-person-bounding-box" style="font-size: 3em;"></i></a>';
+          var userIcon = document.getElementById('userIcon');
+          userIcon.addEventListener('click', function(event) {
+              event.preventDefault();
+              // Ouvrir le menu de connexion ou effectuer une autre action
+              console.log("Icône cliquée par un utilisateur connecté");
+              // Code pour ouvrir le menu de connexion ou autre
+          });
+          console.log("Bouton MON COMPTE modifié pour afficher l'icône");
+      } else {
+          // Pour un utilisateur non connecté, vous pouvez lier à la page de connexion ou conserver l'action originale
+          remplacIconDiv.innerHTML = '<a class="nav-link" href="#">MON COMPTE</a><span class="nav-subtext">Créer Mon Compte</span>';
+          console.log("Bouton MON COMPTE réinitialisé");
+      }
+  } else {
+      console.log("L'élément remplacIcon n'a pas été trouvé");
+  }
+  
 }
 
 
