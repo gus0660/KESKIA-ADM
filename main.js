@@ -311,7 +311,7 @@ function validateForm() {
 
   // Vérification de l'absence de caractères spéciaux dans les autres champs
   document.querySelectorAll('.no-special-char').forEach(function(input) {
-      if (/[^a-zA-Z0-9]/.test(input.value)) {
+      if (/[^a-zA-Z0-9 \-+]/.test(input.value)) {
           alert('Les caractères spéciaux ne sont pas autorisés dans ce champ.');
           isValid = false;
       }
@@ -319,113 +319,9 @@ function validateForm() {
 
   return isValid;
 }
-
-  // document.addEventListener('DOMContentLoaded', function () {
-  //   console.log("DOM entièrement chargé et analysé");
-
-  //   let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
-  //   let storedUserData = localStorage.getItem('user');
-
-  //   if (isUserLoggedIn && storedUserData) {
-  //     storedUserData = JSON.parse(storedUserData);
-  //     // Remplir le formulaire avec les données de l'utilisateur
-  //     // ...
-  //   } else {
-  //     // Laisser le formulaire vierge
-  //     // ...
-  //   }
-
-  //   function validateForm() {
-  //     let isValid = true;
-  //     let password = document.querySelector('#password').value;
-  //     let confirmPassword = document.querySelector('#confirmPassword').value;
-
-  //     // Vérifier que tous les champs sont remplis
-  //     document.querySelectorAll('.required').forEach(function(input) {
-  //         if (!input.value.trim()) {
-  //             alert('Tous les champs doivent être remplis.');
-  //             isValid = false;
-  //         }
-  //     });
-
-  //     // Vérifier la complexité du mot de passe
-  //     var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-  //     if (!passwordRegex.test(password)) {
-  //         alert('Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial.');
-  //         isValid = false;
-  //     }
-
-  //     // Vérifier que les mots de passe correspondent
-  //     if (password !== confirmPassword) {
-  //         alert('Les mots de passe ne correspondent pas.');
-  //         isValid = false;
-  //     }
-
-  //     // Empêcher la saisie de caractères spéciaux dans les autres champs
-  //     document.querySelectorAll('.no-special-char').forEach(function(input) {
-  //         if (/[^a-zA-Z0-9]/.test(input.value)) {
-  //             alert('Les caractères spéciaux ne sont pas autorisés dans ce champ.');
-  //             isValid = false;
-  //         }
-  //     });
-
-  //     return isValid;
-  // }
-
-
-  //   // Vérifier si les données utilisateur sont déjà stockées dans le localStorage au chargement de la page
-  //   let storedUserData = localStorage.getItem('user');
-  //   console.log("Données utilisateur actuelles dans localStorage:", storedUserData ? JSON.parse(storedUserData) : "Aucune donnée utilisateur");
-
-  //   // Gestion de la création du compte (s'assurer que le formulaire existe)
-  //   var accountForm = document.querySelector('#accountForm');
-  //   if (accountForm) {
-  //     accountForm.addEventListener('submit', function (event) {
-  //       event.preventDefault();
-  //       console.log("Soumission du formulaire de création de compte");
-
-  //       // Appeler validateForm et vérifier si le formulaire est valide
-  //       if (!validateForm()) {
-  //         console.log("Validation du formulaire échouée");
-  //         return; // Arrête l'exécution si la validation échoue
-  //     }
-
-  //       let user = {
-  //         fullName: document.querySelector('#fullName').value,
-  //         email: document.querySelector('#eMail').value,
-  //         identifiant: document.querySelector('#identifiant').value,
-  //         phone: document.querySelector('#phone').value,
-  //         password: document.querySelector('#password').value
-  //       };
-
-  //       localStorage.setItem('user', JSON.stringify(user));
-  //       localStorage.setItem('isUserLoggedIn', 'true');
-  //       console.log("Utilisateur enregistré dans localStorage:", user);
-  //       alert("Votre compte est créé");
-  //       window.location.href = 'mon-compte.html';
-  //       console.log("Redirection vers 'mon-compte.html'");
-  //     });
-  //   } else {
-  //     console.log("Formulaire de compte '#accountForm' non trouvé sur cette page.");
-  //   }
-
-  //   // Gestion de la suppression du compte (s'assurer que le bouton existe)
-  //   var deleteAccountButton = document.querySelector('#deleteAccount');
-  //   if (deleteAccountButton) {
-  //     deleteAccountButton.addEventListener('click', function () {
-  //       localStorage.removeItem('user');
-  //       localStorage.setItem('isUserLoggedIn', 'false');
-  //       console.log("Compte supprimé");
-  //       alert("Votre compte vient d'être supprimé");
-  //       window.location.href = 'index.html';
-  //     });
-  //   } else {
-  //     console.log("Bouton de suppression de compte non trouvé sur cette page.");
-  //   }
-  // });
   // Gestion de l'affichage du bouton Se déconnecter
-  var logoutButton = document.querySelector('#logoutButton');
-  var isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+  let logoutButton = document.querySelector('#logoutButton');
+  let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
   if (isUserLoggedIn && logoutButton) {
     logoutButton.classList.remove('d-none');
   }
