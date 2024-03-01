@@ -172,74 +172,6 @@ function includeFooter() {
 
 // LOCAL STORAGE
 
-// document.addEventListener('DOMContentLoaded', function() {
-//   console.log("DOM entièrement chargé et analysé");
-
-//   let isUserLoggedIn = localStorage.getItem('isUserLoggedIn');
-//   console.log("Données utilisateur actuelles dans localStorage:", storedUserData ? JSON.parse(storedUserData) : "Aucune donnée utilisateur");
-  
-//   console.log("Statut de connexion actuel de l'utilisateur :", isUserLoggedIn);
-
-//   let accountButton = document.querySelector('#navbDdMenu');
-//     if (accountButton && isUserLoggedIn) {
-//         accountButton.href = 'mon-compte.html';
-//         console.log("Lien du bouton 'MON COMPTE' mis à jour");
-//   }
-// });
-
-// // Attente que le DOM soit chargé pour attacher les événements
-// document.addEventListener('DOMContentLoaded', function() {
-//   console.log("DOM entièrement chargé et analysé");
-
-//   // Vérifier si les données utilisateur sont déjà stockées dans le localStorage au chargement de la page
-//   let storedUserData = localStorage.getItem('user');
-//   console.log("Données utilisateur actuelles dans localStorage:", storedUserData ? JSON.parse(storedUserData) : "Aucune donnée utilisateur");
-
-//   // Gestion de la création du compte
-//   document.querySelector('#accountForm').addEventListener('submit', function(event) {
-//       event.preventDefault();
-//       console.log("Soumission du formulaire de création de compte");
-
-//       let user = {
-//           fullName: document.querySelector('#fullName').value,
-//           email: document.querySelector('#eMail').value,
-//           identifiant: document.querySelector('#identifiant').value,
-//           phone: document.querySelector('#phone').value,
-//           password: document.querySelector('#password').value
-//       };
-
-//       localStorage.setItem('user', JSON.stringify(user));
-//       localStorage.setItem('isUserLoggedIn', 'true');
-//       console.log("Utilisateur enregistré dans localStorage:", user);
-//       alert("Votre compte est créé");
-//       window.location.href = 'mon-compte.html';
-//       console.log("Redirection vers 'mon-compte.html'");
-//   });
-
-//   // Gestion du clic sur le bouton "MON COMPTE"
-//   document.querySelector('#navbDdMenu').addEventListener('click', function(event) {
-//       event.preventDefault();
-//       let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
-//       console.log("Clic sur 'MON COMPTE', état de connexion:", isUserLoggedIn);
-
-//       if (!isUserLoggedIn) {
-//           console.log("Affichage du modal de connexion");
-//           document.getElementById('loginModal').style.display = 'block';
-//       } else {
-//           console.log("Redirection vers la page 'mon compte'");
-//           window.location.href = 'mon-compte.html';
-//       }
-//   });
-
-//   // Gestion de la suppression du compte
-//   document.querySelector('#deleteAccount').addEventListener('click', function() {
-//       localStorage.removeItem('user');
-//       localStorage.setItem('isUserLoggedIn', 'false');
-//       console.log("Compte supprimé");
-//       alert("Votre compte vient d'être supprimé");
-//       window.location.href = 'index.html';
-//   });
-// });
 document.addEventListener('DOMContentLoaded', function() {
   console.log("DOM entièrement chargé et analysé");
 
@@ -272,26 +204,6 @@ document.addEventListener('DOMContentLoaded', function() {
   } else {
       console.log("Formulaire de compte '#accountForm' non trouvé sur cette page.");
   }
-
-  // Gestion du clic sur le bouton "MON COMPTE" (s'assurer que le bouton existe)
-  // var navbDdMenu = document.querySelector('#navbDdMenu');
-  // if (navbDdMenu) {
-  //     navbDdMenu.addEventListener('click', function(event) {
-  //         event.preventDefault();
-  //         let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
-  //         console.log("Clic sur 'MON COMPTE', état de connexion:", isUserLoggedIn);
-
-  //         if (!isUserLoggedIn) {
-  //             console.log("Affichage du modal de connexion");
-  //             document.getElementById('loginModal').style.display = 'block';
-  //         } else {
-  //             console.log("Redirection vers la page 'mon compte'");
-  //             window.location.href = 'mon-compte.html';
-  //         }
-  //     });
-  // } else {
-  //     console.log("Bouton 'MON COMPTE' non trouvé sur cette page.");
-  // }
 
   // Gestion de la suppression du compte (s'assurer que le bouton existe)
   var deleteAccountButton = document.querySelector('#deleteAccount');
