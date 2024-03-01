@@ -85,6 +85,9 @@ function includeNavbar() {
                         <input type="password" class="form-control" id="password" placeholder="Mot de passe">
                     </div>
                     <button type="submit" class="btn btn-primary">Se Connecter</button>
+                    <button type="button" class="btn btn-danger mt-3" id="logoutButton">
+                Se déconnecter
+            </button>
                 </form>
                 <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="mon-compte.html">New around here? Sign up</a>
@@ -119,6 +122,17 @@ function includeNavbar() {
 
   // Trouvez l'élément sur la page où vous souhaitez inclure la barre de navigation
   var navbarContainer = document.querySelector("#navbar-container");
+
+  // Gestionnaire pour le bouton Se déconnecter
+  if (logoutButton) {
+    logoutButton.addEventListener('click', function () {
+      localStorage.removeItem('user');
+      localStorage.setItem('isUserLoggedIn', 'false');
+      console.log("Déconnexion de l'utilisateur");
+      alert("Vous êtes maintenant déconnecté");
+      window.location.reload(); // Recharger la page pour refléter l'état déconnecté
+    });
+  }
 }
 
 
@@ -172,7 +186,7 @@ function includeFooter() {
 
 // LOCAL STORAGE
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   console.log("DOM entièrement chargé et analysé");
 
   // Vérifier si les données utilisateur sont déjà stockées dans le localStorage au chargement de la page
@@ -182,57 +196,46 @@ document.addEventListener('DOMContentLoaded', function() {
   // Gestion de la création du compte (s'assurer que le formulaire existe)
   var accountForm = document.querySelector('#accountForm');
   if (accountForm) {
-      accountForm.addEventListener('submit', function(event) {
-          event.preventDefault();
-          console.log("Soumission du formulaire de création de compte");
+    accountForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      console.log("Soumission du formulaire de création de compte");
 
-          let user = {
-              fullName: document.querySelector('#fullName').value,
-              email: document.querySelector('#eMail').value,
-              identifiant: document.querySelector('#identifiant').value,
-              phone: document.querySelector('#phone').value,
-              password: document.querySelector('#password').value
-          };
+      let user = {
+        fullName: document.querySelector('#fullName').value,
+        email: document.querySelector('#eMail').value,
+        identifiant: document.querySelector('#identifiant').value,
+        phone: document.querySelector('#phone').value,
+        password: document.querySelector('#password').value
+      };
 
-          localStorage.setItem('user', JSON.stringify(user));
-          localStorage.setItem('isUserLoggedIn', 'true');
-          console.log("Utilisateur enregistré dans localStorage:", user);
-          alert("Votre compte est créé");
-          window.location.href = 'mon-compte.html';
-          console.log("Redirection vers 'mon-compte.html'");
-      });
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('isUserLoggedIn', 'true');
+      console.log("Utilisateur enregistré dans localStorage:", user);
+      alert("Votre compte est créé");
+      window.location.href = 'mon-compte.html';
+      console.log("Redirection vers 'mon-compte.html'");
+    });
   } else {
-      console.log("Formulaire de compte '#accountForm' non trouvé sur cette page.");
+    console.log("Formulaire de compte '#accountForm' non trouvé sur cette page.");
   }
 
   // Gestion de la suppression du compte (s'assurer que le bouton existe)
   var deleteAccountButton = document.querySelector('#deleteAccount');
   if (deleteAccountButton) {
-      deleteAccountButton.addEventListener('click', function() {
-          localStorage.removeItem('user');
-          localStorage.setItem('isUserLoggedIn', 'false');
-          console.log("Compte supprimé");
-          alert("Votre compte vient d'être supprimé");
-          window.location.href = 'index.html';
-      });
+    deleteAccountButton.addEventListener('click', function () {
+      localStorage.removeItem('user');
+      localStorage.setItem('isUserLoggedIn', 'false');
+      console.log("Compte supprimé");
+      alert("Votre compte vient d'être supprimé");
+      window.location.href = 'index.html';
+    });
   } else {
-      console.log("Bouton de suppression de compte non trouvé sur cette page.");
+    console.log("Bouton de suppression de compte non trouvé sur cette page.");
   }
 });
 // Gestion de l'affichage du bouton Se déconnecter
 var logoutButton = document.querySelector('#logoutButton');
 var isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
 if (isUserLoggedIn && logoutButton) {
-    logoutButton.classList.remove('d-none');
-}
-
-// Gestionnaire pour le bouton Se déconnecter
-if (logoutButton) {
-    logoutButton.addEventListener('click', function() {
-        localStorage.removeItem('user');
-        localStorage.setItem('isUserLoggedIn', 'false');
-        console.log("Déconnexion de l'utilisateur");
-        alert("Vous êtes maintenant déconnecté");
-        window.location.reload(); // Recharger la page pour refléter l'état déconnecté
-    });
+  logoutButton.classList.remove('d-none');
 }
