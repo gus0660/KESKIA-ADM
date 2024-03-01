@@ -44,8 +44,8 @@ function includeNavbar() {
           </div>
         </li>
         <li class="nav-item" id="accountButton">
-          <div class="nav-content">
-            <a class="nav-link" id="navbDdMenu" href="#">MON COMPTE</a>
+          <div class="nav-content" id="remplacIcon">
+            <a class="nav-link" id="navbDdMenu" href="mon-compte.html">MON COMPTE</a>
             <span class="nav-subtext">Créer Mon Compte</span>
           </div>
         </li>
@@ -85,7 +85,7 @@ function includeNavbar() {
                         <input type="password" class="form-control" id="password" placeholder="Mot de passe">
                     </div>
                     <button type="submit" class="btn btn-primary">Se Connecter</button>
-                    <button type="button" class="btn btn-danger mt-3" id="logoutButton">
+                    <button type="button" class="btn btn-danger my-2" id="logoutButton">
                 Se déconnecter
             </button>
                 </form>
@@ -133,6 +133,26 @@ function includeNavbar() {
       window.location.reload(); // Recharger la page pour refléter l'état déconnecté
     });
   }
+  // Avant de commencer la modification
+  console.log("Prêt à modifier le bouton MON COMPTE");
+
+  var remplacIconDiv = document.getElementById('remplacIcon');
+    var isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+
+    if (remplacIconDiv) {
+      console.log("RemplacIconDiv trouvé", remplacIconDiv);
+        if (isUserLoggedIn) {
+            // Remplacer le contenu du div par l'icône
+            remplacIconDiv.innerHTML = '<a class="nav-link" href="mon-compte.html"><i class="bi bi-person-bounding-box"></i></a>';
+            console.log("Bouton MON COMPTE modifié pour afficher l'icône");
+        } else {
+            // Remettre le contenu original si l'utilisateur n'est pas connecté
+            // remplacIconDiv.innerHTML = '<a class="nav-link" href="mon-compte.html">MON COMPTE</a><span class="nav-subtext">Créer Mon Compte</span>';
+            console.log("Bouton MON COMPTE réinitialisé");
+        }
+    } else {
+        console.log("L'élément remplacIcon n'a pas été trouvé");
+    }
 }
 
 
