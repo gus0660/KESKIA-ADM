@@ -23,7 +23,7 @@ function includeNavbar() {
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav">
         <a href="index.html">
-          <img src="images/logoKESKIADM.webp" class="navbar-logo d-none d-sm-block" alt="Logo" width="201" height="90" style="margin-right: auto; margin-left: auto; margin-right: 30px;">
+          <img src="images/logoKESKIADM.webp" class="navbar-logo d-none d-sm-block" alt="Logo" width="201" height="90" style="margin-left: auto; margin-right: 5px;">
         </a>
         <li class="nav-item ">
           <div class="nav-content">
@@ -85,44 +85,42 @@ function includeNavbar() {
                         <input type="password" class="form-control" id="password" placeholder="Mot de passe">
                     </div>
                     <button type="submit" class="btn btn-primary">Se Connecter</button>
-                    <button type="button" class="btn btn-danger my-2" id="logoutButton">
-                Se déconnecter
-            </button>
+                    <button type="button" class="btn btn-danger my-2" id="logoutButton">Se déconnecter</button>
                 </form>
-                <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="mon-compte.html">New around here? Sign up</a>
-                  <a class="dropdown-item" href="#">Forgot password?</a>
-                </div>
-        </div>
+                <div class="modal-footer">
+            <div style="width: 100%; text-align: center;">
+                <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Mon Compte</button>
+                <a class="dropdown-item" href="#">Forgot password?</a>
+            </div>
     `;
   // Ajout du modal à la fin du body
   document.body.appendChild(loginModal);
 
   var isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
-    var accountButton = document.getElementById('navbDdMenu');
-    var remplacIconDiv = document.getElementById('remplacIcon');
+  var accountButton = document.getElementById('navbDdMenu');
+  var remplacIconDiv = document.getElementById('remplacIcon');
 
-    if (isUserLoggedIn) {
-        // Utilisateur connecté: Modifier pour afficher l'icône et ajouter un écouteur d'événements
-        if (remplacIconDiv) {
-            remplacIconDiv.innerHTML = '<a class="nav-link" href="#" id="userIcon"><i class="bi bi-person-bounding-box" style="font-size: 3em;"></i></a>';
-            var userIcon = document.getElementById('userIcon');
-            userIcon.addEventListener('click', function(event) {
-                event.preventDefault();
-                loginModal.style.display = 'block';
-                loginModal.classList.add('show');
-            });
-        }
-    } else {
-        // Utilisateur non connecté: Ajouter un écouteur d'événements pour afficher le modal de connexion
-        if (accountButton) {
-            accountButton.addEventListener('click', function(event) {
-                event.preventDefault();
-                loginModal.style.display = 'block';
-                loginModal.classList.add('show');
-            });
-        }
+  if (isUserLoggedIn) {
+    // Utilisateur connecté: Modifier pour afficher l'icône et ajouter un écouteur d'événements
+    if (remplacIconDiv) {
+      remplacIconDiv.innerHTML = '<a class="nav-link" href="#" id="userIcon"><i class="bi bi-person-bounding-box" style="font-size: 3em;"></i></a>';
+      var userIcon = document.getElementById('userIcon');
+      userIcon.addEventListener('click', function (event) {
+        event.preventDefault();
+        loginModal.style.display = 'block';
+        loginModal.classList.add('show');
+      });
     }
+  } else {
+    // Utilisateur non connecté: Ajouter un écouteur d'événements pour afficher le modal de connexion
+    if (accountButton) {
+      accountButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        loginModal.style.display = 'block';
+        loginModal.classList.add('show');
+      });
+    }
+  }
 
   // Ajout d'un écouteur d'événements pour fermer le modal
   var closeModalButton = document.getElementById('closeModal');
