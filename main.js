@@ -143,11 +143,9 @@ function includeNavbar() {
       console.log("RemplacIconDiv trouvé", remplacIconDiv);
         if (isUserLoggedIn) {
             // Remplacer le contenu du div par l'icône
-            remplacIconDiv.innerHTML = '<a class="nav-link" href="mon-compte.html"><i class="bi bi-person-bounding-box"></i></a>';
+            remplacIconDiv.innerHTML = '<a class="nav-link" href="mon-compte.html"><i class="bi bi-person-bounding-box" style="font-size: 2em;"></i></a>';
             console.log("Bouton MON COMPTE modifié pour afficher l'icône");
         } else {
-            // Remettre le contenu original si l'utilisateur n'est pas connecté
-            // remplacIconDiv.innerHTML = '<a class="nav-link" href="mon-compte.html">MON COMPTE</a><span class="nav-subtext">Créer Mon Compte</span>';
             console.log("Bouton MON COMPTE réinitialisé");
         }
     } else {
