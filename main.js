@@ -98,13 +98,39 @@ function includeNavbar() {
   // Ajout du modal à la fin du body
   document.body.appendChild(loginModal);
 
+  var isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+    var accountButton = document.getElementById('navbDdMenu');
+    var remplacIconDiv = document.getElementById('remplacIcon');
+
+    if (isUserLoggedIn) {
+        // Utilisateur connecté: Modifier pour afficher l'icône et ajouter un écouteur d'événements
+        if (remplacIconDiv) {
+            remplacIconDiv.innerHTML = '<a class="nav-link" href="#" id="userIcon"><i class="bi bi-person-bounding-box" style="font-size: 3em;"></i></a>';
+            var userIcon = document.getElementById('userIcon');
+            userIcon.addEventListener('click', function(event) {
+                event.preventDefault();
+                loginModal.style.display = 'block';
+                loginModal.classList.add('show');
+            });
+        }
+    } else {
+        // Utilisateur non connecté: Ajouter un écouteur d'événements pour afficher le modal de connexion
+        if (accountButton) {
+            accountButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                loginModal.style.display = 'block';
+                loginModal.classList.add('show');
+            });
+        }
+    }
+
   // Ajout d'un écouteur d'événements pour afficher le modal lors du clic sur "MON COMPTE"
-  var accountButton = document.getElementById('navbDdMenu');
-  accountButton.addEventListener('click', function (event) {
-    event.preventDefault(); // Empêche la navigation par défaut
-    loginModal.style.display = 'block'; // Affiche le modal
-    loginModal.classList.add('show'); // Ajoutez la classe 'show' pour afficher le modal
-  });
+  // var accountButton = document.getElementById('navbDdMenu');
+  // accountButton.addEventListener('click', function (event) {
+  //   event.preventDefault(); // Empêche la navigation par défaut
+  //   loginModal.style.display = 'block'; // Affiche le modal
+  //   loginModal.classList.add('show'); // Ajoutez la classe 'show' pour afficher le modal
+  // });
 
   // Ajout d'un écouteur d'événements pour fermer le modal
   var closeModalButton = document.getElementById('closeModal');
@@ -114,11 +140,11 @@ function includeNavbar() {
     resetLoginForm(); // Appelle la fonction de réinitialisation
   });
 
-  var accountButton = document.getElementById('navbDdMenu');
-  accountButton.addEventListener('click', function (event) {
-    // Logique existante pour afficher le modal...
-    closeNavbar(); // Ferme le menu burger
-  });
+  // var accountButton = document.getElementById('navbDdMenu');
+  // accountButton.addEventListener('click', function (event) {
+  //   // Logique existante pour afficher le modal...
+  //   closeNavbar(); // Ferme le menu burger
+  // });
 
   // Trouvez l'élément sur la page où vous souhaitez inclure la barre de navigation
   var navbarContainer = document.querySelector("#navbar-container");
@@ -136,29 +162,29 @@ function includeNavbar() {
   // Avant de commencer la modification
   console.log("Prêt à modifier le bouton MON COMPTE");
 
-  var remplacIconDiv = document.getElementById('remplacIcon');
-    var isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+  // var remplacIconDiv = document.getElementById('remplacIcon');
+  //   var isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
 
-    if (remplacIconDiv) {
-      if (isUserLoggedIn) {
-          // Remplacer le contenu du div par l'icône, liée à une action ou un script différent
-          remplacIconDiv.innerHTML = '<a class="nav-link" href="" id="userIcon"><i class="bi bi-person-bounding-box" style="font-size: 3em;"></i></a>';
-          var userIcon = document.getElementById('userIcon');
-          userIcon.addEventListener('click', function(event) {
-              event.preventDefault();
-              // Ouvrir le menu de connexion ou effectuer une autre action
-              console.log("Icône cliquée par un utilisateur connecté");
-              // Code pour ouvrir le menu de connexion ou autre
-          });
-          console.log("Bouton MON COMPTE modifié pour afficher l'icône");
-      } else {
-          // Pour un utilisateur non connecté, vous pouvez lier à la page de connexion ou conserver l'action originale
-          remplacIconDiv.innerHTML = '<a class="nav-link" href="#">MON COMPTE</a><span class="nav-subtext">Créer Mon Compte</span>';
-          console.log("Bouton MON COMPTE réinitialisé");
-      }
-  } else {
-      console.log("L'élément remplacIcon n'a pas été trouvé");
-  }
+  //   if (remplacIconDiv) {
+  //     if (isUserLoggedIn) {
+  //         // Remplacer le contenu du div par l'icône, liée à une action ou un script différent
+  //         remplacIconDiv.innerHTML = '<a class="nav-link" href="" id="userIcon"><i class="bi bi-person-bounding-box" style="font-size: 3em;"></i></a>';
+  //         var userIcon = document.getElementById('userIcon');
+  //         userIcon.addEventListener('click', function(event) {
+  //             event.preventDefault();
+  //             // Ouvrir le menu de connexion ou effectuer une autre action
+  //             console.log("Icône cliquée par un utilisateur connecté");
+  //             // Code pour ouvrir le menu de connexion ou autre
+  //         });
+  //         console.log("Bouton MON COMPTE modifié pour afficher l'icône");
+  //     } else {
+  //         // Pour un utilisateur non connecté, vous pouvez lier à la page de connexion ou conserver l'action originale
+  //         remplacIconDiv.innerHTML = '<a class="nav-link" href="#">MON COMPTE</a><span class="nav-subtext">Créer Mon Compte</span>';
+  //         console.log("Bouton MON COMPTE réinitialisé");
+  //     }
+  // } else {
+  //     console.log("L'élément remplacIcon n'a pas été trouvé");
+  // }
   
 }
 
