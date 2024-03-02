@@ -10,12 +10,6 @@ function resetLoginForm() {
   passwordInput.value = '';
 }
 
-// Sélection du bouton de fermeture du modal
-let closeModalButton = document.querySelector('#closeModal');
-
-// Ajout de l'écouteur d'événements pour fermer le modal lors du clic sur le bouton
-closeModalButton.addEventListener('click', closeLoginModal);
-
 // Fonction pour fermer le modal de connexion et réinitialiser le formulaire
 function closeLoginModal() {
   let loginModal = document.querySelector('#loginModal');
@@ -154,12 +148,12 @@ function includeNavbar() {
   }
 
   // Ajout d'un écouteur d'événements pour fermer le modal
-  // let closeModalButton = document.querySelector('#closeModal');
-  // closeModalButton.addEventListener('click', function () {
-  //   loginModal.style.display = 'none';
-  //   loginModal.classList.remove('show');
-  //   resetLoginForm(); // Appelle la fonction de réinitialisation
-  // });
+  let closeModalButton = document.querySelector('#closeModal');
+  closeModalButton.addEventListener('click', function () {
+    loginModal.style.display = 'none';
+    loginModal.classList.remove('show');
+    resetLoginForm(); // Appelle la fonction de réinitialisation
+  });
 
   // Trouvez l'élément sur la page où vous souhaitez inclure la barre de navigation
   var navbarContainer = document.querySelector("#navbar-container");
