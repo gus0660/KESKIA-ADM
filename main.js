@@ -103,7 +103,7 @@ function includeNavbar() {
   if (isUserLoggedIn) {
     // Utilisateur connecté: Modifier pour afficher l'icône et ajouter un écouteur d'événements
     if (remplacIconDiv) {
-      remplacIconDiv.innerHTML = '<a class="nav-link" href="#" id="userIcon"><i class="bi bi-person-bounding-box" style="font-size: 3em;"></i></a>';
+      remplacIconDiv.innerHTML = '<a class="nav-link px-5" href="#" id="userIcon"><i class="bi bi-person-bounding-box" style="font-size: 2.5em;"></i></a>';
       var userIcon = document.getElementById('userIcon');
       userIcon.addEventListener('click', function (event) {
         event.preventDefault();
