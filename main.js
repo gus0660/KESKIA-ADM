@@ -432,6 +432,7 @@ function seConnectClick() {
   }
 }
 
+// change le bouton "MON COMPTE" en icone quant on cré un compte
 function updateNavbarForLoggedInUser() {
   console.log("updateNavbarForLoggedInUser: fonction appelée");
   // Sélectionner l'élément dans la navbar qui doit être mis à jour
@@ -447,6 +448,7 @@ function updateNavbarForLoggedInUser() {
   }
 }
 
+// pour remplacer l'icone de la navbar en texte
 function updateNavbarForLoggedOutUser() {
   // Sélectionner l'élément dans la navbar qui doit être mis à jour
   let accountButtonContainer = document.querySelector("#remplacIcon");
