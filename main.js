@@ -298,10 +298,10 @@ function setupAccountForm(isLoggedIn, storedUserData) {
       updateNavbarForLoggedInUser();
     }
 
-    // accountForm.addEventListener('submit', function (event) {
-    document
-      .querySelector("#accountForm")
-      .addEventListener("submit", function (event) {
+    // Empêche le rechargement de la page, valide les données du formulaire, 
+    // enregistre les informations de l'utilisateur dans le localStorage, 
+    // indique que l'utilisateur est connecté, et redirige vers la page 'mon-compte.html'
+    document.querySelector("#accountForm").addEventListener("submit", function (event) {
         event.preventDefault();
         if (!validateForm()) {
           console.log("Validation du formulaire échouée");
@@ -323,7 +323,7 @@ function setupAccountForm(isLoggedIn, storedUserData) {
         event.stopPropagation();
         window.location.href = "mon-compte.html";
         console.log("Redirection vers 'mon-compte.html'");
-      });
+    });
   } else {
     console.log(
       "Formulaire de compte '#accountForm' non trouvé sur cette page."
