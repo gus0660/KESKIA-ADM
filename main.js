@@ -4,22 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let isUserLoggedIn = localStorage.getItem("isUserLoggedIn") === "true";
   let storedUserData = localStorage.getItem("user");
 
+  setupLoginModal(isUserLoggedIn);
   setupAccountForm(isUserLoggedIn, storedUserData);
   setupDeleteAccountButton();
-  setupLogoutButton(isUserLoggedIn);
 });
-// ----------------------
-// UTILITAIRES
-
-// Fonction pour réinitialiser le formulaire de connexion
-// function resetLoginForm() {
-//   let emailInput = document.querySelector('#email');
-//   let passwordInput = document.querySelector('#password');
-
-//   emailInput.value = '';
-//   passwordInput.value = '';
-// }
-
 // Fonction pour fermer le modal de connexion
 function closeLoginModal() {
   let loginModal = document.querySelector("#loginModal");
@@ -31,12 +19,15 @@ function closeLoginModal() {
 
 // Fonction pour inclure la barre de navigation sur la page
 function includeNavbar() {
+  console.log("includeNavbar: début de la fonction");
+
   // Création et configuration de l'élément navbar
   var navbar = document.createElement("nav");
   navbar.classList.add("navbar");
   navbar.classList.add("navbar-expand-lg");
   navbar.classList.add("navbar-light");
   navbar.classList.add("fixed-top");
+  console.log("includeNavbar: navbar créée");
 
   // Définition du contenu HTML de la navbar
   navbar.innerHTML = `
@@ -92,99 +83,26 @@ function includeNavbar() {
   var navbarContainer = document.querySelector("#navbar-container");
   navbarContainer.appendChild(navbar);
 
-  // Création et configuration du modal de connexion
-  let isUserLoggedIn = localStorage.getItem("isUserLoggedIn") === "true";
-  var loginModalContent;
+  var accountButton = document.querySelector("#navbDdMenu");
+  console.log("includeNavbar: accountButton récupéré", accountButton);
 
-  if (!isUserLoggedIn) {
-    // Contenu du modal pour les utilisateurs non connectés
-    loginModalContent = `
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title">Connexion</h5>
-              <button type="button" class="close" id="closeModal" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body d-flex align-items-center justify-content-center">
-              <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Page Mon Compte<br>Ou Créer un Compte</button>
-          </div>
-      </div>`;
+  if (accountButton) {
+    accountButton.addEventListener("click", function () {
+      event.preventDefault();
+      console.log("includeNavbar: clic sur accountButton détecté");
+      // Logique pour afficher le modal
+      var loginModal = document.querySelector("#loginModal");
+      console.log("Script principal: loginModal récupéré", loginModal);
+      loginModal.style.display = "block";
+      loginModal.classList.add("show");
+      console.log("Script principal: loginModal affiché");
+    });
   } else {
-    // Contenu du modal pour les utilisateurs connectés
-    loginModalContent = `
-      <div class="modal-content">
-        <div class="modal-header">
-              <h5 class="modal-title">Connexion</h5>
-              <button type="button" class="close" id="closeModal" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              <!-- Formulaire de connexion modal-->
-              <form>
-                  <div class="form-group">
-                      <label for="email">Adresse Email</label>
-                      <input type="email" class="form-control" id="email" placeholder="email@example.com">
-                  </div>
-                  <div class="form-group">
-                      <label for="password">Mot de Passe</label>
-                      <input type="password" class="form-control" id="onPassword" placeholder="Mot de passe">
-                  </div>
-                  <button type="button" class="btn btn-primary" id="loginButton" onclick="seConnectClick()">Se Connecter</button>
-                  <button type="button" class="btn btn-danger my-2" id="logoutButton">Se déconnecter</button>
-              </form>
-              <div class="modal-footer">
-                <div style="width: 100%; text-align: center;">
-                    <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Page Mon Compte<br>Ou Créer un Compte</
-                </div>
-              </div>
-      </div>`;
+    console.log("Script principal: accountButton non trouvé");
   }
-
-  var loginModal = document.createElement("div");
-  loginModal.id = "loginModal";
-  loginModal.className = "login-modal";
-  loginModal.style.display = "none";
-  loginModal.innerHTML = loginModalContent;
-  document.body.appendChild(loginModal);
-
-  let accountButton = document.querySelector("#navbDdMenu");
-  let remplacIconDiv = document.querySelector("#remplacIcon");
-
-  if (isUserLoggedIn) {
-    // Utilisateur connecté: Modifier pour afficher l'icône et ajouter un écouteur d'événements
-    if (remplacIconDiv) {
-      remplacIconDiv.innerHTML =
-        '<a class="nav-link px-5" href="#" id="userIcon"><i class="bi bi-person-bounding-box" style="font-size: 2.5em;"></i></a>';
-      var userIcon = document.getElementById("userIcon");
-      userIcon.addEventListener("click", function (event) {
-        event.preventDefault();
-        loginModal.style.display = "block";
-        loginModal.classList.add("show");
-      });
-    }
-  } else {
-    // Utilisateur non connecté: Ajouter un écouteur d'événements pour afficher le modal de connexion
-    if (accountButton) {
-      accountButton.addEventListener("click", function (event) {
-        event.preventDefault();
-        loginModal.style.display = "block";
-        loginModal.classList.add("show");
-      });
-    }
-  }
-
-  // Ajout d'un écouteur d'événements pour fermer le modal
-  let closeModalButton = document.querySelector("#closeModal");
-  closeModalButton.addEventListener("click", function () {
-    loginModal.style.display = "none";
-    loginModal.classList.remove("show");
-    //resetLoginForm();  Appelle la fonction de réinitialisation
-  });
 
   // Trouvez l'élément sur la page où vous souhaitez inclure la barre de navigation
-  var navbarContainer = document.querySelector("#navbar-container");
+  // var navbarContainer = document.querySelector("#navbar-container");
   let logoutButton = document.querySelector("#logoutButton");
 
   // Gestionnaire pour le bouton Se déconnecter
@@ -196,7 +114,124 @@ function includeNavbar() {
       //window.location.reload();  Recharger la page pour refléter l'état déconnecté
     });
   }
-  
+}
+
+function setupLoginModal(isLoggedIn) {
+  var loginModalContent;
+  if (!isLoggedIn) {
+    // Contenu du modal pour les utilisateurs non connectés
+    loginModalContent = `
+      <div class="modal-content">
+        <div id="loginError" style="color: red; display: none;"></div>
+        <div class="modal-header">
+          <h5 class="modal-title">Connexion</h5>
+          <button type="button" class="close" id="closeModal" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body d-flex align-items-center justify-content-center">
+          <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Page Mon Compte<br>Ou Créer un Compte</button>
+        </div>
+      </div>
+    `;
+  } else {
+    // Contenu du modal pour les utilisateurs connectés
+    loginModalContent = `
+      <div class="modal-content">
+        <div id="loginError" style="color: red; display: none;"></div>
+        <div class="modal-header">
+              <h5 class="modal-title">Connexion</h5>
+              <button type="button" class="close" id="closeModal" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+        <div class="modal-body">
+              <!-- Formulaire de connexion modal-->
+          <form>
+            <div class="form-group">
+                      <label for="email">Adresse Email</label>
+                      <input type="email" class="form-control" id="email" placeholder="email@example.com">
+            </div>
+            <div class="form-group">
+                      <label for="password">Mot de Passe</label>
+                      <input type="password" class="form-control" id="onPassword" placeholder="Mot de passe">
+            </div>
+                  <button type="button" class="btn btn-primary" id="loginButton" onclick="seConnectClick()">Se Connecter</button>
+                  <button type="button" class="btn btn-danger my-2" id="logoutButton">Se déconnecter</button>
+          </form>
+          <div class="modal-footer">
+            <div style="width: 100%; text-align: center;">
+              <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Page Mon Compte<br>Ou Créer un Compte
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+  var loginModal = document.createElement("div");
+  loginModal.id = "loginModal";
+  loginModal.className = "login-modal";
+  loginModal.style.display = "none";
+  loginModal.innerHTML = loginModalContent;
+
+  // Réinitialiser l'élément d'erreur lors de la création du modal
+  let errorDiv = loginModal.querySelector("#loginError");
+  errorDiv.style.display = "none";
+
+  // Écouteur pour le bouton de fermeture du modal
+  let closeModalButton = loginModal.querySelector("#closeModal");
+  if (closeModalButton) {
+    closeModalButton.addEventListener("click", function () {
+      loginModal.style.display = "none";
+      loginModal.classList.remove("show");
+    });
+  }
+
+  if (!isLoggedIn) {
+    // Écouteur pour le bouton de connexion
+    let loginButton = loginModal.querySelector("#loginButton");
+    if (loginButton) {
+      loginButton.addEventListener("click", function () {
+        let email = loginModal.querySelector("#email").value;
+        let password = loginModal.querySelector("#onPassword").value;
+
+        if (validateLogin(email, password)) {
+          // Logique de connexion si la validation est réussie
+          localStorage.setItem("isUserLoggedIn", "true");
+          localStorage.setItem(
+            "user",
+            JSON.stringify({ email: email, password: password })
+          );
+          updateNavbarForLoggedInUser();
+          closeLoginModal();
+          window.location.href = "mon-compte.html";
+        } else {
+          // alert("Identifiants incorrects");
+          let errorDiv = loginModal.querySelector("#loginError");
+          errorDiv.textContent = "Saisie incorrecte";
+          errorDiv.style.display = "block";
+        }
+      });
+    }
+  }
+
+  if (isLoggedIn) {
+    // Écouteur pour le bouton de déconnexion
+    let logoutButton = loginModal.querySelector("#logoutButton");
+    if (logoutButton) {
+      logoutButton.addEventListener("click", function () {
+        localStorage.setItem("isUserLoggedIn", "false");
+        localStorage.removeItem("user");
+        updateNavbarForLoggedOutUser();
+        closeLoginModal();
+        alert("Vous êtes maintenant déconnecté");
+        window.location.href = "index.html";
+      });
+    }
+  }
+
+  document.body.appendChild(loginModal);
 }
 
 function closeNavbar() {
@@ -206,7 +241,7 @@ function closeNavbar() {
   if (navbarCollapse.classList.contains("show")) {
     navbarToggler.click();
   }
-  updateNavbarForLoggedInUser()
+  updateNavbarForLoggedInUser();
 }
 
 function includeFooter() {
@@ -258,6 +293,7 @@ function setupAccountForm(isLoggedIn, storedUserData) {
       document.querySelector("#identifiant").value =
         storedUserData.identifiant || "";
       document.querySelector("#phone").value = storedUserData.phone || "";
+      updateNavbarForLoggedInUser();
     }
 
     // accountForm.addEventListener('submit', function (event) {
@@ -305,29 +341,6 @@ function setupDeleteAccountButton() {
     });
   } else {
     console.log("Bouton de suppression de compte non trouvé sur cette page.");
-  }
-}
-
-function setupLogoutButton(isLoggedIn) {
-  var logoutButton = document.querySelector("#logoutButton");
-  if (isLoggedIn && logoutButton) {
-    logoutButton.classList.remove("d-none");
-    logoutButton.addEventListener("click", function () {
-      localStorage.setItem("isUserLoggedIn", "false");
-      console.log("Déconnexion de l'utilisateur");
-
-      // Vérifier et afficher les données de l'utilisateur dans la console
-      var storedUserData = localStorage.getItem('user');
-      if (storedUserData) {
-        console.log("Données de l'utilisateur après déconnexion:", JSON.parse(storedUserData));
-      } else {
-        console.log("Aucune donnée d'utilisateur trouvée dans le localStorage après la déconnexion.");
-      }
-      closeLoginModal();
-      updateNavbarForLoggedOutUser();
-      alert("Vous êtes maintenant déconnecté");
-      //window.location.reload();  Recharger la page pour refléter l'état déconnecté
-    });
   }
 }
 
@@ -413,6 +426,7 @@ function seConnectClick() {
 }
 
 function updateNavbarForLoggedInUser() {
+  console.log("updateNavbarForLoggedInUser: fonction appelée");
   // Sélectionner l'élément dans la navbar qui doit être mis à jour
   let accountButtonContainer = document.querySelector("#remplacIcon");
 
@@ -425,14 +439,16 @@ function updateNavbarForLoggedInUser() {
     console.error("Élément pour le bouton du compte non trouvé");
   }
 }
+
 function updateNavbarForLoggedOutUser() {
   // Sélectionner l'élément dans la navbar qui doit être mis à jour
-  let accountButtonContainer = document.querySelector('#remplacIcon');
+  let accountButtonContainer = document.querySelector("#remplacIcon");
 
   // Vérifier si l'élément existe
   if (accountButtonContainer) {
     // Modifier le contenu HTML pour l'état de déconnexion
-    accountButtonContainer.innerHTML = '<a class="nav-link" id="navbDdMenu" href="mon-compte.html">MON COMPTE</a>';
+    accountButtonContainer.innerHTML =
+      '<a class="nav-link" id="navbDdMenu" href="mon-compte.html">MON COMPTE</a>';
   } else {
     console.error("Élément pour le bouton du compte non trouvé");
   }
