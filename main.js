@@ -128,7 +128,7 @@ function includeNavbar() {
                 </form>
                 <div class="modal-footer">
             <div style="width: 100%; text-align: center;">
-            <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Page Mon Compte<br>Ou Céer un Compte</button>
+            <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Page Mon Compte<br>Ou Créer un Compte</button>
 
                 <a class="dropdown-item" href="#">Forgot password?</a>
             </div>
