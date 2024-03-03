@@ -20,13 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
 //   passwordInput.value = '';
 // }
 
-// Fonction pour fermer le modal de connexion et réinitialiser le formulaire
+// Fonction pour fermer le modal de connexion
 function closeLoginModal() {
   let loginModal = document.querySelector("#loginModal");
   if (loginModal) {
     loginModal.style.display = "none";
     loginModal.classList.remove("show");
-    // resetLoginForm();
   }
 }
 
@@ -107,7 +106,7 @@ function includeNavbar() {
                   <span aria-hidden="true">&times;</span>
               </button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body d-flex align-items-center justify-content-center">
               <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Page Mon Compte<br>Ou Créer un Compte</button>
           </div>
       </div>`;
@@ -149,7 +148,7 @@ function includeNavbar() {
   loginModal.style.display = "none";
   loginModal.innerHTML = loginModalContent;
   document.body.appendChild(loginModal);
-  
+
   let accountButton = document.querySelector("#navbDdMenu");
   let remplacIconDiv = document.querySelector("#remplacIcon");
 
@@ -194,9 +193,10 @@ function includeNavbar() {
     logoutButton.addEventListener("click", function () {
       localStorage.setItem("isUserLoggedIn", "false");
       console.log("Déconnexion de l'utilisateur");
-      window.location.reload(); // Recharger la page pour refléter l'état déconnecté
+      //window.location.reload();  Recharger la page pour refléter l'état déconnecté
     });
   }
+  
 }
 
 function closeNavbar() {
@@ -206,6 +206,7 @@ function closeNavbar() {
   if (navbarCollapse.classList.contains("show")) {
     navbarToggler.click();
   }
+  updateNavbarForLoggedInUser()
 }
 
 function includeFooter() {
@@ -314,8 +315,18 @@ function setupLogoutButton(isLoggedIn) {
     logoutButton.addEventListener("click", function () {
       localStorage.setItem("isUserLoggedIn", "false");
       console.log("Déconnexion de l'utilisateur");
+
+      // Vérifier et afficher les données de l'utilisateur dans la console
+      var storedUserData = localStorage.getItem('user');
+      if (storedUserData) {
+        console.log("Données de l'utilisateur après déconnexion:", JSON.parse(storedUserData));
+      } else {
+        console.log("Aucune donnée d'utilisateur trouvée dans le localStorage après la déconnexion.");
+      }
+      closeLoginModal();
+      updateNavbarForLoggedOutUser();
       alert("Vous êtes maintenant déconnecté");
-      window.location.reload(); // Recharger la page pour refléter l'état déconnecté
+      //window.location.reload();  Recharger la page pour refléter l'état déconnecté
     });
   }
 }
@@ -410,6 +421,18 @@ function updateNavbarForLoggedInUser() {
     // Modifier le contenu HTML pour afficher une icône
     accountButtonContainer.innerHTML =
       '<a class="nav-link px-5" href="mon-compte.html"><i class="bi bi-person-bounding-box" style="font-size: 2.5em;"></i></a>';
+  } else {
+    console.error("Élément pour le bouton du compte non trouvé");
+  }
+}
+function updateNavbarForLoggedOutUser() {
+  // Sélectionner l'élément dans la navbar qui doit être mis à jour
+  let accountButtonContainer = document.querySelector('#remplacIcon');
+
+  // Vérifier si l'élément existe
+  if (accountButtonContainer) {
+    // Modifier le contenu HTML pour l'état de déconnexion
+    accountButtonContainer.innerHTML = '<a class="nav-link" id="navbDdMenu" href="mon-compte.html">MON COMPTE</a>';
   } else {
     console.error("Élément pour le bouton du compte non trouvé");
   }
