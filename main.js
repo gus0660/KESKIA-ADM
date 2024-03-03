@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
   let storedUserData = localStorage.getItem('user');
+  
 
   setupAccountForm(isUserLoggedIn, storedUserData);
   setupDeleteAccountButton();
@@ -14,13 +15,13 @@ document.addEventListener('DOMContentLoaded', function () {
 // UTILITAIRES
 
 // Fonction pour réinitialiser le formulaire de connexion
-function resetLoginForm() {
-  let emailInput = document.querySelector('#email');
-  let passwordInput = document.querySelector('#password');
+// function resetLoginForm() {
+//   let emailInput = document.querySelector('#email');
+//   let passwordInput = document.querySelector('#password');
 
-  emailInput.value = '';
-  passwordInput.value = '';
-}
+//   emailInput.value = '';
+//   passwordInput.value = '';
+// }
 
 // Fonction pour fermer le modal de connexion et réinitialiser le formulaire
 function closeLoginModal() {
@@ -28,7 +29,7 @@ function closeLoginModal() {
   if (loginModal) {
     loginModal.style.display = 'none';
     loginModal.classList.remove('show');
-    resetLoginForm();
+    // resetLoginForm();
   }
 }
 
@@ -119,14 +120,15 @@ function includeNavbar() {
                     </div>
                     <div class="form-group">
                         <label for="password">Mot de Passe</label>
-                        <input type="password" class="form-control" id="password" placeholder="Mot de passe">
+                        <input type="password" class="form-control" id="onPassword" placeholder="Mot de passe">
                     </div>
-                    <button type="button" class="btn btn-primary id="loginButton">Se Connecter</button>
+                    <button type="button" class="btn btn-primary" id="loginButton" onclick="seConnectClick()">Se Connecter</button>
+
                     <button type="button" class="btn btn-danger my-2" id="logoutButton">Se déconnecter</button>
                 </form>
                 <div class="modal-footer">
             <div style="width: 100%; text-align: center;">
-            <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Mon Compte<br>Ou Céer un Compte</button>
+            <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Page Mon Compte<br>Ou Céer un Compte</button>
 
                 <a class="dropdown-item" href="#">Forgot password?</a>
             </div>
@@ -165,7 +167,7 @@ function includeNavbar() {
   closeModalButton.addEventListener('click', function () {
     loginModal.style.display = 'none';
     loginModal.classList.remove('show');
-    resetLoginForm(); // Appelle la fonction de réinitialisation
+    //resetLoginForm();  Appelle la fonction de réinitialisation
   });
 
   // Trouvez l'élément sur la page où vous souhaitez inclure la barre de navigation
@@ -230,7 +232,47 @@ function includeFooter() {
 
 // LOCAL STORAGE
 
-// LOCAL STORAGE
+function setupAccountForm(isLoggedIn, storedUserData) {
+  var accountForm = document.querySelector('#accountForm');
+  if (accountForm) {
+    if (isLoggedIn && storedUserData) {
+      // Utilisateur connecté - Pré-remplir le formulaire
+      storedUserData = JSON.parse(storedUserData);
+      console.log("Données utilisateur actuelles dans localStorage:", storedUserData);
+      document.querySelector('#fullName').value = storedUserData.fullName || '';
+      document.querySelector('#eMail').value = storedUserData.email || '';
+      document.querySelector('#identifiant').value = storedUserData.identifiant || '';
+      document.querySelector('#phone').value = storedUserData.phone || '';
+    }
+
+    // accountForm.addEventListener('submit', function (event) {
+    document.querySelector('#accountForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      if (!validateForm()) {
+        console.log("Validation du formulaire échouée");
+        return; // Arrête l'exécution si la validation échoue
+      }
+
+      let user = {
+        fullName: document.querySelector('#fullName').value,
+        email: document.querySelector('#eMail').value,
+        identifiant: document.querySelector('#identifiant').value,
+        phone: document.querySelector('#phone').value,
+        password: document.querySelector('#password').value
+      };
+
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('isUserLoggedIn', 'true');
+      console.log("Utilisateur enregistré dans localStorage:", user);
+      alert("Votre compte est créé");
+      event.stopPropagation()
+      window.location.href = 'mon-compte.html';
+      console.log("Redirection vers 'mon-compte.html'");
+    });
+  } else {
+    console.log("Formulaire de compte '#accountForm' non trouvé sur cette page.");
+  }
+}
 
 
 
@@ -318,22 +360,38 @@ function validateLogin(email, password) {
   return false; // Les identifiants ne correspondent pas ou l'utilisateur n'existe pas
 }
 
-// document.querySelector('#loginButton').addEventListener('click', function() {
-//   var email = document.querySelector('#email').value;
-//   var password = document.querySelector('#password').value;
+function seConnectClick() {
+  console.log("Bouton de connexion cliqué");
+  let email = document.querySelector('#email').value;
+  let password = document.querySelector('#onPassword').value;
 
-//   if (validateLogin(email, password)) {
-//     // Si la validation réussit
-//     localStorage.setItem('isUserLoggedIn', 'true');
-//     updateNavbarForLoggedInUser();
-//     closeModal();
-//   } else {
-//     // Afficher un message d'erreur
-//     alert("Identifiants incorrects");
-//   }
-// });
+  console.log("Email saisi:", email);
+  console.log("Mot de passe saisi:", password); // Attention à la sécurité ici, normalement on évite de logger les mots de passe
+
+  if (validateLogin(email, password)) {
+    // Si la validation réussit
+    console.log("Validation réussie");
+    alert("Vous êtes connecté");
+    localStorage.setItem('isUserLoggedIn', 'true');
+    updateNavbarForLoggedInUser();
+    closeLoginModal();
+  } else {
+    // Afficher un message d'erreur
+    console.log("Échec de la validation");
+    alert("Identifiants incorrects");
+  }
+}
+
 
 function updateNavbarForLoggedInUser() {
-  // Mettez à jour la barre de navigation pour afficher l'icône du compte
-  // ...
+  // Sélectionner l'élément dans la navbar qui doit être mis à jour
+  let accountButtonContainer = document.querySelector('#remplacIcon');
+
+  // Vérifier si l'élément existe
+  if (accountButtonContainer) {
+    // Modifier le contenu HTML pour afficher une icône
+    accountButtonContainer.innerHTML = '<a class="nav-link px-5" href="mon-compte.html"><i class="bi bi-person-bounding-box" style="font-size: 2.5em;"></i></a>';
+  } else {
+    console.error("Élément pour le bouton du compte non trouvé");
+  }
 }
