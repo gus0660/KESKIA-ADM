@@ -84,24 +84,44 @@
     <script>
         includeNavbar();
         includeFooter();
-        document.addEventListener('DOMContentLoaded', function () {
-            // Le reste de votre code...
+        function setupAccountForm(isLoggedIn, storedUserData) {
+  var accountForm = document.querySelector('#accountForm');
+  if (accountForm) {
+    if (isLoggedIn && storedUserData) {
+      // Utilisateur connecté - Pré-remplir le formulaire
+      storedUserData = JSON.parse(storedUserData);
+      console.log("Données utilisateur actuelles dans localStorage:", storedUserData);
+      // Remplir le formulaire avec les données de l'utilisateur
+      // ...
+    }
 
-            // Pré-remplir le formulaire sur la page "mon-compte.html"
-            if (window.location.pathname.endsWith('mon-compte.html')) {
-                let storedUserData = localStorage.getItem('user');
-                if (storedUserData) {
-                    storedUserData = JSON.parse(storedUserData);
-                    console.log("Pré-remplissage du formulaire avec les données utilisateur");
+    accountForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!validateForm()) {
+        console.log("Validation du formulaire échouée");
+        return; // Arrête l'exécution si la validation échoue
+      }
 
-                    document.querySelector('#fullName').value = storedUserData.fullName || '';
-                    document.querySelector('#eMail').value = storedUserData.email || '';
-                    document.querySelector('#identifiant').value = storedUserData.identifiant || '';
-                    document.querySelector('#phone').value = storedUserData.phone || '';
-                    // Ne pas pré-remplir le champ mot de passe pour des raisons de sécurité
-                }
-            }
-        });
+      let user = {
+        fullName: document.querySelector('#fullName').value,
+        email: document.querySelector('#eMail').value,
+        identifiant: document.querySelector('#identifiant').value,
+        phone: document.querySelector('#phone').value,
+        password: document.querySelector('#password').value
+      };
+
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('isUserLoggedIn', 'true');
+      console.log("Utilisateur enregistré dans localStorage:", user);
+      alert("Votre compte est créé");
+      event.stopPropagation()
+      window.location.href = 'mon-compte.html';
+      console.log("Redirection vers 'mon-compte.html'");
+    });
+  } else {
+    console.log("Formulaire de compte '#accountForm' non trouvé sur cette page.");
+  }
+}
     </script>
 </body>
 

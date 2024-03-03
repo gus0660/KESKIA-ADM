@@ -232,44 +232,7 @@ function includeFooter() {
 
 // LOCAL STORAGE
 
-function setupAccountForm(isLoggedIn, storedUserData) {
-  var accountForm = document.querySelector('#accountForm');
-  if (accountForm) {
-    if (isLoggedIn && storedUserData) {
-      // Utilisateur connecté - Pré-remplir le formulaire
-      storedUserData = JSON.parse(storedUserData);
-      console.log("Données utilisateur actuelles dans localStorage:", storedUserData);
-      // Remplir le formulaire avec les données de l'utilisateur
-      // ...
-    }
 
-    accountForm.addEventListener('submit', function (event) {
-      event.preventDefault();
-      if (!validateForm()) {
-        console.log("Validation du formulaire échouée");
-        return; // Arrête l'exécution si la validation échoue
-      }
-
-      let user = {
-        fullName: document.querySelector('#fullName').value,
-        email: document.querySelector('#eMail').value,
-        identifiant: document.querySelector('#identifiant').value,
-        phone: document.querySelector('#phone').value,
-        password: document.querySelector('#password').value
-      };
-
-      localStorage.setItem('user', JSON.stringify(user));
-      localStorage.setItem('isUserLoggedIn', 'true');
-      console.log("Utilisateur enregistré dans localStorage:", user);
-      alert("Votre compte est créé");
-      event.stopPropagation()
-      window.location.href = 'mon-compte.html';
-      console.log("Redirection vers 'mon-compte.html'");
-    });
-  } else {
-    console.log("Formulaire de compte '#accountForm' non trouvé sur cette page.");
-  }
-}
 
 function setupDeleteAccountButton() {
   var deleteAccountButton = document.querySelector('#deleteAccount');

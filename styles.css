@@ -113,19 +113,18 @@ body {
   visibility: visible;
 }
 
-/* CSS pour la div principale */
 .compte {
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 15px;
 }
 
-/* CSS pour les étiquettes (label) */
+/* étiquettes (label) */
 .form-group label {
   color: #9B055F;
   /* Couleur spécifiée */
 }
 
-/* CSS pour garder les inputs opaques */
+/* garder les inputs opaques */
 .form-control {
   background-color: #fff;
   /* Blanc opaque */
