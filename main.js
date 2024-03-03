@@ -331,6 +331,7 @@ function setupAccountForm(isLoggedIn, storedUserData) {
   }
 }
 
+// fonction pour supprimer un compte
 function setupDeleteAccountButton() {
   var deleteAccountButton = document.querySelector("#deleteAccount");
   if (deleteAccountButton) {
