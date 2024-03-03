@@ -8,14 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   setupAccountForm(isUserLoggedIn, storedUserData);
   setupDeleteAccountButton();
 });
-// Fonction pour fermer le modal de connexion
-function closeLoginModal() {
-  let loginModal = document.querySelector("#loginModal");
-  if (loginModal) {
-    loginModal.style.display = "none";
-    loginModal.classList.remove("show");
-  }
-}
 
 // Fonction pour inclure la barre de navigation sur la page
 function includeNavbar() {
@@ -86,11 +78,11 @@ function includeNavbar() {
   var accountButton = document.querySelector("#navbDdMenu");
   console.log("includeNavbar: accountButton récupéré", accountButton);
 
+// Logique pour afficher le modal
   if (accountButton) {
     accountButton.addEventListener("click", function () {
       event.preventDefault();
       console.log("includeNavbar: clic sur accountButton détecté");
-      // Logique pour afficher le modal
       var loginModal = document.querySelector("#loginModal");
       console.log("Script principal: loginModal récupéré", loginModal);
       loginModal.style.display = "block";
@@ -101,8 +93,7 @@ function includeNavbar() {
     console.log("Script principal: accountButton non trouvé");
   }
 
-  // Trouvez l'élément sur la page où vous souhaitez inclure la barre de navigation
-  // var navbarContainer = document.querySelector("#navbar-container");
+  
   let logoutButton = document.querySelector("#logoutButton");
 
   // Gestionnaire pour le bouton Se déconnecter
@@ -111,7 +102,7 @@ function includeNavbar() {
     logoutButton.addEventListener("click", function () {
       localStorage.setItem("isUserLoggedIn", "false");
       console.log("Déconnexion de l'utilisateur");
-      //window.location.reload();  Recharger la page pour refléter l'état déconnecté
+      window.location.reload(); // Recharger la page pour refléter l'état déconnecté
     });
   }
 }
@@ -234,6 +225,16 @@ function setupLoginModal(isLoggedIn) {
   document.body.appendChild(loginModal);
 }
 
+// Fonction pour fermer le modal de connexion
+function closeLoginModal() {
+  let loginModal = document.querySelector("#loginModal");
+  if (loginModal) {
+    loginModal.style.display = "none";
+    loginModal.classList.remove("show");
+  }
+}
+
+// fonction permettant la fermeture de  la barre de navigation (navbar) lorsque celle-ci est en mode "collapse"
 function closeNavbar() {
   let navbarToggler = document.querySelector(".navbar-toggler");
   let navbarCollapse = document.querySelector(".navbar-collapse");
@@ -278,6 +279,7 @@ function includeFooter() {
 
 // LOCAL STORAGE
 
+// fonction de soumission du formulaire
 function setupAccountForm(isLoggedIn, storedUserData) {
   var accountForm = document.querySelector("#accountForm");
   if (accountForm) {
