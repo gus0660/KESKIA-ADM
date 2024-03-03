@@ -409,6 +409,7 @@ function validateLogin(email, password) {
   return false; // Les identifiants ne correspondent pas ou l'utilisateur n'existe pas
 }
 
+//  pour gérer le processus de connexion d'un utilisateur en validant ses identifiants de connexion (email et mot de passe)
 function seConnectClick() {
   console.log("Bouton de connexion cliqué");
   let email = document.querySelector("#email").value;
