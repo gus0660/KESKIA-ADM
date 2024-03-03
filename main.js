@@ -1,3 +1,15 @@
+
+document.addEventListener('DOMContentLoaded', function () {
+  console.log("DOM entièrement chargé et analysé");
+
+  let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+  let storedUserData = localStorage.getItem('user');
+
+  setupAccountForm(isUserLoggedIn, storedUserData);
+  setupDeleteAccountButton();
+  setupLogoutButton(isUserLoggedIn);
+
+});
 // ----------------------
 // UTILITAIRES
 
@@ -99,7 +111,7 @@ function includeNavbar() {
                 </button>
             </div>
             <div class="modal-body">
-                <!-- Formulaire de connexion -->
+                <!-- Formulaire de connexion modal-->
                 <form>
                     <div class="form-group">
                         <label for="email">Adresse Email</label>
@@ -109,12 +121,13 @@ function includeNavbar() {
                         <label for="password">Mot de Passe</label>
                         <input type="password" class="form-control" id="password" placeholder="Mot de passe">
                     </div>
-                    <button type="submit" class="btn btn-primary">Se Connecter</button>
+                    <button type="button" class="btn btn-primary id="loginButton">Se Connecter</button>
                     <button type="button" class="btn btn-danger my-2" id="logoutButton">Se déconnecter</button>
                 </form>
                 <div class="modal-footer">
             <div style="width: 100%; text-align: center;">
-                <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Mon Compte</button>
+            <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Mon Compte<br>Ou Céer un Compte</button>
+
                 <a class="dropdown-item" href="#">Forgot password?</a>
             </div>
     `;
@@ -163,18 +176,12 @@ function includeNavbar() {
   if (logoutButton) {
     console.log("Bouton de déconnexion trouvé", logoutButton);
     logoutButton.addEventListener('click', function () {
-      console.log("Bouton de déconnexion cliqué");
       localStorage.setItem('isUserLoggedIn', 'false');
       console.log("Déconnexion de l'utilisateur");
-      alert("Vous êtes maintenant déconnecté");
       window.location.reload(); // Recharger la page pour refléter l'état déconnecté
     });
-  } else {
-    console.log("Bouton de déconnexion non trouvé");
   }
-  // Avant de commencer la modification
-  console.log("Prêt à modifier le bouton MON COMPTE");
-
+  
 }
 
 
@@ -220,19 +227,10 @@ function includeFooter() {
   footerContainer.appendChild(footer);
 }
 
-// LOCAL STORAGE
 
 // LOCAL STORAGE
-document.addEventListener('DOMContentLoaded', function () {
-  console.log("DOM entièrement chargé et analysé");
 
-  let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
-  let storedUserData = localStorage.getItem('user');
-
-  setupAccountForm(isUserLoggedIn, storedUserData);
-  setupDeleteAccountButton();
-  setupLogoutButton(isUserLoggedIn);
-});
+// LOCAL STORAGE
 
 function setupAccountForm(isLoggedIn, storedUserData) {
   var accountForm = document.querySelector('#accountForm');
@@ -243,8 +241,6 @@ function setupAccountForm(isLoggedIn, storedUserData) {
       console.log("Données utilisateur actuelles dans localStorage:", storedUserData);
       // Remplir le formulaire avec les données de l'utilisateur
       // ...
-    } else {
-      console.log("Aucune donnée utilisateur ou utilisateur non connecté");
     }
 
     accountForm.addEventListener('submit', function (event) {
@@ -266,6 +262,7 @@ function setupAccountForm(isLoggedIn, storedUserData) {
       localStorage.setItem('isUserLoggedIn', 'true');
       console.log("Utilisateur enregistré dans localStorage:", user);
       alert("Votre compte est créé");
+      event.stopPropagation()
       window.location.href = 'mon-compte.html';
       console.log("Redirection vers 'mon-compte.html'");
     });
@@ -306,41 +303,74 @@ function validateForm() {
   let isValid = true;
 
   // Vérifier que tous les champs requis sont remplis
-  document.querySelectorAll('.required').forEach(function(input) {
-      if (!input.value.trim()) {
-          alert('Tous les champs doivent être remplis.');
-          isValid = false;
-      }
+  document.querySelectorAll('.required').forEach(function (input) {
+    if (!input.value.trim()) {
+      alert('Tous les champs doivent être remplis.');
+      isValid = false;
+    }
   });
 
   // Vérification de la complexité du mot de passe
   let password = document.querySelector('#password').value;
   let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   if (!passwordRegex.test(password)) {
-      alert('Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial.');
-      isValid = false;
+    alert('Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial.');
+    isValid = false;
   }
 
   // Vérification de la correspondance des mots de passe
   let confirmPassword = document.querySelector('#confirmPassword').value;
   if (password !== confirmPassword) {
-      alert('Les mots de passe ne correspondent pas.');
-      isValid = false;
+    alert('Les mots de passe ne correspondent pas.');
+    isValid = false;
   }
 
   // Vérification de l'absence de caractères spéciaux dans les autres champs
-  document.querySelectorAll('.no-special-char').forEach(function(input) {
-      if (/[^a-zA-Z0-9 \-+]/.test(input.value)) {
-          alert('Les caractères spéciaux ne sont pas autorisés dans ce champ.');
-          isValid = false;
-      }
+  document.querySelectorAll('.no-special-char').forEach(function (input) {
+    if (/[^a-zA-Z0-9 \-+]/.test(input.value)) {
+      alert('Les caractères spéciaux ne sont pas autorisés dans ce champ.');
+      isValid = false;
+    }
   });
 
   return isValid;
 }
-  // Gestion de l'affichage du bouton Se déconnecter
-  let logoutButton = document.querySelector('#logoutButton');
-  let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
-  if (isUserLoggedIn && logoutButton) {
-    logoutButton.classList.remove('d-none');
+// Gestion de l'affichage du bouton Se déconnecter
+let logoutButton = document.querySelector('#logoutButton');
+let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+if (isUserLoggedIn && logoutButton) {
+  logoutButton.classList.remove('d-none');
+}
+function validateLogin(email, password) {
+  // Récupérer les données de l'utilisateur depuis le localStorage
+  var storedUser = localStorage.getItem('user');
+  if (storedUser) {
+    storedUser = JSON.parse(storedUser);
+
+    // Comparer les identifiants entrés avec ceux stockés
+    if (storedUser.email === email && storedUser.password === password) {
+      return true; // Les identifiants correspondent
+    }
   }
+  return false; // Les identifiants ne correspondent pas ou l'utilisateur n'existe pas
+}
+
+// document.querySelector('#loginButton').addEventListener('click', function() {
+//   var email = document.querySelector('#email').value;
+//   var password = document.querySelector('#password').value;
+
+//   if (validateLogin(email, password)) {
+//     // Si la validation réussit
+//     localStorage.setItem('isUserLoggedIn', 'true');
+//     updateNavbarForLoggedInUser();
+//     closeModal();
+//   } else {
+//     // Afficher un message d'erreur
+//     alert("Identifiants incorrects");
+//   }
+// });
+
+function updateNavbarForLoggedInUser() {
+  // Mettez à jour la barre de navigation pour afficher l'icône du compte
+  // ...
+}
