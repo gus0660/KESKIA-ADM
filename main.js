@@ -143,51 +143,13 @@ function includeNavbar() {
       </div>`;
   }
 
-  // Création et configuration du modal de connexion
   var loginModal = document.createElement("div");
   loginModal.id = "loginModal";
   loginModal.className = "login-modal";
   loginModal.style.display = "none";
   loginModal.innerHTML = loginModalContent;
   document.body.appendChild(loginModal);
-  // var loginModal = document.createElement("div");
-  // loginModal.id = "loginModal";
-  // loginModal.className = "login-modal";
-  // loginModal.style.display = "none";
-  // loginModal.innerHTML = `
-  //       <div class="modal-content">
-  //           <div class="modal-header">
-  //               <h5 class="modal-title">Connexion</h5>
-  //               <button type="button" class="close" id="closeModal" data-dismiss="modal" aria-label="Close">
-  //                   <span aria-hidden="true">&times;</span>
-  //               </button>
-  //           </div>
-  //           <div class="modal-body">
-  //               <!-- Formulaire de connexion modal-->
-  //               <form>
-  //                   <div class="form-group">
-  //                       <label for="email">Adresse Email</label>
-  //                       <input type="email" class="form-control" id="email" placeholder="email@example.com">
-  //                   </div>
-  //                   <div class="form-group">
-  //                       <label for="password">Mot de Passe</label>
-  //                       <input type="password" class="form-control" id="onPassword" placeholder="Mot de passe">
-  //                   </div>
-  //                   <button type="button" class="btn btn-primary" id="loginButton" onclick="seConnectClick()">Se Connecter</button>
-
-  //                   <button type="button" class="btn btn-danger my-2" id="logoutButton">Se déconnecter</button>
-  //               </form>
-  //               <div class="modal-footer">
-  //           <div style="width: 100%; text-align: center;">
-  //           <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Page Mon Compte<br>Ou Créer un Compte</button>
-
-  //               <a class="dropdown-item" href="#">Forgot password?</a>
-  //           </div>
-  //   `;
-  // // Ajout du modal à la fin du body
-  // document.body.appendChild(loginModal);
-
-  // let isUserLoggedIn = localStorage.getItem('isUserLoggedIn') === 'true';
+  
   let accountButton = document.querySelector("#navbDdMenu");
   let remplacIconDiv = document.querySelector("#remplacIcon");
 
