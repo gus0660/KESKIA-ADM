@@ -132,14 +132,14 @@ function includeNavbar() {
                       <label for="password">Mot de Passe</label>
                       <input type="password" class="form-control" id="onPassword" placeholder="Mot de passe">
                   </div>
-                  <button type="button" class="btn btn-primary" id="loginButton" onclick="seConnectClick()">Se Connecter</
+                  <button type="button" class="btn btn-primary" id="loginButton" onclick="seConnectClick()">Se Connecter</button>
                   <button type="button" class="btn btn-danger my-2" id="logoutButton">Se déconnecter</button>
               </form>
               <div class="modal-footer">
-          <div style="width: 100%; text-align: center;">
-              <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Page Mon Compte<br>Ou Créer un Compte</
-              <a class="dropdown-item" href="#">Forgot password?</a>
-          </div>
+                <div style="width: 100%; text-align: center;">
+                    <button type="button" class="btn btn-success" onclick="location.href='mon-compte.html'">Page Mon Compte<br>Ou Créer un Compte</
+                </div>
+              </div>
       </div>`;
   }
 
