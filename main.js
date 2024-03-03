@@ -386,12 +386,15 @@ function validateForm() {
 
   return isValid;
 }
+
 // Gestion de l'affichage du bouton Se déconnecter
 let logoutButton = document.querySelector("#logoutButton");
 let isUserLoggedIn = localStorage.getItem("isUserLoggedIn") === "true";
 if (isUserLoggedIn && logoutButton) {
   logoutButton.classList.remove("d-none");
 }
+
+// fonction pour valider le login
 function validateLogin(email, password) {
   // Récupérer les données de l'utilisateur depuis le localStorage
   var storedUser = localStorage.getItem("user");
@@ -412,7 +415,7 @@ function seConnectClick() {
   let password = document.querySelector("#onPassword").value;
 
   console.log("Email saisi:", email);
-  console.log("Mot de passe saisi:", password); // Attention à la sécurité ici, normalement on évite de logger les mots de passe
+  console.log("Mot de passe saisi:", password);
 
   if (validateLogin(email, password)) {
     // Si la validation réussit
