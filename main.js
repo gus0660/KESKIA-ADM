@@ -93,10 +93,15 @@ function includeNavbar() {
     console.log("Script principal: accountButton non trouvé");
   }
 
-  
-  let logoutButton = document.querySelector("#logoutButton");
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      closeNavbar();
+    });
+  });
 
   // Gestionnaire pour le bouton Se déconnecter
+  let logoutButton = document.querySelector("#logoutButton");
+  
   if (logoutButton) {
     console.log("Bouton de déconnexion trouvé", logoutButton);
     logoutButton.addEventListener("click", function () {
