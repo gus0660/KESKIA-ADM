@@ -1,4 +1,4 @@
-KESKIA ADM - Découvrez et Planifiez Votre Aventure
+KESKIA ADM <br>- Découvrez et Planifiez Votre Aventure
 À propos du projet
 KESKIA ADM est un site web fictif créé dans le cadre d'une formation. Il vise à offrir une expérience interactive aux utilisateurs désirant explorer, planifier et organiser des voyages et des aventures. Le site permet aux utilisateurs de rechercher des destinations, de visualiser des itinéraires et de gérer leur compte personnel.
 
