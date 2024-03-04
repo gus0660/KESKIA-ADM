@@ -4,7 +4,7 @@
 
 **Fonctionnalités**<br>
 Navigation Intuitive : Utilisation de Bootstrap pour une interface utilisateur réactive et accessible.<br>
-Cartographie Interactive : Intégration d'OpenLayers pour la visualisation de cartes et la planification d'itinéraires.<br>
+Cartographie Interactive : Intégration d'OpenLayers pour la visualisation de cartes.<br>
 Utilisation de l'API d'OpenRouteService pour le calcul des itinéraires et la géolocalisation.<br>
 Gestion de Compte : Fonctionnalités de création et de gestion de compte utilisateur avec stockage des données dans le localStorage.<br>
 Responsive Design : Adaptation de l'interface pour différents appareils, améliorant l'expérience utilisateur sur mobiles et tablettes.<br>
