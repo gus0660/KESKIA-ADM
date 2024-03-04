@@ -107,6 +107,7 @@ function includeNavbar() {
   }
 }
 
+// remplissage du menu modal (qui apparait quant on clique sur "MON COMPTE)")
 function setupLoginModal(isLoggedIn) {
   var loginModalContent;
   if (!isLoggedIn) {
