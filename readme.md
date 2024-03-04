@@ -34,7 +34,6 @@ destination.js - Script pour la gestion des fonctionnalités de cartographie et 
 Auteur<br>
 [Roch Guillaume]
 
-N'oubliez pas de remplacer [URL du dépôt] par l'URL réelle de votre dépôt Git. Vous pouvez également ajouter des captures d'écran ou des GIFs pour illustrer les fonctionnalités de votre site.
 
 
 
