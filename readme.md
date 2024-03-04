@@ -15,7 +15,15 @@ OpenLayers (Bibliothèque de cartographie)<br>
 jQuery<br>
 Configuration et Lancement<br>
 Cloner le dépôt : git clone [URL du dépôt](https://github.com/gus0660/KESKIA-ADM.git)<br>
-Installation des dépendances : Assurez-vous d'avoir Node.js installé, puis exécutez npm install pour installer les dépendances nécessaires.<br>
+Installation des dépendances : Node.js installé.<br>
+Dépendances:<br>
+    bootstrap: 5.3.2<br>
+    bootstrap-icons: 1.11.3<br>
+    dotenv: 16.4.5<br>
+    express: 4.18.2<br>
+    jquery: 3.7.1<br>
+    node-fetch: 3.3.2<br>
+    ol: 9.0.0<br>
 Lancement du site : Ouvrez le fichier index.html dans un navigateur moderne pour visualiser le site.<br>
 Structure du Projet<br>
 index.html - Page d'accueil avec images et lien vers différentes sections.<br>
