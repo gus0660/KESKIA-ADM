@@ -38,9 +38,6 @@ async function showLocation(address) {
       return null;
     }
   }
-  // Formatage des coordonnées en tant que chaîne sans espace
-  const formattedCoords = coords.map((c) => c.toString()).join(",");
-  // console.log("Coordonnées sans espace:", formattedCoords);
   displayOnMap(coords); // Envoie les coordonnées directement à la fonction d'affichage sans modification
   return coords;
 }
@@ -54,21 +51,21 @@ async function showMyLocation() {
         // Formatage des coordonnées en tant que tableau de nombres
         const formattedCoords = [parseFloat(longitude), parseFloat(latitude)];
         // Convertir les coordonnées pour OpenLayers
-        var olCoords = ol.proj.fromLonLat(formattedCoords);
+        let olCoords = ol.proj.fromLonLat(formattedCoords);
         // Style de l'icône
-        var iconStyle = new ol.style.Style({
+        let iconStyle = new ol.style.Style({
           image: new ol.style.Icon({
             src: "images/icon_marqueur.png",
             scale: 0.5,
           }),
         });
         // Créer la fonctionnalité avec l'icône
-        var iconFeature = new ol.Feature({
+        let iconFeature = new ol.Feature({
           geometry: new ol.geom.Point(olCoords),
         });
         iconFeature.setStyle(iconStyle);
         // Créer et ajouter la couche vectorielle
-        var layer = new ol.layer.Vector({
+        let layer = new ol.layer.Vector({
           source: new ol.source.Vector({
             features: [iconFeature],
           }),
@@ -89,19 +86,19 @@ async function showMyLocation() {
 }
 
 function displayOnMap(coords) {
-  var olCoords = ol.proj.fromLonLat(coords);
+  let olCoords = ol.proj.fromLonLat(coords);
   map.getView().animate({ center: olCoords, zoom: 16 });
-  var iconStyle = new ol.style.Style({
+  let iconStyle = new ol.style.Style({
     image: new ol.style.Icon({
       src: "images/icon_marqueur.png",
       scale: 0.5,
     }),
   });
-  var iconFeature = new ol.Feature({
+  let iconFeature = new ol.Feature({
     geometry: new ol.geom.Point(olCoords),
   });
   iconFeature.setStyle(iconStyle);
-  var layer = new ol.layer.Vector({
+  let layer = new ol.layer.Vector({
     source: new ol.source.Vector({
       features: [iconFeature],
     }),
@@ -163,7 +160,7 @@ async function handleRouteCalculation() {
 }
 
 async function getCoordinatesFromAddress(address) {
-  var apiKey = "5b3ce3597851110001cf6248265456eaefdf40ca9d7ce5ce7a189570";
+  const apiKey = "5b3ce3597851110001cf6248265456eaefdf40ca9d7ce5ce7a189570";
   try {
     const response = await fetch(
       `https://api.openrouteservice.org/geocode/search?api_key=${apiKey}&text=${encodeURIComponent(
