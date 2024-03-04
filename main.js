@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM entièrement chargé et analysé");
+  console.log("DOM entièrement chargé");
 
   let isUserLoggedIn = localStorage.getItem("isUserLoggedIn") === "true";
   let storedUserData = localStorage.getItem("user");
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Fonction pour inclure la barre de navigation sur la page en cours
 function includeNavbar() {
-  console.log("includeNavbar: début de la fonction");
+  console.log("début de la fonction");
 
   // Création et configuration de l'élément navbar
   var navbar = document.createElement("nav");
@@ -76,21 +76,21 @@ function includeNavbar() {
   navbarContainer.appendChild(navbar);
 
   var accountButton = document.querySelector("#navbDdMenu");
-  console.log("includeNavbar: accountButton récupéré", accountButton);
+  console.log("accountButton récupéré", accountButton);
 
 // Logique pour afficher le modal
   if (accountButton) {
     accountButton.addEventListener("click", function () {
       event.preventDefault();
-      console.log("includeNavbar: clic sur accountButton détecté");
+      console.log("clic sur accountButton détecté");
       var loginModal = document.querySelector("#loginModal");
-      console.log("Script principal: loginModal récupéré", loginModal);
+      console.log("loginModal récupéré", loginModal);
       loginModal.style.display = "block";
       loginModal.classList.add("show");
-      console.log("Script principal: loginModal affiché");
+      console.log(" loginModal affiché");
     });
   } else {
-    console.log("Script principal: accountButton non trouvé");
+    console.log("accountButton non trouvé");
   }
 
   document.querySelectorAll('.nav-link').forEach(link => {
@@ -114,7 +114,7 @@ function includeNavbar() {
 
 // remplissage du menu modal (qui apparait quant on clique sur "MON COMPTE)")
 function setupLoginModal(isLoggedIn) {
-  var loginModalContent;
+  let loginModalContent;
   if (!isLoggedIn) {
     // Contenu du modal pour les utilisateurs non connectés
     loginModalContent = `
@@ -440,7 +440,7 @@ function seConnectClick() {
 
 // change le bouton "MON COMPTE" en icone quant on cré un compte
 function updateNavbarForLoggedInUser() {
-  console.log("updateNavbarForLoggedInUser: fonction appelée");
+  console.log("updateNavbarForLoggedInUser fonction appelée");
   // Sélectionner l'élément dans la navbar qui doit être mis à jour
   let accountButtonContainer = document.querySelector("#remplacIcon");
 
@@ -464,7 +464,5 @@ function updateNavbarForLoggedOutUser() {
     // Modifier le contenu HTML pour l'état de déconnexion
     accountButtonContainer.innerHTML =
       '<a class="nav-link" id="navbDdMenu" href="mon-compte.html">MON COMPTE</a>';
-  } else {
-    console.error("Élément pour le bouton du compte non trouvé");
   }
 }
