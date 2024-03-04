@@ -3,9 +3,9 @@ KESKIA ADM <br> Découvrez et Planifiez Votre Aventure<br>
 KESKIA ADM est un site web fictif créé dans le cadre d'une formation. Il vise à offrir une expérience interactive aux utilisateurs désirant explorer, planifier et organiser des voyages et des aventures. Le site permet aux utilisateurs de rechercher des destinations, de visualiser des itinéraires et de gérer leur compte personnel.<br>
 
 Fonctionnalités<br>
-Navigation Intuitive : Utilisation de Bootstrap pour une interface utilisateur réactive et accessible.
-Cartographie Interactive : Intégration d'OpenLayers pour la visualisation de cartes et la planification d'itinéraires.
-Gestion de Compte : Fonctionnalités de création et de gestion de compte utilisateur avec stockage des données dans le localStorage.
+Navigation Intuitive : Utilisation de Bootstrap pour une interface utilisateur réactive et accessible.<br>
+Cartographie Interactive : Intégration d'OpenLayers pour la visualisation de cartes et la planification d'itinéraires.<br>
+Gestion de Compte : Fonctionnalités de création et de gestion de compte utilisateur avec stockage des données dans le localStorage.<br>
 Responsive Design : Adaptation de l'interface pour différents appareils, améliorant l'expérience utilisateur sur mobiles et tablettes.<br>
 Technologies Utilisées<br>
 HTML5 & CSS3<br>
