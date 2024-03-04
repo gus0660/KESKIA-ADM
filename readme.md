@@ -14,7 +14,7 @@ Bootstrap (Framework CSS)<br>
 OpenLayers (Bibliothèque de cartographie)<br>
 jQuery<br>
 Configuration et Lancement<br>
-Cloner le dépôt : git clone [URL du dépôt]<br>
+Cloner le dépôt : git clone [URL du dépôt](https://github.com/gus0660/KESKIA-ADM.git)<br>
 Installation des dépendances : Assurez-vous d'avoir Node.js installé, puis exécutez npm install pour installer les dépendances nécessaires.<br>
 Lancement du site : Ouvrez le fichier index.html dans un navigateur moderne pour visualiser le site.<br>
 Structure du Projet<br>
