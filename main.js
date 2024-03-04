@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setupDeleteAccountButton();
 });
 
-// Fonction pour inclure la barre de navigation sur la page
+// Fonction pour inclure la barre de navigation sur la page en cours
 function includeNavbar() {
   console.log("includeNavbar: début de la fonction");
 
