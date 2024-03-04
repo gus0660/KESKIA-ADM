@@ -3,11 +3,11 @@
 **KESKIA ADM** est un site web fictif créé dans le cadre d'une formation. Il vise à offrir une expérience interactive aux utilisateurs désirant explorer, planifier et organiser des voyages et des aventures. Le site permet aux utilisateurs de rechercher des destinations, de visualiser des itinéraires et de gérer leur compte personnel.<br>
 
 **Fonctionnalités**<br>
-Navigation Intuitive : Utilisation de Bootstrap pour une interface utilisateur réactive et accessible.<br>
-Cartographie Interactive : Intégration d'OpenLayers pour la visualisation de cartes.<br>
-Utilisation de l'API d'OpenRouteService pour le calcul des itinéraires et la géolocalisation.<br>
-Gestion de Compte : Fonctionnalités de création et de gestion de compte utilisateur avec stockage des données dans le localStorage.<br>
-Responsive Design : Adaptation de l'interface pour différents appareils, améliorant l'expérience utilisateur sur mobiles et tablettes.<br>
+**Navigation Intuitive**<br> Utilisation de Bootstrap pour une interface utilisateur réactive et accessible.<br>
+**Cartographie Interactive**<br>. Intégration d'OpenLayers pour la visualisation de cartes.<br>
+. Utilisation de l'API d'OpenRouteService pour le calcul des itinéraires et la géolocalisation.<br>
+**Gestion de Compte**<br>. Fonctionnalités de création et de gestion de compte utilisateur avec stockage des données dans le localStorage.<br>
+**Responsive Design**<br>. Adaptation de l'interface pour différents appareils, améliorant l'expérience utilisateur sur mobiles et tablettes.<br>
 **Technologies Utilisées**<br>
 . HTML5 & CSS3<br>
 . JavaScript<br>
