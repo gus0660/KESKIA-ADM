@@ -166,7 +166,7 @@ function setupLoginModal(isLoggedIn) {
       </div>
     `;
   }
-  var loginModal = document.createElement("div");
+  let loginModal = document.createElement("div");
   loginModal.id = "loginModal";
   loginModal.className = "login-modal";
   loginModal.style.display = "none";
@@ -254,7 +254,7 @@ function closeNavbar() {
 // Créer un nouvel élément <footer> pour contenir le pied de page
 function includeFooter() {
   
-  var footer = document.createElement("footer");
+  let footer = document.createElement("footer");
   footer.classList.add("footer");
   footer.classList.add("justify-content-between");
   footer.classList.add("d-flex");
@@ -288,7 +288,7 @@ function includeFooter() {
 
 // fonction de soumission du formulaire
 function setupAccountForm(isLoggedIn, storedUserData) {
-  var accountForm = document.querySelector("#accountForm");
+  let accountForm = document.querySelector("#accountForm");
   if (accountForm) {
     if (isLoggedIn && storedUserData) {
       // Utilisateur connecté - Pré-remplir le formulaire
@@ -340,7 +340,7 @@ function setupAccountForm(isLoggedIn, storedUserData) {
 
 // fonction pour supprimer un compte
 function setupDeleteAccountButton() {
-  var deleteAccountButton = document.querySelector("#deleteAccount");
+  let deleteAccountButton = document.querySelector("#deleteAccount");
   if (deleteAccountButton) {
     deleteAccountButton.addEventListener("click", function () {
       localStorage.removeItem("user");
@@ -404,7 +404,7 @@ if (isUserLoggedIn && logoutButton) {
 // fonction pour valider le login
 function validateLogin(email, password) {
   // Récupérer les données de l'utilisateur depuis le localStorage
-  var storedUser = localStorage.getItem("user");
+  let storedUser = localStorage.getItem("user");
   if (storedUser) {
     storedUser = JSON.parse(storedUser);
 
