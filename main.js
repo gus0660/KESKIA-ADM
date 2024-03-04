@@ -180,16 +180,16 @@ function setupLoginModal(isLoggedIn) {
     });
   }
 
+  // Écouteur pour le bouton de connexion
   if (!isLoggedIn) {
-    // Écouteur pour le bouton de connexion
     let loginButton = loginModal.querySelector("#loginButton");
     if (loginButton) {
       loginButton.addEventListener("click", function () {
         let email = loginModal.querySelector("#email").value;
         let password = loginModal.querySelector("#onPassword").value;
 
+        // Logique de connexion si la validation est réussie
         if (validateLogin(email, password)) {
-          // Logique de connexion si la validation est réussie
           localStorage.setItem("isUserLoggedIn", "true");
           localStorage.setItem(
             "user",
@@ -199,7 +199,7 @@ function setupLoginModal(isLoggedIn) {
           closeLoginModal();
           window.location.href = "mon-compte.html";
         } else {
-          // alert("Identifiants incorrects");
+          alert("Identifiants incorrects");
           let errorDiv = loginModal.querySelector("#loginError");
           errorDiv.textContent = "Saisie incorrecte";
           errorDiv.style.display = "block";
@@ -208,8 +208,8 @@ function setupLoginModal(isLoggedIn) {
     }
   }
 
+  // Écouteur pour le bouton de déconnexion
   if (isLoggedIn) {
-    // Écouteur pour le bouton de déconnexion
     let logoutButton = loginModal.querySelector("#logoutButton");
     if (logoutButton) {
       logoutButton.addEventListener("click", function () {
@@ -246,8 +246,9 @@ function closeNavbar() {
   updateNavbarForLoggedInUser();
 }
 
+// Créer un nouvel élément <footer> pour contenir le pied de page
 function includeFooter() {
-  // Créez un nouvel élément <footer> pour contenir le pied de page
+  
   var footer = document.createElement("footer");
   footer.classList.add("footer");
   footer.classList.add("justify-content-between");
