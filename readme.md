@@ -8,15 +8,16 @@ Cartographie Interactive : Intégration d'OpenLayers pour la visualisation de ca
 Gestion de Compte : Fonctionnalités de création et de gestion de compte utilisateur avec stockage des données dans le localStorage.<br>
 Responsive Design : Adaptation de l'interface pour différents appareils, améliorant l'expérience utilisateur sur mobiles et tablettes.<br>
 **Technologies Utilisées**<br>
-HTML5 & CSS3<br>
+.  HTML5 & CSS3<br>
 JavaScript<br>
 Bootstrap (Framework CSS)<br>
 OpenLayers (Bibliothèque de cartographie)<br>
 jQuery<br>
+API d'OpenRouteService<br>
 **Configuration et Lancement**<br>
 Cloner le dépôt : git clone [URL du dépôt](https://github.com/gus0660/KESKIA-ADM.git)<br>
 Installation des dépendances : Node.js installé.<br>
-**Dépendances:**<br>
+**Dépendances**<br>
 -  bootstrap: 5.3.2<br>
 -  bootstrap-icons: 1.11.3<br>
 -  dotenv: 16.4.5<br>
@@ -31,7 +32,7 @@ Installation des dépendances : Node.js installé.<br>
 -  **styles.css** Feuille de style principale pour la personnalisation de l'interface.<br>
 -  **main.js** Script JavaScript principal pour la gestion des utilisateurs et l'intégration des éléments de navigation et de pied de page.<br>
 -  **destination.js** Script pour la gestion des fonctionnalités de cartographie et d'itinéraire.<br>
--  Auteur<br>
+-  Auteur : 
 **Roch Guillaume**
 
 
