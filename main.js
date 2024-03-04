@@ -354,10 +354,9 @@ function setupDeleteAccountButton() {
   }
 }
 
+// Vérifier que tous les champs requis sont remplis
 function validateForm() {
   let isValid = true;
-
-  // Vérifier que tous les champs requis sont remplis
   document.querySelectorAll(".required").forEach(function (input) {
     if (!input.value.trim()) {
       alert("Tous les champs doivent être remplis.");
@@ -413,7 +412,7 @@ function validateLogin(email, password) {
       return true; // Les identifiants correspondent
     }
   }
-  return false; // Les identifiants ne correspondent pas ou l'utilisateur n'existe pas
+  return false;
 }
 
 //  pour gérer le processus de connexion d'un utilisateur en validant ses identifiants de connexion (email et mot de passe)
