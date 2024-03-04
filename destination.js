@@ -142,7 +142,7 @@ async function handleRouteCalculation() {
   try {
     const startCoords = await setStartPoint();
     const endCoords = await setEndPoint();
-    // Assurez-vous que startCoords et endCoords sont des tableaux
+    // Assure que startCoords et endCoords sont des tableaux
     startPoint = Array.isArray(startCoords) ? startCoords : null;
     endPoint = Array.isArray(endCoords) ? endCoords : null;
     if (!startPoint || !endPoint) {
