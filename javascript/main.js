@@ -302,7 +302,6 @@ function setupAccountForm(isLoggedIn, storedUserData) {
       document.querySelector("#identifiant").value =
         storedUserData.identifiant || "";
       document.querySelector("#phone").value = storedUserData.phone || "";
-      updateNavbarForLoggedInUser();
     }
 
     // Empêche le rechargement de la page, valide les données du formulaire, 
