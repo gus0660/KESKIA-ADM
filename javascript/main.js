@@ -110,6 +110,7 @@ function includeNavbar() {
       window.location.reload(); // Recharger la page pour refléter l'état déconnecté
     });
   }
+  
 }
 
 // remplissage du menu modal (qui apparait quant on clique sur "MON COMPTE)")
@@ -454,14 +455,14 @@ function updateNavbarForLoggedInUser() {
 }
 
 // pour remplacer l'icone de la navbar en texte
-function updateNavbarForLoggedOutUser() {
-  // Sélectionner l'élément dans la navbar qui doit être mis à jour
-  let accountButtonContainer = document.querySelector("#remplacIcon");
+// function updateNavbarForLoggedOutUser() {
+//   // Sélectionner l'élément dans la navbar qui doit être mis à jour
+//   let accountButtonContainer = document.querySelector("#remplacIcon");
 
-  // Vérifier si l'élément existe
-  if (accountButtonContainer) {
-    // Modifier le contenu HTML pour l'état de déconnexion
-    accountButtonContainer.innerHTML =
-      '<a class="nav-link" id="navbDdMenu" href="mon-compte.html">MON COMPTE</a>';
-  }
-}
+//   // Vérifier si l'élément existe
+//   if (accountButtonContainer) {
+//     // Modifier le contenu HTML pour l'état de déconnexion
+//     accountButtonContainer.innerHTML =
+//       '<a class="nav-link" id="navbDdMenu" href="mon-compte.html">MON COMPTE</a>';
+//   }
+// }
