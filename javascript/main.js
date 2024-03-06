@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
   setupLoginModal(isUserLoggedIn);
   setupAccountForm(isUserLoggedIn, storedUserData);
   setupDeleteAccountButton();
+  console.log(
+    "Données utilisateur actuelles dans localStorage:",
+    storedUserData
+  );
 });
 
 // Fonction pour inclure la barre de navigation sur la page en cours
@@ -213,6 +217,8 @@ function setupLoginModal(isLoggedIn) {
       });
     }
   }
+
+
 
   // Écouteur pour le bouton de déconnexion
   if (isLoggedIn) {
