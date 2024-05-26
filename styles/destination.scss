@@ -1,0 +1,61 @@
+.custom-main {
+    margin: 14vh 30px;
+    height: 72vh;
+  }
+  
+  .style-main {
+    background-color: rgba(195, 241, 213, 0.9);
+    border-radius: 25px;
+    border: 1px solid black;
+    height: 100%;
+    padding: 20px;
+  }
+  
+  .depart,
+  .arrivee {
+    height: 100%;
+    border-radius: 15px;
+    border: 1px solid black;
+  }
+  
+  .carte {
+    height: 55vh;
+    border-radius: 15px;
+    border: 1px solid black;
+  }
+  
+  .trajet {
+    height: 7rem;
+    margin: 20px 0;
+    border-radius: 15px;
+    border: 1px solid black;
+  }
+  
+  .trajet button {
+    height: 4rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .trajet button:hover {
+    background-color: yellow;
+    color: black;
+  }
+  
+  .map {
+    height: 45vh;
+    width: 95%;
+    border: 1px solid black;
+  }
+  
+  .custom-color {
+    color: #9B055F;
+  }

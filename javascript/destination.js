@@ -14,18 +14,18 @@ const map = new ol.Map({
 async function showLocation(address) {
   let coords;
   if (address) {
-    console.log("Géocodage de l'adresse: ", address);
+    // console.log("Géocodage de l'adresse: ", address);
     // Géocodage de l'adresse
     coords = await getCoordinatesFromAddress(address);
     // Si aucune coordonnée n'est trouvée pour l'adresse
     if (!coords) {
-      console.log("Aucune coordonnée trouvée pour l'adresse: ", address);
+      // console.log("Aucune coordonnée trouvée pour l'adresse: ", address);
       alert("Adresse non trouvée: " + address);
       return null;
     }
   } else {
-    console.log("Utilisation de la géolocalisation pour l'utilisateur actuel.");
-    console.log("Coordonnées obtenues: ", coords);
+    // console.log("Utilisation de la géolocalisation pour l'utilisateur actuel.");
+    // console.log("Coordonnées obtenues: ", coords);
     // Utiliser la géolocalisation
     try {
       const position = await new Promise((resolve, reject) => {

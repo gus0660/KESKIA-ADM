@@ -82,7 +82,7 @@ function includeNavbar() {
   var accountButton = document.querySelector("#navbDdMenu");
   console.log("accountButton récupéré", accountButton);
 
-// Logique pour afficher le modal
+  // Logique pour afficher le modal
   if (accountButton) {
     accountButton.addEventListener("click", function () {
       event.preventDefault();
@@ -97,15 +97,15 @@ function includeNavbar() {
     console.log("accountButton non trouvé");
   }
 
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
       closeNavbar();
     });
   });
 
   // Gestionnaire pour le bouton Se déconnecter
   let logoutButton = document.querySelector("#logoutButton");
-  
+
   if (logoutButton) {
     console.log("Bouton de déconnexion trouvé", logoutButton);
     logoutButton.addEventListener("click", function () {
@@ -114,7 +114,6 @@ function includeNavbar() {
       window.location.reload(); // Recharger la page pour refléter l'état déconnecté
     });
   }
-  
 }
 
 // remplissage du menu modal (qui apparait quant on clique sur "MON COMPTE)")
@@ -218,8 +217,6 @@ function setupLoginModal(isLoggedIn) {
     }
   }
 
-
-
   // Écouteur pour le bouton de déconnexion
   if (isLoggedIn) {
     let logoutButton = loginModal.querySelector("#logoutButton");
@@ -260,7 +257,6 @@ function closeNavbar() {
 
 // Créer un nouvel élément <footer> pour contenir le pied de page
 function includeFooter() {
-  
   let footer = document.createElement("footer");
   footer.classList.add("footer");
   footer.classList.add("justify-content-between");
@@ -311,10 +307,12 @@ function setupAccountForm(isLoggedIn, storedUserData) {
       document.querySelector("#phone").value = storedUserData.phone || "";
     }
 
-    // Empêche le rechargement de la page, valide les données du formulaire, 
-    // enregistre les informations de l'utilisateur dans le localStorage, 
+    // Empêche le rechargement de la page, valide les données du formulaire,
+    // enregistre les informations de l'utilisateur dans le localStorage,
     // indique que l'utilisateur est connecté, et redirige vers la page 'mon-compte.html'
-    document.querySelector("#accountForm").addEventListener("submit", function (event) {
+    document
+      .querySelector("#accountForm")
+      .addEventListener("submit", function (event) {
         event.preventDefault();
         if (!validateForm()) {
           console.log("Validation du formulaire échouée");
@@ -336,7 +334,7 @@ function setupAccountForm(isLoggedIn, storedUserData) {
         event.stopPropagation();
         window.location.href = "mon-compte.html";
         console.log("Redirection vers 'mon-compte.html'");
-    });
+      });
   } else {
     console.log(
       "Formulaire de compte '#accountForm' non trouvé sur cette page."

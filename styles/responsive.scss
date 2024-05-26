@@ -1,0 +1,59 @@
+ /* -----------------ecran moyen--------------------- */
+@media (max-width: 991px) {
+  .navbar .nav-item {
+    flex: none; /* Annule la règle flex sur les petits écrans */
+    margin-right: 10px; /* Espacement entre les éléments */
+    margin-left: 10px;
+  }
+
+  .custom-main {
+    margin: 14vh 30px;
+    height: 72vh;
+  }
+
+  .depart,
+  .arrivee {
+    height: 100%;
+  }
+
+  .carte {
+    height: 30rem;
+  }
+
+  .trajet {
+    height: 7rem;
+  }
+}
+                             /* ----------------petit ecran------------------- */
+@media (max-width: 767px) {
+  .img1, .img2, .img3, .img4 {
+    display: none;
+  }
+
+  .footer {
+    padding: 0;
+  }
+
+  #footer-container .btn-footer {
+    width: calc(33.33% - 6px);
+    max-width: none;
+    margin: 0;
+  }
+
+  .custom-main {
+    margin-top: 6rem;
+    height: 98rem;
+  }
+
+  .arrivee {
+    margin-bottom: 1rem;
+  }
+
+  .trajet {
+    height: auto;
+  }
+
+  .btn-calcul {
+    font-size: 16px !important;
+  }
+}

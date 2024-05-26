@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .accueil, .destination, .organisation, .decouvrir, .mon-compte {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .accueil {
+    background-image: url('images/montagne.webp');
+  }
+  
+  .destination {
+    background-image: url('images/aleksejs.webp');
+  }
+  
+  .organisation {
+    background-image: url('images/johannes.webp');
+  }
+  
+  .decouvrir {
+    background-image: url('images/aleksandar.webp');
+  }
+  
+  .mon-compte {
+    background-image: url('images/soleil.webp');
+  }

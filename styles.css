@@ -1,61 +1,138 @@
+@charset "UTF-8";
+.custom-main {
+  margin: 14vh 30px;
+  height: 72vh; }
+
+.style-main {
+  background-color: rgba(195, 241, 213, 0.9);
+  border-radius: 25px;
+  border: 1px solid black;
+  height: 100%;
+  padding: 20px; }
+
+.depart,
+.arrivee {
+  height: 100%;
+  border-radius: 15px;
+  border: 1px solid black; }
+
+.carte {
+  height: 55vh;
+  border-radius: 15px;
+  border: 1px solid black; }
+
+.trajet {
+  height: 7rem;
+  margin: 20px 0;
+  border-radius: 15px;
+  border: 1px solid black; }
+
+.trajet button {
+  height: 4rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer; }
+
+.trajet button:hover {
+  background-color: yellow;
+  color: black; }
+
+.map {
+  height: 45vh;
+  width: 95%;
+  border: 1px solid black; }
+
+.custom-color {
+  color: #9B055F; }
+
+.img1 {
+  top: 150px;
+  left: 20px; }
+
+.img2 {
+  top: 150px;
+  right: 20px; }
+
+.img3 {
+  bottom: 150px;
+  left: 20px; }
+
+.img4 {
+  bottom: 150px;
+  right: 20px; }
+
 body {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 .accueil, .destination, .organisation, .decouvrir, .mon-compte {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-}
+  background-attachment: fixed; }
 
 .accueil {
-  background-image: url('images/montagne.webp');
-}
+  background-image: url("images/montagne.webp"); }
 
 .destination {
-  background-image: url('images/aleksejs.webp');
-}
+  background-image: url("images/aleksejs.webp"); }
 
 .organisation {
-  background-image: url('images/johannes.webp');
-}
+  background-image: url("images/johannes.webp"); }
 
 .decouvrir {
-  background-image: url('images/aleksandar.webp');
-}
+  background-image: url("images/aleksandar.webp"); }
 
 .mon-compte {
-  background-image: url('images/soleil.webp');
-}
+  background-image: url("images/soleil.webp"); }
+
+.footer {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  border-radius: 15px;
+  background-color: rgba(217, 217, 217, 0.5);
+  height: 100px;
+  padding: 0 5%; }
+
+.btn-footer {
+  background-color: #FEEAEA;
+  border-radius: 20px;
+  height: 80px; }
 
 .navbar {
   background-color: rgba(217, 217, 217, 0.6);
   border-radius: 15px;
-  margin: 20px;
-}
+  margin: 20px; }
 
 .navbar .nav-item {
   margin-right: 5px;
-   margin-left: 5px;
-  text-align: center;
-}
+  margin-left: 5px;
+  text-align: center; }
 
 .navbar .navbar-nav {
   display: flex;
-  justify-content: space-around; /* Répartit uniformément l'espace */
+  justify-content: space-around;
+  /* Répartit uniformément l'espace */
 }
 
 .navbar .nav-item {
-  flex: 1; /* Chaque élément prend une part égale de l'espace */
-  text-align: center;
-}
+  flex: 1;
+  /* Chaque élément prend une part égale de l'espace */
+  text-align: center; }
 
 /* Pour que le texte reste à plat */
 #navbDdMenu {
-  white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
-}
+  white-space: nowrap;
+  /* Empêche le texte de passer à la ligne suivante */ }
 
 .navbar .nav-content {
   height: 90px;
@@ -64,33 +141,28 @@ body {
   border-radius: 25px;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .nav-content {
-  border: 1px solid black;
-}
+  border: 1px solid black; }
 
 .navbar .nav-link {
   color: #9B055F;
-  font-size: 24px;
-}
+  font-size: 24px; }
 
 #navbDdMenu {
   display: flex;
   align-items: center;
   /* Centrer verticalement le texte et le sous-texte */
   justify-content: center;
-  /* Centrer horizontalement */
-}
+  /* Centrer horizontalement */ }
 
 .nav-subtext {
   display: block;
   font-size: 0.75em;
   /* Ajustez la taille du sous-texte si nécessaire */
   margin: 0.5em;
-  /* Ajoutez un peu d'espace entre le texte principal et le sous-texte */
-}
+  /* Ajoutez un peu d'espace entre le texte principal et le sous-texte */ }
 
 .login-modal {
   position: fixed;
@@ -105,185 +177,61 @@ body {
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s, visibility 0.5s;
-}
+  transition: opacity 0.5s, visibility 0.5s; }
 
 .login-modal.show {
   opacity: 1;
-  visibility: visible;
-}
+  visibility: visible; }
 
 .compte {
   background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 15px;
-}
+  border-radius: 15px; }
 
 /* étiquettes (label) */
 .form-group label {
   color: #9B055F;
-  /* Couleur spécifiée */
-}
+  /* Couleur spécifiée */ }
 
 /* garder les inputs opaques */
 .form-control {
   background-color: #fff;
-  /* Blanc opaque */
-}
+  /* Blanc opaque */ }
 
-.img1 {
-  top: 150px;
-  left: 20px;
-}
-
-.img2 {
-  top: 150px;
-  right: 20px;
-}
-
-.img3 {
-  bottom: 150px;
-  left: 20px;
-}
-
-.img4 {
-  bottom: 150px;
-  right: 20px;
-}
-
-.footer {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  border-radius: 15px;
-  background-color: rgba(217, 217, 217, 0.5);
-  height: 100px;
-  padding: 0 5%;
-}
-
-.btn-footer {
-  background-color: #FEEAEA;
-  border-radius: 20px;
-  height: 80px;
-}
-
+/* -----------------ecran moyen--------------------- */
 @media (max-width: 991px) {
   .navbar .nav-item {
-    flex: none; /* Annule la règle flex sur les petits écrans */
-    margin-right: 10px; /* Espacement entre les éléments */
-    margin-left: 10px;
-  }
-
+    flex: none;
+    /* Annule la règle flex sur les petits écrans */
+    margin-right: 10px;
+    /* Espacement entre les éléments */
+    margin-left: 10px; }
   .custom-main {
     margin: 14vh 30px;
-    height: 72vh;
-  }
-
+    height: 72vh; }
   .depart,
   .arrivee {
-    height: 100%;
-  }
-
+    height: 100%; }
   .carte {
-    height: 30rem;
-  }
-
+    height: 30rem; }
   .trajet {
-    height: 7rem;
-  }
-}
+    height: 7rem; } }
 
+/* ----------------petit ecran------------------- */
 @media (max-width: 767px) {
   .img1, .img2, .img3, .img4 {
-    display: none;
-  }
-
+    display: none; }
   .footer {
-    padding: 0;
-  }
-
+    padding: 0; }
   #footer-container .btn-footer {
     width: calc(33.33% - 6px);
     max-width: none;
-    margin: 0;
-  }
-
+    margin: 0; }
   .custom-main {
     margin-top: 6rem;
-    height: 98rem;
-  }
-
+    height: 98rem; }
   .arrivee {
-    margin-bottom: 1rem;
-  }
-
+    margin-bottom: 1rem; }
   .trajet {
-    height: auto;
-  }
-
+    height: auto; }
   .btn-calcul {
-    font-size: 16px !important;
-  }
-}
-
-.custom-main {
-  margin: 14vh 30px;
-  height: 72vh;
-}
-
-.style-main {
-  background-color: rgba(195, 241, 213, 0.9);
-  border-radius: 25px;
-  border: 1px solid black;
-  height: 100%;
-  padding: 20px;
-}
-
-.depart,
-.arrivee {
-  height: 100%;
-  border-radius: 15px;
-  border: 1px solid black;
-}
-
-.carte {
-  height: 55vh;
-  border-radius: 15px;
-  border: 1px solid black;
-}
-
-.trajet {
-  height: 7rem;
-  margin: 20px 0;
-  border-radius: 15px;
-  border: 1px solid black;
-}
-
-.trajet button {
-  height: 4rem;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 24px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-
-.trajet button:hover {
-  background-color: yellow;
-  color: black;
-}
-
-.map {
-  height: 45vh;
-  width: 95%;
-  border: 1px solid black;
-}
-
-.custom-color {
-  color: #9B055F;
-}
+    font-size: 16px !important; } }
